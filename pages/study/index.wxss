@@ -25,6 +25,9 @@ page {
   box-shadow:0rpx 40rpx 40rpx rgba(255,149,143,0.28);
   flex: none;
   margin-left: -40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .item view:last-child {
   margin-left: 20rpx;
@@ -32,4 +35,8 @@ page {
   font-size: 32rpx;
   font-weight: 500;
   line-height: 44rpx;
+}
+.item__logo {
+  width: 72rpx;
+  height: 72rpx;
 }

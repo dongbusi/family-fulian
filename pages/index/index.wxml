@@ -3,7 +3,7 @@
   <swiper duration="1000" interval="3000" autoplay circular bindchange="{{dots.change}}">
     <block wx:for="{{imgUrls}}" wx:key="{{index}}">
       <swiper-item class="swiper-item">
-        <image src="{{item}}" class="slide-image" />
+        <image src="{{item}}" class="slide-image" mode="aspectFill" />
       </swiper-item>
     </block>
   </swiper>
@@ -13,7 +13,7 @@
 </view>
 <view class="nav">
   <navigator  url="" hover-class="none" >
-    <image src="/assets/img/nav-upload.png"/>
+    <image src="/assets/img/nav-upload.png" />
   </navigator>
   <navigator  url="" hover-class="none" >
     <image src="/assets/img/nav-view.png"/>
@@ -37,12 +37,12 @@
   </view>
   <view class="body__activity">
     <view class="item__activity">
-      <image class="item__avaturl" src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"  />
+      <image class="item__avaturl" src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" />
       <view class="item__street">北干街道</view>
       <view class="item__title">北干街道开展“五美家庭”评选活动</view>
     </view>
     <view class="item__activity">
-      <image class="item__avaturl" src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" style="border: 8rpx solid #FAE3E4;" />
+      <image class="item__avaturl" src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" style="border: 8rpx solid #FAE3E4;" mode="aspectFill" />
       <view class="item__street" style="color: #EC7B7C;">宁围街道</view>
       <view class="item__title" style="color: #EC7B7C;">宁围街道开展“五美家庭”评选活动</view>
     </view>
@@ -60,10 +60,10 @@
   <view class="body__timeline">
     <view class="item__timeline">
       <view class="timeline__photo">
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" lazy-load />
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
       </view>
       <view class="item__info">
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" lazy-load  />
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load  />
         <view class="item__family">
           <view>刘德华 家庭</view>
           <view>
@@ -75,10 +75,10 @@
     </view>
     <view class="item__timeline">
       <view class="timeline__photo">
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" lazy-load />
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
       </view>
       <view class="item__info">
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" lazy-load  />
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load  />
         <view class="item__family">
           <view>刘德华 家庭</view>
           <view>

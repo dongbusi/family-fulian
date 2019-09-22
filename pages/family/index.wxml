@@ -1,22 +1,74 @@
 <!--pages/family/index.wxml-->
 <view class="share">
-  <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" />
+  <image src="/assets/img/share.png" />
   <text>分享</text>
 </view>
 <view class="header">
   <view class="info">
-    <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" />
+    <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" />
     <view>刘德华 家庭</view>
     <view>积分 1569</view>
   </view>
   <view class="avaturl">
     <text>家庭成员</text>
     <view>3</view>
-    <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" ></image>
-    <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" ></image>
-    <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" ></image>
+    <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" ></image>
+    <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" ></image>
+    <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" ></image>
   </view>
 </view>
 <view class="body">
   <view class="body__title">我的庭院美照</view>
+  <view class="body__list">
+    <view class="item">
+      <view class="item__photo">
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
+      </view>
+      <view class="item__info">
+        <view>刘德华 家庭</view>
+        <view>刘德华 上传3个图</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="item__photo">
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
+      </view>
+      <view class="item__info">
+        <view>刘德华 家庭</view>
+        <view>刘德华 上传3个图</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="item__photo">
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
+      </view>
+      <view class="item__info">
+        <view>刘德华 家庭</view>
+        <view>刘德华 上传3个图</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="item__photo">
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
+      </view>
+      <view class="item__info">
+        <view>刘德华 家庭</view>
+        <view>刘德华 上传3个图</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="item__photo">
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
+      </view>
+      <view class="item__info">
+        <view>刘德华 家庭</view>
+        <view>刘德华 上传3个图</view>
+      </view>
+    </view>
+  </view>
 </view>

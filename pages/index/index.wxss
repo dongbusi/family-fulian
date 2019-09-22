@@ -124,6 +124,7 @@
 .timeline__photo {
   height: 380rpx;
   overflow: hidden;
+  border-radius: 40rpx;
 }
 .item__info {
   display: flex;
