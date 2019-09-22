@@ -1,0 +1,35 @@
+/* pages/study/index.wxss */
+page {
+  background: #FBFBFB;
+}
+.list {
+  padding: 48rpx 40rpx 0 80rpx;
+}
+.item {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  box-shadow:0rpx 60rpx 80rpx rgba(0,0,0,0.03);
+  border-radius: 40rpx;
+  height: 160rpx;
+  margin-top: 40rpx;
+}
+.item:first-child {
+  margin-top: 0;
+}
+.item view:first-child {
+  width: 140rpx;
+  height: 128rpx;
+  border-radius: 40rpx;
+  background: linear-gradient(225deg,rgba(254,193,128,1) 0%,rgba(255,137,147,1) 100%);
+  box-shadow:0rpx 40rpx 40rpx rgba(255,149,143,0.28);
+  flex: none;
+  margin-left: -40rpx;
+}
+.item view:last-child {
+  margin-left: 20rpx;
+  color: #333333;
+  font-size: 32rpx;
+  font-weight: 500;
+  line-height: 44rpx;
+}

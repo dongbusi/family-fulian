@@ -1,0 +1,18 @@
+<!--pages/me/index.wxml-->
+<view class="info">
+  <view class="avaturl">
+    <image  src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" />
+    <image class="shadow" src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" />
+  </view>
+  <view class="text">
+    <view class="">刘德华</view>
+    <view>135****5512</view>
+  </view>
+</view>
+<view class="container">
+  <view class="tab">
+    <view class="hot">我的消息</view>
+    <view class="">个人设置</view>
+  </view>
+  <view class="content"></view>
+</view>

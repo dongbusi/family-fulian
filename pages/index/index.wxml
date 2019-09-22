@@ -1,0 +1,110 @@
+<!--pages/index/index.wxml-->
+<view class="swiper">
+  <swiper duration="1000" interval="3000" autoplay circular bindchange="{{dots.change}}">
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+      <swiper-item class="swiper-item">
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="indicator-dots">
+    <view wx:for="{{imgUrls}}" class="indicator-dot" wx:key="{{index}}"></view>
+  </view>
+</view>
+<view class="nav">
+  <navigator  url="" hover-class="none" >
+    <image src="/assets/img/nav-upload.png"/>
+  </navigator>
+  <navigator  url="" hover-class="none" >
+    <image src="/assets/img/nav-view.png"/>
+  </navigator>
+  <navigator  url="" hover-class="none" >
+    <image src="/assets/img/nav-study.png"/>
+  </navigator>
+  <navigator  url="" hover-class="none" >
+    <image src="/assets/img/nav-exchange.png"/>
+  </navigator>
+</view>
+
+<view class="section__activity">
+  <view class="header__activity">
+    <view>最新活动</view>
+    <view>
+      <view class="circle"></view>
+      <view class="circle"></view>
+      <view class="circle"></view>
+    </view>
+  </view>
+  <view class="body__activity">
+    <view class="item__activity">
+      <image class="item__avaturl" src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"  />
+      <view class="item__street">北干街道</view>
+      <view class="item__title">北干街道开展“五美家庭”评选活动</view>
+    </view>
+    <view class="item__activity">
+      <image class="item__avaturl" src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" style="border: 8rpx solid #FAE3E4;" />
+      <view class="item__street" style="color: #EC7B7C;">宁围街道</view>
+      <view class="item__title" style="color: #EC7B7C;">宁围街道开展“五美家庭”评选活动</view>
+    </view>
+  </view>
+</view>
+<view class="section__activity section__timeline">
+  <view class="header__activity">
+    <view>看看别人都晒了啥</view>
+    <view>
+      <view class="circle"></view>
+      <view class="circle"></view>
+      <view class="circle"></view>
+    </view>
+  </view>
+  <view class="body__timeline">
+    <view class="item__timeline">
+      <view class="timeline__photo">
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" lazy-load />
+      </view>
+      <view class="item__info">
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" lazy-load  />
+        <view class="item__family">
+          <view>刘德华 家庭</view>
+          <view>
+            <text>家庭成员 刘涛 上传</text>
+            <text style="float: right;">今天 13:25</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="item__timeline">
+      <view class="timeline__photo">
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" lazy-load />
+      </view>
+      <view class="item__info">
+        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" lazy-load  />
+        <view class="item__family">
+          <view>刘德华 家庭</view>
+          <view>
+            <text>家庭成员 刘涛 上传</text>
+            <text style="float: right;">今天 13:25</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+  
+  
+  
+  
+<wxs module="dots">
+  var current = 1
+  var change = function (event,ins) {
+    current = event.detail.current
+    ins.selectAllComponents('.indicator-dot').forEach(function(ele) {
+      ele.removeClass('active')
+    })
+    ins.selectAllComponents('.indicator-dot')[current].addClass('active')
+  }
+  module.exports = {
+    change: change
+  }
+</wxs>
+

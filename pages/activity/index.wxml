@@ -1,0 +1,23 @@
+<!--pages/activity/index.wxml-->
+<view class="list">
+  <view class="item">
+    <view class="logo"></view>
+    <view class="info">
+      <view class="item__title text-two-line">北干街道关于开展家庭教育讲座的报名通知</view>
+      <view class="item__footer">
+        <view class="item__date">日期 2019-10-15</view>
+        <view class="item__num">剩余名额 10</view>
+      </view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="logo"></view>
+    <view class="info">
+      <view class="item__title text-two-line">北干街道关于开展家庭教育讲座的报名通知</view>
+      <view class="item__footer">
+        <view class="item__date">日期 2019-10-15</view>
+        <view class="item__num hot">你已报名</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,59 @@
+/* pages/activity/index.wxss */
+page {
+  background: #FBFBFB;
+}
+.list {
+  padding: 48rpx 40rpx 0 80rpx;
+}
+.item {
+  display: flex;
+  background: #ffffff;
+  box-shadow:0rpx 60rpx 80rpx rgba(0,0,0,0.03);
+  border-radius: 40rpx;
+  height: 206rpx;
+  margin-top: 40rpx;
+  padding-top: 20rpx;
+  box-sizing: border-box;
+}
+.logo {
+  width: 140rpx;
+  height: 128rpx;
+  border-radius: 40rpx;
+  background: linear-gradient(225deg,rgba(254,193,128,1) 0%,rgba(255,137,147,1) 100%);
+  box-shadow:0rpx 40rpx 40rpx rgba(255,149,143,0.28);
+  flex: none;
+  margin-left: -40rpx;
+}
+.info {
+  margin-left: 20rpx;
+  padding-right: 30rpx;
+}
+.item__title {
+  margin-top: 20rpx;
+  color: #333333;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.item__footer {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.item__date {
+  color: #666666;
+  font-size: 26rpx;
+}
+.item__num {
+  width: 166rpx;
+  height: 40rpx;
+  background: #EC7B7C;
+  border-radius: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  color: #ffffff;
+  font-size: 22rpx;
+}
+.item__num.hot {
+  background: #333333; 
+}

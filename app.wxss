@@ -1,0 +1,4 @@
+/**app.wxss**/
+
+@import './styles/common.wxss';
+@import './styles/reset.wxss'

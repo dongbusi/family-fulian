@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/family/index",
+    "pages/study/index",
+    "pages/activity/index",
+    "pages/me/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#EC7B7C",
+    "navigationBarTitleText": "花开萧然•智美万家",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#EC7B7C",
+    "backgroundColor": "#F6F6F6",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/assets/img/tab-index.png",
+        "selectedIconPath": "/assets/img/tab-index--hot.png"
+      },
+      {
+        "pagePath": "pages/family/index",
+        "text": "家园",
+        "iconPath": "/assets/img/tab-family.png",
+        "selectedIconPath": "/assets/img/tab-family--hot.png"
+      },
+      {
+        "pagePath": "pages/study/index",
+        "text": "学习",
+        "iconPath": "/assets/img/tab-study.png",
+        "selectedIconPath": "/assets/img/tab-study--hot.png"
+      },
+      {
+        "pagePath": "pages/activity/index",
+        "text": "活动",
+        "iconPath": "/assets/img/tab-activity.png",
+        "selectedIconPath": "/assets/img/tab-activity--hot.png"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "text": "我的",
+        "iconPath": "/assets/img/tab-me.png",
+        "selectedIconPath": "/assets/img/tab-me--hot.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

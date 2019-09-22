@@ -1,0 +1,21 @@
+<!--pages/study/index.wxml-->
+<view class="list">
+  <view class="item">
+    <view>
+      
+    </view>
+    <view class="text-two-line">习近平在中央和国家机关党建工作会议上讲话习近平在中央和国家机关党建工作会议上讲话</view>
+  </view>
+  <view class="item">
+    <view>
+      
+    </view>
+    <view class="text-two-line">学习贯彻习近平新时代中国特色社会主义思想</view>
+  </view>
+  <view class="item">
+    <view>
+      
+    </view>
+    <view class="text-two-line">诵读红色书信 感受信仰力量</view>
+  </view>
+</view>

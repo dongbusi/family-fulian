@@ -1,0 +1,73 @@
+/* 全局样式 */
+
+
+/* 2行文本省略 */
+.text-two-line {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.fontPM {
+  font-family: 'PingFangSC-Medium';
+}
+.fontPR {
+  font-family: 'PingFangSC-Regular';
+}
+.fontPB {
+  font-family: 'PingFangSC-SemiBold';
+}
+.font32 {
+  font-size: 32rpx;
+}
+.font30 {
+  font-size: 30rpx;
+}
+.font24 {
+  font-size: 24rpx;
+}
+.font28 {
+  font-size: 28rpx;
+}
+.font36 {
+  font-size: 36rpx;
+}
+.font40 {
+  font-size: 40rpx;
+}
+.font56 {
+  font-size: 56rpx;
+}
+.font80 {
+  font-size: 80rpx;
+}
+.color333 {
+  color: #333333;
+}
+.color711 {
+  color: #711E1A;
+}
+.colorEC7B7C {
+  color: #EC7B7C;
+}
+.color999 {
+  color: #999999;
+}
+.lineH46 {
+  line-height: 46rpx;
+}
+.marL9 {
+  margin-left: 9rpx;
+}
+.marL7 {
+  margin-left: 7rpx;
+}
+.marL35 {
+  margin-left: 35rpx;
+}
+.marL12 {
+  margin-left: 12rpx;
+}
+.marT12 {
+  margin-top: 12rpx;
+}
