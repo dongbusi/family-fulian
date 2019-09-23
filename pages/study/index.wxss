@@ -1,6 +1,6 @@
 /* pages/study/index.wxss */
 page {
-  background: #FBFBFB;
+  background:linear-gradient(180deg,#fdfdfd 0%,#ffffff 100%);
 }
 .list {
   padding: 48rpx 40rpx 0 80rpx;

@@ -1,9 +1,9 @@
 /* pages/activity/index.wxss */
 page {
-  background: #FBFBFB;
+  background:linear-gradient(180deg,#fdfdfd 0%,#ffffff 100%);
 }
 .list {
-  padding: 48rpx 40rpx 0 80rpx;
+  padding: 0rpx 40rpx 0 80rpx;
 }
 .item {
   display: flex;
@@ -71,4 +71,19 @@ page {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.header__num {
+  color: #EC7B7C;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.header__switch {
+  display: flex;
+  align-items: center;
+}
+.header__switch text {
+  color: #666666;
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-right: 16rpx;
 }

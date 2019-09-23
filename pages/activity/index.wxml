@@ -1,9 +1,12 @@
 <!--pages/activity/index.wxml-->
 <view class="header">
-  <view>共88个活动</view>
-  <view>
+  <view class="header__num">共88个活动</view>
+  <view class="header__switch">
     <text>只看我能参加的活动</text>
-    <switch checked="{{switch1Checked}}" bindchange="switch1Change" color="#707070" />
+    <view style="display: flex;height: 44rpx;">
+      <van-switch checked="{{ canIn }}" size="40rpx" active-color="#EC7B7C" inactive-color="#707070" bindchange="changeCanIn" />
+    </view>
+      
   </view>
 </view>
 

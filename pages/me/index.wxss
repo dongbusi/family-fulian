@@ -1,4 +1,7 @@
 /* pages/me/index.wxss */
+page {
+  background:linear-gradient(180deg,#fdfdfd 0%,#ffffff 100%);
+}
 .info {
   width: 670rpx;
   height: 180rpx;
