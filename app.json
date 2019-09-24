@@ -50,5 +50,25 @@
       }
     ]
   },
+  "subpackages": [
+    {
+      "root": "pages/photoModule",
+      "name": "photoModule",
+      "pages": [
+        "upload/index",
+        "list/index",
+        "result/index",
+        "details/index"
+      ]
+    },
+    {
+      "root": "pages/integralModule",
+      "name": "integralModule",
+      "pages": [
+        "index/index",
+        "rules/index"
+      ]
+    }
+  ],
   "sitemapLocation": "sitemap.json"
 }

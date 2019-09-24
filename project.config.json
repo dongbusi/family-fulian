@@ -25,7 +25,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.3",
-	"appid": "wxf52dc6b053cb2180",
+	"appid": "wx18323b900731e64d",
 	"projectname": "family",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -51,7 +51,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -78,6 +78,13 @@
 					"id": -1,
 					"name": "个人中心",
 					"pathName": "pages/me/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "上传图片",
+					"pathName": "pages/photoModule/upload/index",
 					"scene": null
 				}
 			]

@@ -1,0 +1,30 @@
+<!--pages/photoModule/upload/index.wxml-->
+<view class="section__desc">
+  <view class="desc__header">
+    <view>照片描述（必填）</view>
+    <view>最多输入300个字符</view>
+  </view>
+  <view class="desc__body">
+    <view class="textarea" bindtap="setFocus">
+      <van-field
+      value="{{ message }}"
+      type="textarea"
+      placeholder="请输入描述"
+      border="{{ false }}"
+      autosize
+      maxlength="300"
+      input-class="input"
+      focus="{{focus}}"
+      />
+    </view>
+  </view>
+</view>
+<view class="section__desc section__upload">
+  <view class="desc__header">
+    <view>请上传庭院内美照（必传）</view>
+    <view>最多可以上传6张照片</view>
+  </view>
+  <view class="desc__body">
+  </view>
+  </view>
+  

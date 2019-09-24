@@ -1,0 +1,35 @@
+/* pages/photoModule/upload/index.wxss */
+.section__desc {
+  margin-top: 80rpx;
+}
+.desc__header {
+  padding: 0 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.desc__header view:first-child {
+  color: #999999;
+  font-size: 28rpx;
+  -webkit-font-smoothing: antialiased;
+}
+.desc__header view:last-child {
+  font-size: 24rpx;
+  color: #EC7B7C;
+  -webkit-font-smoothing: antialiased;
+}
+
+.textarea {
+  min-height: 168rpx;
+  width: 670rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid #DCE0E6;
+  margin: 14rpx auto 0;
+  padding: 4rpx;
+  box-sizing: border-box;
+  color: #333333;
+}
+.input {
+  font-size: 24rpx;
+  width: 100%;
+}

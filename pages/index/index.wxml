@@ -12,16 +12,16 @@
   </view>
 </view>
 <view class="nav">
-  <navigator  url="" hover-class="none" >
+  <navigator url="/pages/photoModule/upload/index" hover-class="none" >
     <image src="/assets/img/nav-upload.png" />
   </navigator>
-  <navigator  url="" hover-class="none" >
+  <view  url="" hover-class="none" bindtap="goShare">
     <image src="/assets/img/nav-view.png"/>
-  </navigator>
-  <navigator  url="" hover-class="none" >
+  </view>
+  <navigator url="/pages/study/index" hover-class="none" open-type="switchTab">
     <image src="/assets/img/nav-study.png"/>
   </navigator>
-  <navigator  url="" hover-class="none" >
+  <navigator url="/pages/integralModule/index/index" hover-class="none" >
     <image src="/assets/img/nav-exchange.png"/>
   </navigator>
 </view>
@@ -29,7 +29,7 @@
 <view class="section__activity">
   <view class="header__activity">
     <view>最新活动</view>
-    <view>
+    <view bindtap="goActivity">
       <view class="circle"></view>
       <view class="circle"></view>
       <view class="circle"></view>
@@ -51,7 +51,7 @@
 <view class="section__activity section__timeline">
   <view class="header__activity">
     <view>看看别人都晒了啥</view>
-    <view>
+    <view bindtap="goPhotoList">
       <view class="circle"></view>
       <view class="circle"></view>
       <view class="circle"></view>
@@ -93,7 +93,7 @@
   
   
   
-  
+
 <wxs module="dots">
   var current = 1
   var change = function (event,ins) {

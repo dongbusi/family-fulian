@@ -10,9 +10,25 @@
   </view>
 </view>
 <view class="container">
-  <view class="tab">
+  <!-- <view class="tab">
     <view class="hot">我的消息</view>
-    <view class="">个人设置</view>
+  </view> -->
+  <view class="content information">
+    <view class="information__item">
+      <view class="item__avaturl"><image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" /></view>
+      <view class="item__text hot">你的家庭成员在2019-10-10日发布的庭院美照已经通过村级工作人员审核</view>
+    </view>
+    <view class="information__item">
+      <view class="item__avaturl"><image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" /></view>
+      <view class="item__text">你的家庭成员在2019-10-10日发布的庭院美照已经通过村级工作人员审核</view>
+    </view>
+    <view class="information__item">
+      <view class="item__avaturl"><image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" /></view>
+      <view class="item__text">你的家庭成员在2019-10-10日发布的庭院美照已经通过村级工作人员审核</view>
+    </view>
+    <view class="information__item">
+      <view class="item__avaturl"><image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" /></view>
+      <view class="item__text">你的家庭成员在2019-10-10日发布的庭院美照已经通过村级工作人员审核</view>
+    </view>
   </view>
-  <view class="content"></view>
 </view>
