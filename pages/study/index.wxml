@@ -1,6 +1,6 @@
 <!--pages/study/index.wxml-->
 <view class="list">
-  <view class="item">
+  <view class="item" bindtap="goDetails">
     <view>
       <image class="item__logo" src="/assets/img/study-list.png" />
     </view>

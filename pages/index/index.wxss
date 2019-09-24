@@ -114,22 +114,34 @@
   font-size: 28rpx;
   font-weight: bold;
 }
-.body__timeline {
-  margin-top: 22rpx;
-}
 .item__timeline {
   height: 524rpx;
   border-bottom: 2rpx solid #EEEEEE;
+  margin-top: 40rpx;
 }
 .timeline__photo {
   height: 380rpx;
   overflow: hidden;
   border-radius: 40rpx;
+  position: relative;
+}
+.item__num {
+  position: absolute;
+  right: 10rpx;
+  bottom: 12rpx;
+  width: 134rpx;
+  height: 60rpx;
+  border-radius: 40rpx 0rpx 40rpx 0rpx;
+  background: rgba(247,92,61,.8);
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #FFFFFF;
 }
 .item__info {
   display: flex;
   align-items: center;
-  margin-top: 6rpx;
+  margin-top: 15rpx;
 }
 .item__info > image {
   width: 96rpx;

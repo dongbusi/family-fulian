@@ -6,11 +6,29 @@ Page({
    */
   data: {
     message: '',
-    focus: false
+    focus: false,
+    list: []
   },
   setFocus () {
     this.setData({
       focus: true
+    })
+  },
+  chooseImage () {
+    let count = 6 - this.data.list.length > 0 ? 6 - this.data.list.length : 0;
+    let _this = this
+    wx.chooseImage({
+      count: count,
+      success (res) {
+        _this.setData({
+          list: [..._this.data.list, ...res.tempFilePaths]
+        })
+      }
+    })
+  },
+  upload () {
+    wx.navigateTo({
+      url: '/pages/photoModule/result/index'
     })
   },
   /**

@@ -29,6 +29,11 @@ Page({
       url: '/pages/activity/index',
     })
   },
+  goPhotoDetails () {
+    wx.navigateTo({
+      url: '/pages/photoModule/details/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

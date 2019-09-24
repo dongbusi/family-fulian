@@ -1,2 +1,5 @@
 <!--pages/photoModule/uploadResult/index.wxml-->
-<text>pages/photoModule/uploadResult/index.wxml</text>
+<view class="icon"><image src="/assets/img/upload-success.png" /></view>
+<view class="status">递交成功</view>
+<view class="tips">待村级工作人员审核</view>
+<navigator class="button" url="/pages/index/index" open-type="switchTab" hover-class="none">确定</navigator>

@@ -4,7 +4,8 @@
     "pages/family/index",
     "pages/study/index",
     "pages/activity/index",
-    "pages/me/index"
+    "pages/me/index",
+    "pages/studyDetails/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

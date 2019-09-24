@@ -1,1 +1,127 @@
 /* pages/photoModule/photoList/index.wxss */
+.body__timeline {
+  padding: 10rpx 40rpx 48rpx;
+}
+.section__activity {
+  margin-top: 52rpx;
+  padding: 0 40rpx;
+}
+.header__activity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #EC7B7C;
+  font-size: 40rpx;
+  -webkit-font-smoothing: antialiased;
+}
+.header__activity > view:last-child {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  background: #EC7B7C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circle {
+  background: #ffffff;
+  width: 8rpx;
+  height: 8rpx;
+  margin-left: 4rpx;
+  border-radius: 50%;
+}
+.circle:first-child {
+  margin: 0;
+}
+.body__activity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 224rpx;
+}
+.item__activity {
+  width: 328rpx;
+  height: 224rpx;
+  border-radius: 16rpx;
+  background: #EC7B7C;
+  margin-top: 32rpx;
+  position: relative;
+}
+.item__activity:last-child {
+  background: rgba(236,123,124,.2);
+}
+.item__avaturl {
+  position: absolute;
+  top: -8rpx;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 8rpx solid #EC7B7C;
+  left: 19rpx;
+}
+.item__street {
+  margin: 30rpx 0 0 140rpx;
+  color: #ffffff;
+  font-size: 26rpx;
+  font-weight:600;
+}
+.item__title {
+  padding: 46rpx 20rpx 0;
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.body__timeline {
+  margin-top: 22rpx;
+}
+.item__timeline {
+  height: 524rpx;
+  border-bottom: 2rpx solid #EEEEEE;
+  margin-top: 40rpx;
+}
+.timeline__photo {
+  height: 380rpx;
+  overflow: hidden;
+  border-radius: 40rpx;
+  position: relative;
+}
+.item__num {
+  position: absolute;
+  right: 10rpx;
+  bottom: 12rpx;
+  width: 134rpx;
+  height: 60rpx;
+  border-radius: 40rpx 0rpx 40rpx 0rpx;
+  background: rgba(247,92,61,.8);
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #FFFFFF;
+}
+.item__info {
+  display: flex;
+  align-items: center;
+  margin-top: 15rpx;
+}
+.item__info > image {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  flex: none;
+}
+.item__family {
+  margin-left: 24rpx;
+  width: 100%;
+  color: #333333;
+  font-size: 32rpx;
+  font-weight: bold;
+  line-height: 44rpx;
+}
+.item__family text {
+  color: #cccccc;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  font-weight: normal;
+}

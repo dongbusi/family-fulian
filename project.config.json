@@ -51,7 +51,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -85,6 +85,34 @@
 					"id": -1,
 					"name": "上传图片",
 					"pathName": "pages/photoModule/upload/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "上传结果",
+					"pathName": "pages/photoModule/result/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "庭院美照列表",
+					"pathName": "pages/photoModule/list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "庭院美照详情",
+					"pathName": "pages/photoModule/details/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "学习详情",
+					"pathName": "pages/studyDetails/index",
 					"scene": null
 				}
 			]

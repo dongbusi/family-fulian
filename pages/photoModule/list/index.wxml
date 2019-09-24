@@ -1,2 +1,52 @@
 <!--pages/photoModule/photoList/index.wxml-->
-<text>pages/photoModule/photoList/index.wxml</text>
+<view class="body__timeline">
+  <view class="item__timeline" bindtap="goDetails">
+    <view class="timeline__photo">
+      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
+      <view class="item__num">共3图</view>
+    </view>
+    <view class="item__info">
+      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load  />
+      <view class="item__family">
+        <view>刘德华 家庭</view>
+        <view>
+          <text>家庭成员 刘涛 上传</text>
+          <text style="float: right;">今天 13:25</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item__timeline">
+    <view class="timeline__photo">
+      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
+      <view class="item__num">共3图</view>
+    </view>
+    <view class="item__info">
+      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load  />
+      <view class="item__family">
+        <view>刘德华 家庭</view>
+        <view>
+          <text>家庭成员 刘涛 上传</text>
+          <text style="float: right;">今天 13:25</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item__timeline">
+    <view class="timeline__photo">
+      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
+      <view class="item__num">共3图</view>
+    </view>
+    <view class="item__info">
+      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load  />
+      <view class="item__family">
+        <view>刘德华 家庭</view>
+        <view>
+          <text>家庭成员 刘涛 上传</text>
+          <text style="float: right;">今天 13:25</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

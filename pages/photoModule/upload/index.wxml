@@ -24,7 +24,18 @@
     <view>请上传庭院内美照（必传）</view>
     <view>最多可以上传6张照片</view>
   </view>
-  <view class="desc__body">
+  <view class="upload__body">
+    <view class="photo__choose" wx:for="{{list}}" wx:key="{{index}}">
+      <image src="{{item}}" mode="aspectFill" />
+      <view class="del">
+        <view></view>
+        <view></view>
+      </view>
+    </view>
+    <view class="photo__add" bindtap="chooseImage">
+      <view></view>
+      <view></view>
+    </view>
   </view>
-  </view>
-  
+</view>
+<view class="section__button" bindtap="upload">递交审核</view>

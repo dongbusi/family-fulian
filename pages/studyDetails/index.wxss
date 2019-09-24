@@ -1,0 +1,23 @@
+/* pages/studyDetails/index.wxss */
+.title {
+  color: #333333;
+  font-weight: 500;
+  font-size: 44rpx;
+  padding: 48rpx 40rpx;
+}
+.desc {
+  color: #999999;
+  font-size: 26rpx;
+  padding: 0 40rpx 40rpx;
+}
+.desc text:nth-child(2) {
+  margin-left: 40rpx;
+}
+.content {
+  color: #333333;
+  font-size: 32rpx;
+}
+.content image {
+  max-width: 100%;
+  object-fit: cover;
+}

@@ -1,0 +1,7 @@
+<!--pages/studyDetails/index.wxml-->
+<view class="title">习近平在“不忘初心、牢记使命”主题教育工作会议上的讲话</view>
+<view class="desc">
+  <text>2019-10-01</text>
+  <text>来源：萧山区妇联</text>
+</view>
+<view class="content"></view>
