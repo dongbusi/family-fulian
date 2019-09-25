@@ -10,6 +10,11 @@ Page({
   changeCanIn({ detail }) {
     this.setData({ canIn: detail });
   },
+  goDetails () {
+    wx.navigateTo({
+      url: '/pages/activityDetails/index'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

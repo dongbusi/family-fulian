@@ -1,0 +1,119 @@
+/* pages/studyDetails/index.wxss */
+.title {
+  color: #333333;
+  font-weight: 500;
+  font-size: 44rpx;
+  padding: 48rpx 40rpx;
+}
+.title.canin {
+  color: #EC7B7C;
+}
+.desc {
+  color: #999999;
+  font-size: 26rpx;
+  padding: 0 40rpx 40rpx;
+}
+.desc text:nth-child(2) {
+  margin-left: 40rpx;
+}
+.content {
+  color: #333333;
+  font-size: 32rpx;
+}
+.content.canin {
+  font-weight: 500;
+}
+.content image {
+  max-width: 100%;
+  object-fit: cover;
+}
+.button {
+  width: 670rpx;
+  height: 80rpx;
+  position: absolute;
+  bottom: 90rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: #999999;
+  color: #ffffff;
+  font-size: 40rpx;
+  font-weight: 500;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  box-shadow:0rpx 20rpx 30rpx rgba(0,0,0,0.16);
+}
+.button.canin {
+  background: #EC7B7C;
+}
+.container {
+  width: 670rpx;
+  height: 440rpx;
+  position: relative;
+  background: #ffffff;
+  border-radius: 40rpx;
+  overflow: hidden;
+}
+.num__desc {
+  color: #666666;
+  font-size: 36rpx;
+  text-align: center;
+  margin-top: 96rpx;
+  font-weight: 500;
+}
+.desc__setpper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 46rpx;
+}
+.minus {
+  width: 96rpx;
+  height: 74rpx;
+  border: 2rpx solid #707070;
+  line-height: 74rpx;
+  font-weight: bold;
+  text-align: center;
+}
+.plus {
+  width: 96rpx;
+  height: 74rpx;
+  border: 2rpx solid #707070;
+  line-height: 74rpx;
+  font-weight: bold;
+  text-align: center;
+}
+.num {
+  width: 104rpx;
+  height: 74rpx;
+  border: 2rpx solid #707070;
+  line-height: 74rpx;
+  text-align: center;
+  border-left: none;
+  border-right: none;
+  color: #EC7B7C;
+}
+.disable {
+  width: 96rpx;
+  height: 74rpx;
+  border: 2rpx solid #707070;
+  line-height: 74rpx;
+  font-weight: bold;
+  text-align: center;
+  color: #ccc;
+}
+.submit {
+  width: 100%;
+  height: 80rpx;
+  background: #EC7B7C;
+  border-radius: 40rpx 40rpx 0 0;
+  text-align: center;
+  line-height: 80rpx;
+  color: #ffffff;
+  font-size: 40rpx;
+  font-weight: 500;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

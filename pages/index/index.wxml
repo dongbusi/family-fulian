@@ -36,12 +36,12 @@
     </view>
   </view>
   <view class="body__activity">
-    <view class="item__activity">
+    <view class="item__activity" bindtap="goActivityDetails">
       <image class="item__avaturl" src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" />
       <view class="item__street">北干街道</view>
       <view class="item__title">北干街道开展“五美家庭”评选活动</view>
     </view>
-    <view class="item__activity">
+    <view class="item__activity" bindtap="goActivityDetails">
       <image class="item__avaturl" src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" style="border: 8rpx solid #FAE3E4;" mode="aspectFill" />
       <view class="item__street" style="color: #EC7B7C;">宁围街道</view>
       <view class="item__title" style="color: #EC7B7C;">宁围街道开展“五美家庭”评选活动</view>

@@ -1,0 +1,5 @@
+<!--pages/photoModule/uploadResult/index.wxml-->
+<view class="icon"><image src="/assets/img/upload-success.png" /></view>
+<view class="status">报名成功</view>
+<view class="tips">届时别忘了准时参与活动</view>
+<navigator class="button" delta="2" open-type="navigateBack" hover-class="none">确定</navigator>

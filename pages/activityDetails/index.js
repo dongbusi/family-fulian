@@ -1,42 +1,34 @@
-// pages/index/index.js
+// pages/studyDetails/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
-    ],
+    show: false,
+    number: 1
   },
-  goShare () {
-    wx.showToast({
-      title: '该功能正在开发中',
-      icon: 'none',
-      duration: 3000,
-      mask: true
+  closeNumSetting() {
+    this.setData({ show: false });
+  },
+  showNumSetting () {
+    this.setData({ show: true });
+  },
+  minus () {
+    if (this.data.number > 1) {
+      this.setData({
+        number: this.data.number - 1
+      })
+    }
+  },
+  plus () {
+    this.setData({
+      number: this.data.number + 1
     })
   },
-  goPhotoList () {
+  submit () {
     wx.navigateTo({
-      url: '/pages/photoModule/list/index',
-    })
-  },
-  goActivity () {
-    wx.switchTab({
-      url: '/pages/activity/index',
-    })
-  },
-  goPhotoDetails () {
-    wx.navigateTo({
-      url: '/pages/photoModule/details/index',
-    })
-  },
-  goActivityDetails () {
-    wx.navigateTo({
-      url: '/pages/activityDetails/index',
+      url: '/pages/activityResult/index'
     })
   },
   /**

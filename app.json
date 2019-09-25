@@ -5,7 +5,9 @@
     "pages/study/index",
     "pages/activity/index",
     "pages/me/index",
-    "pages/studyDetails/index"
+    "pages/studyDetails/index",
+    "pages/activityDetails/index",
+    "pages/activityResult/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
