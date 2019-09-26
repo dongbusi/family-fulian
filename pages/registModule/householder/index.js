@@ -1,4 +1,4 @@
-// pages/integralModule/index/index.js
+// pages/registModule/hoseholder/index.js
 Page({
 
   /**
@@ -7,16 +7,7 @@ Page({
   data: {
 
   },
-  goGoodsDetails () {
-    wx.navigateTo({
-      url: '/pages/integralModule/details/index'
-    })
-  },
-  goRules () {
-    wx.navigateTo({
-      url: '/pages/integralModule/rules/index'
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

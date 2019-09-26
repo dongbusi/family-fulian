@@ -1,1 +1,120 @@
 /* pages/integralModule/index/index.wxss */
+page {
+  background:linear-gradient(180deg,#fdfdfd 0%,#ffffff 100%);
+}
+.user {
+  width: 670rpx;
+  height: 234rpx;
+  box-sizing: border-box;
+  padding: 24rpx;
+  background: #FFFFFF;
+  box-shadow:0rpx 16rpx 40rpx rgba(130,144,220,0.13);
+  border-radius: 16rpx;
+  margin: 32rpx auto 0;
+}
+.user__info {
+  display: flex;
+  align-items: center;
+}
+.user__avaturl {
+  width: 96rpx;
+  height: 96rpx;
+  border: 10rpx solid #FFFFFF;
+  border-radius: 50%;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow:0rpx 6rpx 12rpx rgba(0,0,0,0.16);
+}
+.user__name {
+  margin-left: 24rpx;
+  color: #333333;
+  font-size: 36rpx;
+  font-weight: 500;
+}
+.user__credit {
+  margin-left: 40rpx;
+  color: #EC7B7C;
+  font-size: 26rpx;
+  font-weight: 500;
+}
+.rule {
+  width: 400rpx;
+  height: 80rpx;
+  background: #EC7B7C;
+  border-radius: 40rpx;
+  box-shadow:0rpx 20rpx 30rpx rgba(0,0,0,0.16);
+  margin-left: 110rpx;
+  color: #FFFFFF;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.list {
+  padding: 0 40rpx 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.item {
+  width: 320rpx;
+  height: 580rpx;
+  flex: none;
+  box-sizing: border-box;
+  position: relative;
+  background: #FFFFFF;
+  box-shadow:0rpx 6rpx 100rpx rgba(0,0,0,0.16);
+  border-radius: 22rpx;
+  overflow: hidden;
+  margin-top: 48rpx;
+}
+.item__thumb {
+  height: 324rpx;
+  width: 100%;
+}
+.item__name {
+  height: 44rpx;
+  margin-top: 32rpx;
+  text-align: center;
+  color: #030303;
+  font-weight: 500;
+  font-size: 32rpx;
+}
+.item__num {
+  height: 40rpx;
+  margin-top: 22rpx;
+  text-align: center;
+  color: #707070;
+  font-size: 28rpx;
+}
+.item__num.usabled {
+  color: #EB7A7B;
+}
+.item__button {
+  width: 256rpx;
+  height: 66rpx;
+  background: #707070;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 66rpx;
+  color: #FFFFFF;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin: 16rpx auto 0;
+}
+.item__button.usabled {
+  background: #EC7B7C;
+}
+.item__credit {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 160rpx;
+  height: 68rpx;
+  border-radius: 22rpx;
+  background: #67C162;
+  text-align: center;
+  line-height: 68rpx;
+  color: #FFFFFF;
+  font-weight: 500;
+}

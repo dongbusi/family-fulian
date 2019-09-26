@@ -69,7 +69,18 @@
       "name": "integralModule",
       "pages": [
         "index/index",
-        "rules/index"
+        "rules/index",
+        "details/index"
+      ]
+    },
+    {
+      "root": "pages/registModule",
+      "name": "registModule",
+      "pages": [
+        "index/index",
+        "member/index",
+        "householder/index",
+        "result/index"
       ]
     }
   ],

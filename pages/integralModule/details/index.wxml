@@ -1,0 +1,15 @@
+<!--pages/integralModule/details/index.wxml-->
+<view class="content">
+  <text>
+      兑换物品名称：肯德基优惠券
+      兑换数量：1
+      兑换需要积分：500
+      您家庭当前积分：1200
+      
+      相关说明：
+      兑换成功后，请与30个工作日内到萧山区通惠路110号的肯德基门店领取。
+      联系电话：0571-85555555
+  </text>
+</view>
+
+<view class="button" bindtap="exchange">确定兑换</view>

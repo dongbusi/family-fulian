@@ -1,0 +1,4 @@
+/* pages/registModule/hoseholder/index.wxss */
+page {
+  background: #F5F4F7;
+}

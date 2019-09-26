@@ -1,7 +1,6 @@
 {
   "navigationBarTitleText": "活动报名",
   "backgroundColorTop": "#FBFBFB",
-  "backgroundColorBottom": "#FBFBFB",
   "usingComponents": {
     "van-switch": "vant-weapp/switch/index"
   }

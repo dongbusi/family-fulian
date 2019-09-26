@@ -1,0 +1,23 @@
+/* pages/integralModule/details/index.wxss */
+.button {
+  position: absolute;
+  width: 670rpx;
+  height: 120rpx;
+  background: #EC7B7C;
+  border-radius: 80rpx;
+  box-shadow:0rpx 20rpx 30rpx rgba(0,0,0,0.16);
+  left: 40rpx;
+  bottom: 200rpx;
+  color: #FFFFFF;
+  font-size: 40rpx;
+  text-align: center;
+  line-height: 120rpx;
+  font-weight: 500;
+}
+.content {
+  color: #333333;
+  font-size: 30rpx;
+  font-weight: 500;
+  line-height: 44rpx;
+  padding: 50rpx 40rpx;
+}

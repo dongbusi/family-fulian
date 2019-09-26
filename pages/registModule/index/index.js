@@ -1,4 +1,4 @@
-// pages/integralModule/index/index.js
+// pages/registModule/index/index.js
 Page({
 
   /**
@@ -7,14 +7,15 @@ Page({
   data: {
 
   },
-  goGoodsDetails () {
+  goRegistHousehold () {
     wx.navigateTo({
-      url: '/pages/integralModule/details/index'
+      url: '/pages/registModule/householder/index',
     })
+      
   },
-  goRules () {
+  goRegistMember () {
     wx.navigateTo({
-      url: '/pages/integralModule/rules/index'
+      url: '/pages/registModule/member/index',
     })
   },
   /**

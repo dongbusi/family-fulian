@@ -1,4 +1,4 @@
-// pages/integralModule/index/index.js
+// pages/integralModule/details/index.js
 Page({
 
   /**
@@ -7,15 +7,21 @@ Page({
   data: {
 
   },
-  goGoodsDetails () {
-    wx.navigateTo({
-      url: '/pages/integralModule/details/index'
+  exchange () {
+    wx.showToast({
+      title: '兑换成功',
+      icon: 'none',
+      mask: true,
+      duration: 2000,
+      success() {
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 2000);
+      }
     })
-  },
-  goRules () {
-    wx.navigateTo({
-      url: '/pages/integralModule/rules/index'
-    })
+    
   },
   /**
    * 生命周期函数--监听页面加载

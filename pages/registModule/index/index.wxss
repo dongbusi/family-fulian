@@ -1,0 +1,39 @@
+/* pages/registModule/index/index.wxss */
+.tips {
+  width: 670rpx;
+  height: 664rpx;
+  border-radius: 40rpx;
+  box-shadow:0rpx 20rpx 40rpx rgba(0,0,0,0.04);
+  margin: 60rpx auto 40rpx;
+  background: #FFFFFF;
+  padding: 48rpx 60rpx;
+  box-sizing: border-box;
+}
+page {
+  background: #F5F4F7;
+}
+.thumb {
+  width: 400rpx;
+  height: 300rpx;
+  text-align: center;
+  margin: 0 auto;
+}
+.text {
+  color: #333333;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  margin-top: 40rpx;
+}
+.button {
+  width: 670rpx;
+  height: 120rpx;
+  border-radius: 80rpx;
+  box-shadow:0rpx 20rpx 30rpx rgba(0,0,0,0.16);
+  margin: 40rpx auto 0;
+  text-align: center;
+  line-height: 120rpx;
+  color: #FFFFFF;
+  font-size: 40rpx;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+}

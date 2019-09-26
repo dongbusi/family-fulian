@@ -51,7 +51,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 12,
 			"list": [
 				{
 					"id": -1,
@@ -127,6 +127,21 @@
 					"id": -1,
 					"name": "积分兑换列表",
 					"pathName": "pages/integralModule/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "注册首页",
+					"pathName": "pages/registModule/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "注册主账户",
+					"pathName": "pages/registModule/householder/index",
+					"query": "",
 					"scene": null
 				}
 			]

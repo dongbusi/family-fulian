@@ -1,2 +1,34 @@
 <!--pages/integralModule/index/index.wxml-->
-<text>pages/integralModule/index/index.wxml</text>
+<view class="user">
+  <view class="user__info">
+    <view class="user__avaturl"><image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" /></view>
+    <view class="user__name">刘德华 家庭</view>
+    <view class="user__credit">积分 1569</view>
+  </view>
+  <view class="rule" bindtap="goRules">积分赚取及兑换规则</view>
+</view>
+
+<view class="list">
+  <view class="item">
+    <view class="item__thumb"><image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load/></view>
+    <view class="item__name">必胜客美食优惠券</view>
+    <view class="item__num usabled">剩余10份</view>
+    <view class="item__button usabled" bindtap="goGoodsDetails">兑换</view>
+    <!-- <view class="item__button">兑换</view> -->
+    <view class="item__credit">10积分</view>
+  </view>
+  <view class="item">
+    <view class="item__thumb"><image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load/></view>
+    <view class="item__name">必胜客美食优惠券</view>
+    <view class="item__num">剩余0份</view>
+    <view class="item__button">兑换</view>
+    <view class="item__credit">0积分</view>
+  </view>
+  <view class="item">
+    <view class="item__thumb"><image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load/></view>
+    <view class="item__name">必胜客美食优惠券</view>
+    <view class="item__num">剩余10份</view>
+    <view class="item__button">兑换</view>
+    <view class="item__credit">10积分</view>
+  </view>
+</view>
