@@ -1,2 +1,80 @@
 <!--pages/registModule/hoseholder/index.wxml-->
-<text>pages/registModule/hoseholder/index.wxml</text>
+<form class="container">
+  <view class="form__item {{error === 'name' ? 'error' : ''}}">
+    <van-field
+    value="{{ form.name }}"
+    placeholder="请输入真实姓名"
+    border="{{ false }}"
+    bind:change="input"
+    data-type="name"
+    maxlength="10"
+    clearable
+    input-class="input"
+    error="{{error === 'name'}}"
+    right-icon="{{error === 'name' ? '/assets/img/warning.png' : ''}}"
+  />
+  </view>
+  <view class="form__item {{error === 'area' ? 'error' : ''}}" bindtap="shoWselectAdress">
+    <van-field
+    value="{{ form.area }}"
+    placeholder="请选择家庭所在镇街及村社"
+    border="{{ false }}"
+    clearable
+    readonly
+    input-class="input"
+    right-icon="/assets/img/select.png"
+    error="{{error === 'area'}}"
+  />
+  </view>
+  <view class="form__item {{error === 'address' ? 'error' : ''}}">
+    <van-field
+    value="{{ form.address }}"
+    placeholder="请输入详细门牌号"
+    border="{{ false }}"
+    bind:change="input"
+    data-type="address"
+    clearable
+    input-class="input"
+    error="{{error === 'address'}}"
+    right-icon="{{error === 'address' ? '/assets/img/warning.png' : ''}}"
+  />
+  </view>
+  <view class="form__item {{error === 'phone' ? 'error' : ''}}">
+    <van-field
+    value="{{ form.phone }}"
+    placeholder="请输入您的手机号码"
+    border="{{ false }}"
+    bind:change="input"
+    data-type="phone"
+    maxlength="11"
+    clearable
+    type="number"
+    input-class="input"
+    right-icon="{{error === 'phone' ? '/assets/img/warning.png' : ''}}"
+    error="{{error === 'phone'}}"
+  />
+  </view>
+  <view class="form__item {{error === 'code' ? 'error' : ''}}">
+    <van-field
+    value="{{ form.code }}"
+    placeholder="请输入验证码"
+    border="{{ false }}"
+    bind:change="input"
+    data-type="code"
+    clearable
+    use-button-slot
+    input-class="input"
+    error="{{error === 'code'}}"
+    right-icon="{{error === 'code' ? '/assets/img/warning.png' : ''}}"
+    >
+      <van-button slot="button"  custom-class="button__code" disabled="{{downTime !== '获取验证码'}}" round bind:click="getCode">{{downTime !== '获取验证码'? downTime + 's' : '获取验证码'}}</van-button>
+    </van-field>
+  </view>
+  <view class="form__item button__sumbit" bindtap="submit">递交注册</view>
+  <view class="tips">注：一个家庭只允许创建一个家庭户主账号</view>
+</form>
+
+
+<van-popup show="{{ showAddress }}" position="bottom" bind:close="closeAddress">
+  <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" value="110101" bindcancel="closeAddress" bindconfirm="selectaddress" />
+</van-popup>
