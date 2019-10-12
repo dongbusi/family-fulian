@@ -38,17 +38,20 @@ page {
   font-weight: 500;
 }
 .rule {
-  width: 400rpx;
-  height: 80rpx;
+  width: 180rpx;
+  height: 70rpx;
+  display: inline-block;
   background: #EC7B7C;
   border-radius: 40rpx;
   box-shadow:0rpx 20rpx 30rpx rgba(0,0,0,0.16);
-  margin-left: 110rpx;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
   color: #FFFFFF;
-  font-size: 30rpx;
-  line-height: 80rpx;
+  font-size: 28rpx;
+  line-height: 70rpx;
   text-align: center;
 }
+
 .list {
   padding: 0 40rpx 40rpx;
   display: flex;

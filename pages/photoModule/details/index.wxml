@@ -1,22 +1,22 @@
 <!--pages/photoModule/details/index.wxml-->
 <view class="header item__info">
-  <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load  />
+  <image src="{{details.up_name.avatarUrl}}" mode="aspectFill" lazy-load  />
   <view class="item__family">
-    <view>刘德华 家庭</view>
+    <view>{{details.master_name.realname}} 家庭</view>
     <view>
-      <text>家庭成员 刘涛 上传</text>
-      <text style="float: right;">今天 13:25</text>
+      <text>家庭成员 {{details.up_name.realname}} 上传</text>
+      <text style="float: right;">{{details.time}}</text>
     </view>
   </view>
 </view>
 <view class="list__photo">
-  <view class="item__photo {{list.length === 1 ? 'one' : ''}} {{list.length === 2 ? 'two' : ''}} {{list.length >= 3 ? 'three' : ''}}" wx:for="{{list}}" wx:key="{{index}}" data-index="{{index}}" bindtap="previewPhoto">
+  <view class="item__photo {{details.image.length === 1 ? 'one' : ''}} {{details.image.length === 2 ? 'two' : ''}} {{details.image.length >= 3 ? 'three' : ''}}" wx:for="{{details.image}}" wx:key="{{index}}" data-index="{{index}}" bindtap="previewPhoto">
     <image src="{{item}}" mode="aspectFill"/>
   </view>
-  <view class="item__photo three" wx:if="{{list.length === 5}}"></view>
+  <view class="item__photo three" wx:if="{{details.image.length === 5}}"></view>
 </view>
-<view class="desc">夜静了，只听见蟋蟀在黑夜中的鸣声，只看见萤火虫提着灯笼在夜空中飞舞，还能依稀地听见伙伴们的嬉笑声</view>
-<view class="button">
+<view class="desc">{{details.content}}</view>
+<button class="button" hover-class="none" open-type="share">
   <image src="/assets/img/share.png" />
   <text>分享</text>
-</view>
+</button>

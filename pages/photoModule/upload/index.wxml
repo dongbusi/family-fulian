@@ -15,6 +15,7 @@
       maxlength="300"
       input-class="input"
       focus="{{focus}}"
+      bind:change="onChange"
       />
     </view>
   </view>
@@ -27,7 +28,7 @@
   <view class="upload__body">
     <view class="photo__choose" wx:for="{{list}}" wx:key="{{index}}">
       <image src="{{item}}" mode="aspectFill" />
-      <view class="del">
+      <view class="del" bindtap="delImage" data-index="{{index}}">
         <view></view>
         <view></view>
       </view>
@@ -38,4 +39,4 @@
     </view>
   </view>
 </view>
-<view class="section__button" bindtap="upload">递交审核</view>
+<view class="section__button" bindtap="submit">递交审核</view>

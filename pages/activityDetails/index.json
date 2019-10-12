@@ -1,7 +1,10 @@
 {
   "navigationBarTitleText": "活动报名",
   "usingComponents": {
-    "van-stepper": "vant-weapp/stepper/index",
-    "van-popup": "vant-weapp/popup/index"
+    "van-popup": "vant-weapp/popup/index",
+    "van-checkbox": "vant-weapp/checkbox/index",
+    "van-checkbox-group": "vant-weapp/checkbox-group/index",
+    "van-cell": "vant-weapp/cell/index",
+    "van-cell-group": "vant-weapp/cell-group/index"
   }  
 }

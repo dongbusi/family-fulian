@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "我的家园"
+  "navigationBarTitleText": "我的家园",
+  "enablePullDownRefresh": true
 }

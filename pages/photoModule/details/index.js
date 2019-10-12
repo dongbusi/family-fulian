@@ -1,30 +1,57 @@
 // pages/photoModule/details/index.js
+
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [
-      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640',
-      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-    ],
+    id: '',
+    details: ''
   },
   previewPhoto (e) {
     let current = e.currentTarget.dataset.index
     wx.previewImage({
-      urls: this.data.list,
-      current: current
+      urls: this.data.details.image,
+      current: this.data.details.image[current]
+    })
+  },
+  getDetails (id) {
+    app.getPhotoDetails({
+      id
+    }).then(res => {
+      let details = res.data
+      let date = new Date()
+      date.setMinutes(0)
+      date.setHours(0)
+      date.setSeconds(0)
+      date.setMilliseconds(0)
+      let timeToday = date.getTime()
+      let time = new Date(details.create_at.replace(/-/g, '/')).getTime()
+        if (time - timeToday >= 0) {
+          details.time = '今天 ' + details.create_at.slice(10, -3)
+        } else if (Math.abs(time - timeToday) <= 24 * 60 * 60 * 1000) {
+          details.time = '昨天 ' + details.create_at.slice(10, -3)
+        } else if (Math.abs(time - timeToday) <= 24 * 60 * 60 * 1000 * 2) {
+          details.time = '前天 ' + details.create_at.slice(10, -3)
+        } else {
+          details.time = details.create_at.slice(0,-3)
+        }
+      this.setData({
+        details: details
+      })
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getDetails(options.id)
+    this.setData({
+      id: options.id
+    })
   },
 
   /**

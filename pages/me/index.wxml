@@ -1,19 +1,20 @@
 <!--pages/me/index.wxml-->
 <view class="info">
   <view class="avaturl">
-    <image  src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" />
-    <image class="shadow" src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" />
+    <image  src="{{userInfo.avatarUrl}}" />
+    <image class="shadow" src="{{userInfo.avatarUrl}}" />
   </view>
   <view class="text">
-    <view class="">刘德华</view>
-    <view>135****5512</view>
+    <view class="">{{userInfo.realname}}</view>
+    <view>{{userInfo.mobile}}</view>
   </view>
 </view>
 <view class="container">
-  <!-- <view class="tab">
-    <view class="hot">我的消息</view>
-  </view> -->
-  <view class="content information">
+  <view class="tab">
+    <view class="{{tab === 0 ? 'hot' : ''}}" bindtap="toogleTabInfo">我的消息</view>
+    <view class="{{tab === 1 ? 'hot' : ''}}" bindtap="toogleTabMember">家庭成员</view>
+  </view>
+  <view class="content information" hidden="{{tab !== 0}}">
     <view class="information__item">
       <view class="item__avaturl"><image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" /></view>
       <view class="item__text hot">你的家庭成员在2019-10-10日发布的庭院美照已经通过村级工作人员审核</view>
@@ -31,4 +32,16 @@
       <view class="item__text">你的家庭成员在2019-10-10日发布的庭院美照已经通过村级工作人员审核</view>
     </view>
   </view>
+  <view class="content family-members" hidden="{{tab !== 1}}">
+    <view class="members__item" wx:for="{{family}}" wx:key="index">
+      <view class="item__avaturl"><image src="{{item.avatarUrl}}" /></view>
+      <view class="color333" class="member__name">{{item.realname}}</view>
+      <view class="item__button" wx:if="{{item.adopt_status == 0 && power == 1}}" bindtap="checkPass" data-id="{{item.id}}" data-index="{{index}}">待通过</view>
+      <view class="item__button" wx:if="{{item.adopt_status == 2 && power == 1}}" bindtap="checkPass" data-id="{{item.id}}" data-index="{{index}}">去通过</view>
+      <view class="item__button pass" wx:elif="{{item.adopt_status == 0 && power == 0}}">未通过</view>
+      <view class="item__button" wx:elif="{{item.adopt_status == 1 && item.pid !== 0}}" bindtap="cancelPass" data-id="{{item.id}}" data-index="{{index}}">取消通过</view>
+      <view style="width: 120rpx" wx:else ></view>
+    </view>
+  </view>
 </view>
+<view style="height: 80rpx;"></view>

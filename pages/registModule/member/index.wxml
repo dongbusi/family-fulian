@@ -1,2 +1,85 @@
 <!--pages/registModule/member/index.wxml-->
-<text>pages/registModule/member/index.wxml</text>
+<form class="container">
+    <view class="form__item {{error === 'houseName' ? 'error' : ''}}">
+      <van-field
+        value="{{ form.houseName }}"
+        placeholder="请输入户主真实姓名"
+        border="{{ false }}"
+        bind:change="input"
+        data-type="houseName"
+        maxlength="10"
+        clearable
+        input-class="input"
+        error="{{error === 'houseName'}}"
+        right-icon="{{error === 'houseName' ? '/assets/img/warning.png' : ''}}"
+      />
+    </view>
+    <view class="form__item {{error === 'housePhone' ? 'error' : ''}}">
+      <van-field
+        value="{{ form.housePhone }}"
+        placeholder="请输入户主手机号码"
+        border="{{ false }}"
+        bind:change="input"
+        data-type="housePhone"
+        maxlength="11"
+        clearable
+        type="number"
+        input-class="input"
+        right-icon="{{error === 'housePhone' ? '/assets/img/warning.png' : ''}}"
+        error="{{error === 'housePhone'}}"
+      />
+    </view>
+    <view class="house-tips">
+      <text>还没有创建户主账号？</text>
+      <navigator class="goHouse" url="/pages/registModule/householder/index" hover-class="none">请点这里创建</navigator>
+      </view>
+    <view class="form__item {{error === 'selfName' ? 'error' : ''}}">
+      <van-field
+      value="{{ form.selfName }}"
+      placeholder="请输入您的真实姓名"
+      border="{{ false }}"
+      bind:change="input"
+      data-type="selfName"
+      clearable
+      input-class="input"
+      maxlength="10"
+      error="{{error === 'selfName'}}"
+      right-icon="{{error === 'selfName' ? '/assets/img/warning.png' : ''}}"
+    />
+    </view>
+    <view class="form__item {{error === 'selfPhone' ? 'error' : ''}}">
+      <van-field
+        value="{{ form.selfPhone }}"
+        placeholder="请输入您的手机号码"
+        border="{{ false }}"
+        bind:change="input"
+        data-type="selfPhone"
+        maxlength="11"
+        clearable
+        disabled
+        type="number"
+        input-class="input"
+        right-icon="{{error === 'selfPhone' ? '/assets/img/warning.png' : ''}}"
+        error="{{error === 'selfPhone'}}"
+      />
+      <button class="button__phone" hover-class="none" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" ></button>
+    </view>
+    <view class="form__item {{error === 'code' ? 'error' : ''}}">
+      <van-field
+      value="{{ form.code }}"
+      placeholder="请输入验证码"
+      border="{{ false }}"
+      bind:change="input"
+      data-type="code"
+      clearable
+      use-button-slot
+      input-class="input"
+      error="{{error === 'code'}}"
+      right-icon="{{error === 'code' ? '/assets/img/warning.png' : ''}}"
+      >
+        <van-button slot="button"  custom-class="button__code" disabled="{{downTime !== '获取验证码'}}" round bind:click="getCode">{{downTime !== '获取验证码'? downTime + 's' : '获取验证码'}}</van-button>
+      </van-field>
+    </view>
+    <view class="form__item button__sumbit" bindtap="submit">递交注册</view>
+    <view class="tips">注：一个家庭户主下面可以注册多个成员账号</view>
+  </form>

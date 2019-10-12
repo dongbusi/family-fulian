@@ -3,5 +3,5 @@
   <view class="thumb"><image src="/assets/img/regist-thumb.png" /></view>
   <view class="text">以家庭为单位，一个家庭只允许注册一个主账号作为户主。如果您的家庭还没有创建户主账号，请先注册户主账号。注册户主账户后，再注册家庭成员账户，并在注册时填写户主账户的手机号码进行绑定。    </view>
 </view>
-<view class="button" style="background: #EC7B7C;" bindtap="goRegistHousehold">注册成为家庭户主账号</view>
-<view class="button" style="background: #66BF61;" bindtap="goRegistMember">注册成为家庭成员账号</view>
+<button class="button" style="background: #EC7B7C;" open-type="getUserInfo" bindgetuserinfo="goRegistHousehold" hover-class="none">注册成为家庭户主账号</button>
+<button class="button" style="background: #66BF61;" open-type="getUserInfo" bindgetuserinfo="goRegistMember"  hover-class="none">注册成为家庭成员账号</button>

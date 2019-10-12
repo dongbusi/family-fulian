@@ -1,49 +1,17 @@
 <!--pages/photoModule/photoList/index.wxml-->
 <view class="body__timeline">
-  <view class="item__timeline" bindtap="goDetails">
+  <view class="item__timeline" bindtap="goDetails" wx:for="{{list}}" wx:key="{{index}}" data-id="{{item.id}}">
     <view class="timeline__photo">
-      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
-      <view class="item__num">共3图</view>
+      <image src="{{item.image}}" mode="aspectFill" lazy-load />
+      <view class="item__num">共{{item.image_count}}图</view>
     </view>
     <view class="item__info">
-      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load  />
+      <image src="{{item.up_name.avatarUrl}}" mode="aspectFill" lazy-load  />
       <view class="item__family">
-        <view>刘德华 家庭</view>
+        <view>{{item.master_name.realname}} 家庭</view>
         <view>
-          <text>家庭成员 刘涛 上传</text>
-          <text style="float: right;">今天 13:25</text>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="item__timeline">
-    <view class="timeline__photo">
-      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
-      <view class="item__num">共3图</view>
-    </view>
-    <view class="item__info">
-      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load  />
-      <view class="item__family">
-        <view>刘德华 家庭</view>
-        <view>
-          <text>家庭成员 刘涛 上传</text>
-          <text style="float: right;">今天 13:25</text>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="item__timeline">
-    <view class="timeline__photo">
-      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
-      <view class="item__num">共3图</view>
-    </view>
-    <view class="item__info">
-      <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load  />
-      <view class="item__family">
-        <view>刘德华 家庭</view>
-        <view>
-          <text>家庭成员 刘涛 上传</text>
-          <text style="float: right;">今天 13:25</text>
+          <text>家庭成员 {{item.up_name.realname}} 上传</text>
+          <text style="float: right;">{{item.time}}</text>
         </view>
       </view>
     </view>

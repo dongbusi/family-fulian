@@ -49,3 +49,11 @@ page {
 .van-picker__cancel,.van-picker__confirm  {
   color: #EC7B7C !important;
 }
+.button__phone {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+}

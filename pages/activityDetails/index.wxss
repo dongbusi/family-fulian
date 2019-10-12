@@ -19,6 +19,8 @@
 .content {
   color: #333333;
   font-size: 32rpx;
+  padding: 0 40rpx;
+  text-align: justify;
 }
 .content.canin {
   font-weight: 500;
@@ -27,14 +29,17 @@
   max-width: 100%;
   object-fit: cover;
 }
+
 .button {
   width: 670rpx;
   height: 80rpx;
-  position: absolute;
+  /* position: fixed; */
+  
   bottom: 90rpx;
   left: 0;
   right: 0;
-  margin: auto;
+  /* margin: auto; */
+  margin: 40rpx auto;
   background: #999999;
   color: #ffffff;
   font-size: 40rpx;
@@ -49,51 +54,13 @@
 }
 .container {
   width: 670rpx;
-  height: 440rpx;
   position: relative;
   background: #ffffff;
   border-radius: 40rpx;
+  /* padding-bottom: 80rpx; */
   overflow: hidden;
 }
-.num__desc {
-  color: #666666;
-  font-size: 36rpx;
-  text-align: center;
-  margin-top: 96rpx;
-  font-weight: 500;
-}
-.desc__setpper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 46rpx;
-}
-.minus {
-  width: 96rpx;
-  height: 74rpx;
-  border: 2rpx solid #707070;
-  line-height: 74rpx;
-  font-weight: bold;
-  text-align: center;
-}
-.plus {
-  width: 96rpx;
-  height: 74rpx;
-  border: 2rpx solid #707070;
-  line-height: 74rpx;
-  font-weight: bold;
-  text-align: center;
-}
-.num {
-  width: 104rpx;
-  height: 74rpx;
-  border: 2rpx solid #707070;
-  line-height: 74rpx;
-  text-align: center;
-  border-left: none;
-  border-right: none;
-  color: #EC7B7C;
-}
+
 .disable {
   width: 96rpx;
   height: 74rpx;
@@ -113,7 +80,13 @@
   color: #ffffff;
   font-size: 40rpx;
   font-weight: 500;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+}
+.van-cell-group__title {
+  text-align: center;
+  color: #666666;
+  font-size: 36rpx !important;
+  padding-top: 40rpx !important;
+}
+.value-class {
+  flex: none !important;
 }

@@ -122,3 +122,8 @@
   font-size: 40rpx;
   font-weight: 500;
 }
+.section__button::after {
+  content: '';
+  display: block;
+  height: 80rpx;
+}

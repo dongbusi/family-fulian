@@ -1,2 +1,22 @@
 <!--pages/registModule/result/index.wxml-->
-<text>pages/registModule/result/index.wxml</text>
+<view class="icon"><image src="/assets/img/upload-success.png" /></view>
+<view class="status" wx:if="{{type == 0}}">户主账号创建成功</view>
+<view class="status" wx:if="{{type == 1}}">
+  <text>家庭成员账号
+    注册成功
+  </text>
+</view>
+<view class="tips" wx:if="{{type == 0}}">
+  <text>现在可以邀请家人来注册成员账号
+    注册成功后，户主到“我的”-“个人中心”
+    里面对家庭成员进行审核
+  </text>
+</view>
+<view class="tips" wx:if="{{type == 1}}">
+  <text>您可以提醒户主到“我的”-“个人中心”
+    里面对您的加入进行审核，
+    待审核通过后，
+    您才能使用家庭成员的所有功能
+  </text>
+</view>
+<navigator class="button" url="/pages/index/index" open-type="switchTab" hover-class="none">进入首页</navigator>

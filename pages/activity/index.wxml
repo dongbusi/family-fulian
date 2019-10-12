@@ -1,6 +1,6 @@
 <!--pages/activity/index.wxml-->
 <view class="header">
-  <view class="header__num">共88个活动</view>
+  <view class="header__num">共{{total}}个活动</view>
   <view class="header__switch">
     <text>只看我能参加的活动</text>
     <view style="display: flex;height: 44rpx;">
@@ -11,37 +11,15 @@
 </view>
 
 <view class="list">
-  <view class="item" bindtap="goDetails">
+  <view class="item" bindtap="goDetails" wx:for="{{list}}" wx:key="{{index}}" data-id="{{item.id}}">
     <view class="logo"><image src="/assets/img/activity-list.png" /></view>
     <view class="info">
-      <view class="item__title text-two-line">北干街道关于开展家庭教育讲座的报名通知</view>
+      <view class="item__title text-two-line">{{item.title}}</view>
       <view class="item__footer">
-        <view class="item__date">日期 2019-10-15</view>
-        <view class="item__num">剩余名额 10</view>
-      </view>
-    </view>
-  </view>
-  <view class="item">
-    <view class="logo">
-      <image src="/assets/img/activity-list.png" />
-    </view>
-    <view class="info">
-      <view class="item__title text-two-line">北干街道关于开展家庭教育讲座的报名通知</view>
-      <view class="item__footer">
-        <view class="item__date">日期 2019-10-15</view>
-        <view class="item__num hot">你已报名</view>
-      </view>
-    </view>
-  </view>
-  <view class="item">
-    <view class="logo">
-      <image src="/assets/img/activity-list.png" />
-    </view>
-    <view class="info">
-      <view class="item__title text-two-line">北干街道关于开展家庭教育讲座的报名通知</view>
-      <view class="item__footer">
-        <view class="item__date">日期 2019-10-15</view>
-        <!-- <view class="item__num hot">你已报名</view> -->
+        <view class="item__date">日期 {{item.create_at}}</view>
+        <view class="item__num hot" wx:if="{{item.sign_true == 1 && item.sign_status == 1}}">您已报名</view>
+        <view class="item__num hot" wx:elif="{{item.sign_true == 1 && item.sign_status == 2}}">人数已满</view>
+        <view class="item__num" wx:elif="{{item.sign_true == 1}}">剩余名额 {{item.surplus}}</view>
       </view>
     </view>
   </view>

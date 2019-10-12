@@ -7,16 +7,21 @@ Page({
   data: {
 
   },
-  goRegistHousehold () {
-    wx.navigateTo({
-      url: '/pages/registModule/householder/index',
-    })
+  goRegistHousehold (e) {
+    if (e.detail.userInfo) {
+      wx.navigateTo({
+        url: '/pages/registModule/householder/index',
+      })
+    }
+    
       
   },
-  goRegistMember () {
-    wx.navigateTo({
-      url: '/pages/registModule/member/index',
-    })
+  goRegistMember (e) {
+    if (e.detail.userInfo) {
+      wx.navigateTo({
+        url: '/pages/registModule/member/index',
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载

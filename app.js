@@ -1,12 +1,18 @@
 //app.js
+
+import api from './api/index'
+
 App({
+  ...api,
   onLaunch: function () {
     wx.setTabBarBadge({
       index: 4,
       text: '13'
     })
+    this.login()
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    phone: ''
   }
 })

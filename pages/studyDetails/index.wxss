@@ -16,6 +16,7 @@
 .content {
   color: #333333;
   font-size: 32rpx;
+  padding:  0 40rpx;
 }
 .content image {
   max-width: 100%;

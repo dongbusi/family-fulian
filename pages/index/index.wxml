@@ -8,22 +8,22 @@
     </block>
   </swiper>
   <view class="indicator-dots">
-    <view wx:for="{{imgUrls}}" class="indicator-dot" wx:key="{{index}}"></view>
+    <view wx:for="{{imgUrls}}" class="indicator-dot {{index === 0 ? 'active' : ''}}" wx:key="{{index}}"></view>
   </view>
 </view>
 <view class="nav">
-  <navigator url="/pages/photoModule/upload/index" hover-class="none" >
+  <view bindtap="goUpload">
     <image src="/assets/img/nav-upload.png" />
-  </navigator>
-  <view  url="" hover-class="none" bindtap="goShare">
+  </view>
+  <view  url="" hover-class="none" bindtap="goAppreciation">
     <image src="/assets/img/nav-view.png"/>
   </view>
   <navigator url="/pages/study/index" hover-class="none" open-type="switchTab">
     <image src="/assets/img/nav-study.png"/>
   </navigator>
-  <navigator url="/pages/integralModule/index/index" hover-class="none" >
+  <view bindtap="goExchange">
     <image src="/assets/img/nav-exchange.png"/>
-  </navigator>
+  </view>
 </view>
 
 <view class="section__activity">
@@ -36,15 +36,15 @@
     </view>
   </view>
   <view class="body__activity">
-    <view class="item__activity" bindtap="goActivityDetails">
-      <image class="item__avaturl" src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" />
-      <view class="item__street">北干街道</view>
-      <view class="item__title">北干街道开展“五美家庭”评选活动</view>
+    <view class="item__activity" bindtap="goActivityDetails" data-id="{{activityList[0].id}}">
+      <image class="item__avaturl" src="{{activityList[0].logo}}" mode="aspectFill" />
+      <view class="item__street">{{activityList[0].village.name}}</view>
+      <view class="item__title">{{activityList[0].title}}</view>
     </view>
-    <view class="item__activity" bindtap="goActivityDetails">
-      <image class="item__avaturl" src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" style="border: 8rpx solid #FAE3E4;" mode="aspectFill" />
-      <view class="item__street" style="color: #EC7B7C;">宁围街道</view>
-      <view class="item__title" style="color: #EC7B7C;">宁围街道开展“五美家庭”评选活动</view>
+    <view class="item__activity" bindtap="goActivityDetails" data-id="{{activityList[1].id}}">
+      <image class="item__avaturl" src="{{activityList[1].logo}}" style="border: 8rpx solid #FAE3E4;" mode="aspectFill" />
+      <view class="item__street" style="color: #EC7B7C;">{{activityList[1].village.name}}</view>
+      <view class="item__title" style="color: #EC7B7C;">{{activityList[1].title}}</view>
     </view>
   </view>
 </view>
@@ -58,34 +58,18 @@
     </view>
   </view>
   <view class="body__timeline">
-    <view class="item__timeline" bindtap="goPhotoDetails">
+    <view class="item__timeline" bindtap="goPhotoDetails" wx:for="{{photoList}}" wx:key="index" data-id="{{item.id}}">
       <view class="timeline__photo">
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
-        <view class="item__num">共3图</view>
+        <image src="{{item.image}}" mode="aspectFill" lazy-load />
+        <view class="item__num">共{{item.image_count}}图</view>
       </view>
       <view class="item__info">
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load  />
+        <image src="{{item.up_name.avatarUrl}}" mode="aspectFill" lazy-load  />
         <view class="item__family">
-          <view>刘德华 家庭</view>
+          <view>{{item.master_name.realname}} 家庭</view>
           <view>
-            <text>家庭成员 刘涛 上传</text>
-            <text style="float: right;">今天 13:25</text>
-          </view>
-        </view>
-      </view>
-    </view>
-    <view class="item__timeline">
-      <view class="timeline__photo">
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
-        <view class="item__num">共3图</view>
-      </view>
-      <view class="item__info">
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load  />
-        <view class="item__family">
-          <view>刘德华 家庭</view>
-          <view>
-            <text>家庭成员 刘涛 上传</text>
-            <text style="float: right;">今天 13:25</text>
+            <text>家庭成员 {{item.up_name.realname}} 上传</text>
+            <text style="float: right;">{{item.time}}</text>
           </view>
         </view>
       </view>

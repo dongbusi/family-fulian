@@ -34,7 +34,9 @@ page {
   right: 0;
   margin: auto;
   z-index: 0;
-  filter: blur(50rpx);
+  filter: blur(25px);
+  -webkit-filter: blur(25px);
+  transform: translateZ(0);
 }
 .text {
   margin-top: 40rpx;
@@ -92,6 +94,10 @@ page {
   overflow: hidden;
   flex: none;
 }
+.item__avaturl image {
+  width: 100%;
+  height: 100%;
+}
 .item__text {
   color: #333333;
   font-size: 26rpx;
@@ -130,4 +136,34 @@ page {
 .setting__item image  {
   width: 20rpx;
   height: 20rpx;
+}
+
+.members__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #E4E4E4;
+  padding: 20rpx 0;
+}
+.family-members {
+  padding: 40rpx;
+}
+.item__button {
+  min-width: 120rpx;
+  padding: 10rpx;
+  background: #EC7B7C;
+  border-radius: 10rpx;
+  color: #FFFFFF;
+  font-size: 28rpx;
+  text-align: center;
+}
+.pass {
+  background: #999999;
+}
+.member__name {
+  width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
 }

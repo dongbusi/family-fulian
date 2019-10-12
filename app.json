@@ -70,7 +70,9 @@
       "pages": [
         "index/index",
         "rules/index",
-        "details/index"
+        "details/index",
+        "list/index",
+        "exchangeList/index"
       ]
     },
     {

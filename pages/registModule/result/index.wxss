@@ -1,1 +1,37 @@
 /* pages/registModule/result/index.wxss */
+.icon {
+  width: 112rpx;
+  height: 98rpx;
+  margin: 160rpx auto 0;
+}
+.status {
+  margin: 30rpx auto 0;
+  text-align: center;
+  line-height: 80rpx;
+  color: #EC7B7C;
+  font-size: 56rpx;
+  font-weight: 500;
+}
+.tips {
+  margin: 20rpx 0 0;
+  text-align: center;
+  line-height: 44rpx;
+  color: #666666;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.button {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 100rpx;
+  margin: 0 auto;
+  width: 670rpx;
+  height: 120rpx;
+  background: #EC7B7C;
+  color: #ffffff;
+  border-radius: 80rpx;
+  font-size: 40rpx;
+  line-height: 120rpx;
+  text-align: center;
+}

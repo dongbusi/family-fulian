@@ -25,7 +25,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.3",
-	"appid": "wx18323b900731e64d",
+	"appid": "wxc96046f67398318b",
 	"projectname": "family",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -51,7 +51,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 12,
+			"current": 16,
 			"list": [
 				{
 					"id": -1,
@@ -118,13 +118,6 @@
 				},
 				{
 					"id": -1,
-					"name": "活动详情",
-					"pathName": "pages/activityDetails/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "积分兑换列表",
 					"pathName": "pages/integralModule/index/index",
 					"query": "",
@@ -141,6 +134,41 @@
 					"id": -1,
 					"name": "注册主账户",
 					"pathName": "pages/registModule/householder/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "注册结果",
+					"pathName": "pages/registModule/result/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "成员注册",
+					"pathName": "pages/registModule/member/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "积分明细",
+					"pathName": "pages/integralModule/list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "活动详情 ",
+					"pathName": "pages/activityResult/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品详情",
+					"pathName": "pages/integralModule/details/index",
 					"query": "",
 					"scene": null
 				}

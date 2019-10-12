@@ -154,3 +154,8 @@
   line-height: 32rpx;
   text-indent: 1em;
 }
+.body::after {
+  display: block;
+  content: '';
+  height: 60rpx;
+}

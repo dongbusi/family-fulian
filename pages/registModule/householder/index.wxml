@@ -44,15 +44,17 @@
     value="{{ form.phone }}"
     placeholder="请输入您的手机号码"
     border="{{ false }}"
-    bind:change="input"
     data-type="phone"
     maxlength="11"
     clearable
+    disabled
     type="number"
     input-class="input"
     right-icon="{{error === 'phone' ? '/assets/img/warning.png' : ''}}"
     error="{{error === 'phone'}}"
   />
+  <button class="button__phone" hover-class="none" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" ></button>
+    
   </view>
   <view class="form__item {{error === 'code' ? 'error' : ''}}">
     <van-field
@@ -76,5 +78,6 @@
 
 
 <van-popup show="{{ showAddress }}" position="bottom" bind:close="closeAddress">
-  <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" value="110101" bindcancel="closeAddress" bindconfirm="selectaddress" />
+  <van-picker columns="{{ areaList }}" bind:change="onChange" show-toolbar bindcancel="closeAddress" bindconfirm="selectaddress"  />
 </van-popup>
+

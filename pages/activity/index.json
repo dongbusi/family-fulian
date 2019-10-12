@@ -3,5 +3,6 @@
   "backgroundColorTop": "#FBFBFB",
   "usingComponents": {
     "van-switch": "vant-weapp/switch/index"
-  }
+  },
+  "enablePullDownRefresh": true
 }

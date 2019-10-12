@@ -1,22 +1,34 @@
 <!--pages/studyDetails/index.wxml-->
-<view class="title canin">习近平在“不忘初心、牢记使命”主题教育工作会议上的讲话</view>
+<view class="title canin">{{details.title}}</view>
 <view class="desc">
-  <text>2019-10-01</text>
-  <text>来源：萧山区妇联</text>
+  <text>{{details.create_at}}</text>
+  <text>来源：{{details.village.name}}</text>
 </view>
-<view class="content"></view>
-<view class="button canin" bindtap="showNumSetting">我要报名</view>
-<!-- <view class="button">我要取消报名</view> -->
-
+<view class="content">
+  <rich-text class="" nodes="{{details.content}}" class="content"></rich-text>
+</view>
+<view class="button" wx:if="{{details.sign_true == 1 && details.sign_status == 1 }}" bindtap="cancelSign">我要取消报名</view>
+<view class="button canin" wx:elif="{{details.sign_true == 1 && details.sign_status == 0}}" bindtap="showNumSetting">我要报名</view>
+<view class="button" wx:if="{{details.sign_true == 1 && details.sign_status == 2 }}">报名人数已满</view>
+<view class="button" wx:elif="{{details.sign_true == 0}}">我要报名</view>
 
 <van-popup show="{{ show }}" bind:close="closeNumSetting" custom-class="container">
   <view class="container">
-    <view class="num__desc">请输入参与本次活动的家庭人数</view>
-    <view class="desc__setpper">
-      <view class="{{number === 1 ? 'disable' : 'minus'}}" bindtap="minus">-</view>
-      <view class="num">{{number}}</view>
-      <view class="plus" bindtap="plus">+</view>
-    </view>
+    <van-checkbox-group value="{{ result }}" bind:change="onChange">
+      <van-cell-group title="请选择参与本次活动的家庭人员" border="{{false}}">
+        <van-cell
+          wx:for="{{ family }}"
+          wx:key="index"
+          title="{{ item.realname }}"
+          value-class="value-class"
+          clickable
+          data-index="{{ index }}"
+          bind:click="toggle"
+        >
+          <van-checkbox catch:tap="noop" class="checkboxes-{{ index }}" name="{{ item.id }}" checked-color="#EC7B7C" disabled="{{item.sign.length > 0}}" />
+        </van-cell>
+      </van-cell-group>
+    </van-checkbox-group>
     <view class="submit" bindtap="submit">确定报名</view>
   </view>
 </van-popup>

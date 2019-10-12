@@ -1,4 +1,8 @@
 // pages/registModule/hoseholder/index.js
+const app = getApp();
+
+  
+
 Page({
 
   /**
@@ -15,18 +19,21 @@ Page({
     downTime: '获取验证码',
     error: '',
     showAddress: false,
-    areaList:{
-      province_list: { // 实际为街道，vant字段限制，暂不修改，code自定义
-        110000: '北京市',
-        120000: '天津市'
+    townId: '',
+    villageId: '',
+    areaList:[
+      /* {
+        values: '',
+        className: 'town',
       },
-      city_list: { // 实际为村庄，vant字段限制，暂不修改，code自定义
-        110100: '北京市',
-        110200: '县',
-        120100: '天津市',
-        120200: '县'
-      }
-    }
+      {
+        values: '',
+        className: 'town',
+        defaultIndex: ''
+      } */
+    ],
+    town_id: '',
+    village_id: ''
   },
   input (e) {
     let type = e.target.dataset.type
@@ -60,14 +67,21 @@ Page({
   closeAddress () {
     this.setData({ showAddress: false });
   },
+  onChange(event) {
+    const { value } = event.detail;
+    let townIndex = this.data.areaList[0].values.findIndex(item => item == value[0])
+    this.getVillage(this.data.townId[townIndex])
+  },
   selectaddress (e) {
-    console.log(e.detail.values)
-    let values = e.detail.values
+    let value = e.detail.value
+    let town_id = this.data.townId[this.data.areaList[0].values.findIndex(item => item == value[0])]
+    let village_id = this.data.villageId[this.data.areaList[1].values.findIndex(item => item == value[1])]
     this.setData({
-      'form.area': values[0].name + values[1].name,
-      showAddress: false
+      town_id,
+      village_id,
+      'form.area': value.join()
     })
-
+    this.closeAddress()
   },
   submit () {
     if (this.data.form.name === '') {
@@ -109,12 +123,85 @@ Page({
     this.setData({
       error: ''
     })
+    wx.getUserInfo({
+      success: (res) => {
+        app.regist({
+          encryptedData: res.encryptedData,
+          iv: res.iv,
+          rawData: res.rawData,
+          signature: res.signature,
+          mobile: this.data.form.phone,
+          code: this.data.form.code,
+          town_id: this.data.town_id,
+          village_id: this.data.village_id,
+          pid: 0,
+          realname: this.data.form.name,
+          address: this.data.form.address
+        }).then(res => {
+          wx.navigateTo({
+            url: '/pages/registModule/result/index?type=0'
+          })
+        })
+      }
+    })
+  },
+  getTown () {
+    app.getTown().then(res => {
+      let townName = res.data.map(item => {
+        return item.name
+      })
+      let townId = res.data.map(item => {
+        return item.id
+      })
+      this.setData({
+        'areaList[0]': {
+          values: townName
+        },
+        townId
+      })
+      this.getVillage(res.data[0].id)
+    })
+  },
+  getVillage (town_id = 1) {
+    app.getVillage({
+      town_id: town_id
+    }).then(res => {
+      let village = res.data.map(item => {
+        return item.name
+      })
+      let villageId = res.data.map(item => {
+        return item.id
+      })
+      this.setData({
+        'areaList[1]': {
+          values: village,
+          defaultIndex: 0,
+        },
+        villageId
+      })
+    })
+  },
+  getPhoneNumber (e) {
+    wx.removeStorageSync('token');
+    if (e.detail.iv) {
+      app.login().then(res => {
+        app.getPhone({
+          encryptedData: e.detail.encryptedData,
+          iv: e.detail.iv
+        }).then(res => {
+          let reg = /^(\d{3})\d{4}(\d{4})/
+          this.setData({
+            'form.phone': res.data.phoneNumber.replace(reg, '$1****$2')
+          })
+        })
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getTown()
   },
 
   /**

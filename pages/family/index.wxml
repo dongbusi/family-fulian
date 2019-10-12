@@ -1,73 +1,31 @@
 <!--pages/family/index.wxml-->
-<view class="share">
+<button class="share" hover-class="none" open-type="share">
   <image src="/assets/img/share.png" />
   <text>分享</text>
-</view>
+</button>
 <view class="header">
   <view class="info">
-    <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" />
-    <view>刘德华 家庭</view>
+    <image src="{{userInfo.avatarUrl}}" mode="aspectFill" />
+    <view>{{userInfo.realname}} 家庭</view>
     <view>积分 1569</view>
   </view>
   <view class="avaturl">
     <text>家庭成员</text>
-    <view>3</view>
-    <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" ></image>
-    <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" ></image>
-    <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" ></image>
+    <view>{{family.length}}</view>
+    <image src="{{item.avatarUrl}}" wx:for="{{family}}" wx:key="index" mode="aspectFill" ></image>
   </view>
 </view>
 <view class="body">
   <view class="body__title">我的庭院美照</view>
   <view class="body__list">
-    <view class="item" bindtap="goDetails">
+    <view class="item" bindtap="goDetails" wx:for="{{photoList}}" wx:key="{{index}}" data-id="{{item.id}}">
       <view class="item__photo">
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
+        <image src="{{item.image}}" mode="aspectFill" lazy-load />
+        <image src="{{item.up_name.avatarUrl}}" mode="aspectFill" lazy-load />
       </view>
       <view class="item__info">
-        <view>刘德华 家庭</view>
-        <view>刘德华 上传3个图</view>
-      </view>
-    </view>
-    <view class="item">
-      <view class="item__photo">
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
-      </view>
-      <view class="item__info">
-        <view>刘德华 家庭</view>
-        <view>刘德华 上传3个图</view>
-      </view>
-    </view>
-    <view class="item">
-      <view class="item__photo">
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
-      </view>
-      <view class="item__info">
-        <view>刘德华 家庭</view>
-        <view>刘德华 上传3个图</view>
-      </view>
-    </view>
-    <view class="item">
-      <view class="item__photo">
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
-      </view>
-      <view class="item__info">
-        <view>刘德华 家庭</view>
-        <view>刘德华 上传3个图</view>
-      </view>
-    </view>
-    <view class="item">
-      <view class="item__photo">
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
-        <image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" lazy-load />
-      </view>
-      <view class="item__info">
-        <view>刘德华 家庭</view>
-        <view>刘德华 上传3个图</view>
+        <view>{{item.master_name.realname}} 家庭</view>
+        <view>{{item.up_name.realname}} 上传{{item.image_count}}个图</view>
       </view>
     </view>
   </view>
