@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "学习教育",
   "backgroundColorTop": "#FBFBFB",
-  "backgroundColorBottom": "#FFFFFF"
+  "backgroundColorBottom": "#FFFFFF",
+  "enablePullDownRefresh": true
 }

@@ -88,3 +88,17 @@ page {
   font-weight: bold;
   margin-right: 16rpx;
 }
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+.header__nav view {
+  color: #666666;
+  font-size: 30rpx;
+  padding: 20rpx;
+}.header__nav view.hot {
+  color: #EC7B7C;
+}
+.header__nav view:last-child {
+  padding-right: 0;
+}

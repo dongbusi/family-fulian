@@ -72,5 +72,18 @@ export default {
     url: '/api/family_adopt_status',
     data,
     method: 'post'
+  }),
+  getSwiper: data => http({
+    url: '/common/carousel',
+    method: 'POST'
+  }),
+  getInfoList: data => http({
+    url: '/personal/message',
+    method: "POST"
+  }),
+  removeInfo: data => http({
+    url: '/personal/message_status',
+    data,
+    method: 'POST'
   })
 }

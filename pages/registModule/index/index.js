@@ -12,16 +12,37 @@ Page({
       wx.navigateTo({
         url: '/pages/registModule/householder/index',
       })
-    }
-    
-      
+    }  
   },
   goRegistMember (e) {
-    if (e.detail.userInfo) {
-      wx.navigateTo({
-        url: '/pages/registModule/member/index',
-      })
-    }
+
+    wx.showModal({
+      title: '提示',
+      content: '您是否已创建家庭主账户',
+      showCancel: true,
+      cancelText: '否',
+      cancelColor: '#EC7B7C',
+      confirmText: '是',
+      confirmColor: '#EC7B7C',
+      success: (result) => {
+        if (result.confirm) {
+          if (e.detail.userInfo) {
+            wx.navigateTo({
+              url: '/pages/registModule/member/index',
+            })
+          }
+        } else {
+          if (e.detail.userInfo) {
+            wx.navigateTo({
+              url: '/pages/registModule/householder/index',
+            })
+          }
+        }
+      }
+    })
+      
+
+    
   },
   /**
    * 生命周期函数--监听页面加载

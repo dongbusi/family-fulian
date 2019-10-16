@@ -6,7 +6,7 @@
  * @params {data: object}
  */
 
-
+// const BASR_URL = 'http://168.100.188.50/v1'
 const BASR_URL = 'http://www.v5.com/v1'
 
 function login () {

@@ -7,11 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
-    ],
+    swiper: [],
     photoList: [],
     activityList: [],
     registType: 4, //  4未注册 0待审核 1已注册 2重新注册
@@ -32,7 +28,7 @@ Page({
     })
   },
   goActivity () {
-    this.checkRegistType() && wx.switchTab({
+    wx.switchTab({
       url: '/pages/activity/index'
     })
   },
@@ -69,7 +65,7 @@ Page({
         return false
       case 0:
         wx.showToast({
-          title: '请通知户主审核通过',
+          title: '请通知户主审核通过，如已通过审核，请重新打开小程序',
           icon: 'none'
         })
         return false
@@ -150,6 +146,13 @@ Page({
       wx.stopPullDownRefresh()
     })
   },
+  getSwiper () {
+    app.getSwiper().then(res => {
+      this.setData({
+        swiper: res.data
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -162,6 +165,7 @@ Page({
         })
       }
     })
+    this.getSwiper()
     this.getActivityList()
     this.getPhotoList()
   },

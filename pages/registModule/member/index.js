@@ -135,8 +135,12 @@ Page({
           realname: this.data.form.selfname
         }).then(res => {
           wx.navigateTo({
-            url: '/pages/registModule/result/index?type=1'
+            url: '/pages/registModule/result/index?type=1',
+            success () {
+              wx.setStorageSync('registType', 0)
+            }
           })
+          
         })
       }
     })

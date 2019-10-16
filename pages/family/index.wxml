@@ -7,7 +7,7 @@
   <view class="info">
     <image src="{{userInfo.avatarUrl}}" mode="aspectFill" />
     <view>{{userInfo.realname}} 家庭</view>
-    <view>积分 1569</view>
+    <view>积分 {{userInfo.points}}</view>
   </view>
   <view class="avaturl">
     <text>家庭成员</text>

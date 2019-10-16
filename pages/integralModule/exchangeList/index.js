@@ -15,21 +15,6 @@ Page({
     // wx.previewImage({
     //   urls: ['http://www.v5.com/admin.html?s=store/api.goods/ceshi'] // 需要预览的图片http链接列表
     // })
-
-    wx.request({
-      url: 'http://www.v5.com/admin.html?s=store/api.goods/ceshi',
-      data: {},
-      header: {'content-type':'application/json'},
-      method: 'GET',
-      success: (result) => {
-        console.log(result)
-        // wx.previewImage({
-        //   urls: ['result'] // 需要预览的图片http链接列表
-        // })
-      },
-      fail: () => {},
-      complete: () => {}
-    });
       
   },
 

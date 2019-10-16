@@ -11,6 +11,9 @@ App({
     })
     this.login()
   },
+  onShow: function () {
+    this.login()
+  },
   globalData: {
     userInfo: null,
     phone: ''

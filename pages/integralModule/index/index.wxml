@@ -2,8 +2,8 @@
 <view class="user">
   <view class="user__info">
     <view class="user__avaturl"><image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" /></view>
-    <view class="user__name">刘德华 家庭</view>
-    <view class="user__credit">积分 1569</view>
+    <view class="user__name">{{userInfo.realname}} 家庭</view>
+    <view class="user__credit">积分 {{userInfo.points}}</view>
   </view>
   <view class="rule" bindtap="goRules" style="margin-left: 0;">积分规则</view>
   <view class="rule" bindtap="goIntergalDetail" >积分明细</view>

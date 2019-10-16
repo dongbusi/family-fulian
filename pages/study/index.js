@@ -1,22 +1,42 @@
 // pages/study/index.js
+
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    limit: 8,
+    page: 0,
+    list: [],
+    registType: ''
   },
-  goDetails () {
+  goDetails (e) {
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/studyDetails/index'
+      url: '/pages/studyDetails/index?id=' + id
+    })
+  },
+  getList () {
+    
+    app.getStudyList({
+      limit: this.data.limit,
+      page: this.data.page + 1
+    }).then(res => {
+      this.setData({
+        list: [...this.data.list, ...res.data.data],
+        current_page: res.data.current_page
+      })
+      wx.stopPullDownRefresh()
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getList()
   },
 
   /**
@@ -51,7 +71,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      page: 0,
+      list: []
+    })
+    this.getList()
   },
 
   /**

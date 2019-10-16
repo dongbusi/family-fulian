@@ -1,12 +1,10 @@
 <!--pages/activity/index.wxml-->
 <view class="header">
   <view class="header__num">共{{total}}个活动</view>
-  <view class="header__switch">
-    <text>只看我能参加的活动</text>
-    <view style="display: flex;height: 44rpx;">
-      <van-switch checked="{{ canIn }}" size="40rpx" active-color="#EC7B7C" inactive-color="#707070" bindchange="changeCanIn" />
-    </view>
-      
+  <view class="header__nav">
+    <view class="button {{tab == 0 ? 'hot' : ''}}" bindtap="changeTabs" data-index="0">全部</view>
+    <view class="button {{tab == 1 ? 'hot' : ''}}" bindtap="changeTabs" data-index="1">可参加</view>
+    <view class="button {{tab == 2 ? 'hot' : ''}}" bindtap="changeTabs" data-index="2">已参加</view>
   </view>
 </view>
 

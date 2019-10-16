@@ -11,18 +11,30 @@ Page({
     tab: 0,
     family: '',
     power: 0,
-    userInfo: ''
+    userInfo: '',
+    infoList: []
   },
   toogleTabInfo () {
     this.setData({
       tab: 0
     })
+    this.getInfoList()
   },
   toogleTabMember () {
     this.setData({
-      tab: 1
+      tab: 3
     })
     this.getFamily()
+  },
+  toogleDetails () {
+    this.setData({
+      tab: 1
+    })
+  },
+  toogleFamily () {
+    this.setData({
+      tab: 2
+    })
   },
   getFamily () {
     app.getFamily().then(res => {
@@ -44,6 +56,7 @@ Page({
         family: family,
         power: res.data.power
       })
+      wx.stopPullDownRefresh()
     })
   },
   checkPass (e) {
@@ -78,11 +91,83 @@ Page({
       })
     })
   },
+  checkRegistType (registType) {
+    switch (registType) {
+      case 4:
+        wx.redirectTo({
+          url: '/pages/registModule/index/index',
+          success () {
+            wx.showToast({
+              title: '请先注册',
+              icon: 'none',
+              duration: 3000
+            })
+          }
+        })
+        return false
+      case 0:
+        wx.switchTab({
+          url: '/pages/index/index',
+          success () {
+            wx.showToast({
+              title: '请通知户主审核通过，如已通过审核，请重新打开小程序',
+              icon: 'none',
+              duration: 3000
+            })
+          }
+        })
+        return false
+      case 2:
+        wx.redirectTo({
+          url: '/pages/registModule/index/index',
+          success () {
+            wx.showToast({
+              title: '户主审核失败，请重新注册',
+              icon: 'none',
+              duration: 3000
+            })
+          }
+        })
+        
+        return false
+      case 1:
+        return true
+      default: 
+      wx.redirectTo({
+        url: '/pages/registModule/index/index',
+        success () {
+          wx.showToast({
+            title: '请先注册',
+            icon: 'none',
+            duration: 3000
+          })
+        }
+      })
+    }
+  },
+  removeInformation (e) {
+    let index = e.currentTarget.dataset.index, id = e.currentTarget.dataset.id
+    let infoList = this.data.infoList
+    infoList.splice(index, 1)
+    this.setData({
+      infoList: infoList
+    })
+    app.removeInfo({
+      id: id
+    })
+  },
+  getInfoList () {
+    app.getInfoList().then(res => {
+      this.setData({
+        infoList: res.data
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getFamily()
+    
   },
 
   /**
@@ -96,7 +181,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      tab: 0
+    })
+    this.checkRegistType(wx.getStorageSync('registType'))  && this.getFamily()
+    this.getInfoList()
   },
 
   /**
@@ -117,7 +206,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getFamily()
+    this.getInfoList()
   },
 
   /**

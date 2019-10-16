@@ -1,18 +1,54 @@
 // pages/studyDetails/index.js
+
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    details: '',
+    id: ''
   },
-
+  getDetails (id) {
+    if(wx.getStorageSync('registType') !== 1) {
+      app.getCommonStudyDetails({
+        study_id: id
+      }).then(res => {
+        let details = res.data
+        details.create_at = details.create_at.slice(0, 10)
+        this.setData({
+          details: details
+        })
+      })
+    } else {
+      app.getStudyDetails({
+        study_id: id
+      }).then(res => {
+        let details = res.data
+        details.create_at = details.create_at.slice(0, 10)
+        details.content = details.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
+        this.setData({
+          details: details
+        })
+        if (details.points == 1) {
+          wx.showToast({
+            title: '阅读完成，积分+ ' + details.points_num,
+            icon: 'none'
+          })
+        }
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      id: options.id
+    })
+    this.getDetails(options.id)
   },
 
   /**

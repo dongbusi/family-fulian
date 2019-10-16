@@ -29,6 +29,7 @@
         </van-cell>
       </van-cell-group>
     </van-checkbox-group>
+    <view class="submit" style="background: transparent;"></view>
     <view class="submit" bindtap="submit">确定报名</view>
   </view>
 </van-popup>

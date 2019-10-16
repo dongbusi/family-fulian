@@ -1,11 +1,15 @@
 // pages/integralModule/index/index.js
+
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    skuList: ''
+    skuList: '',
+    userInfo: ''
   },
   goGoodsDetails (e) {
     let id = e.target.dataset.id, goods_id = e.target.dataset.goods_id
@@ -24,6 +28,11 @@ Page({
     })
   },
   goExchangeDetail () {
+    wx.showToast({
+      title: '正在开发中',
+      icon: 'none'
+    })
+    return
     wx.navigateTo({
       url: '/pages/integralModule/exchangeList/index'
     })
@@ -63,10 +72,23 @@ Page({
       }
     })
   },
+  getUserInfo () {
+    app.getFamily().then(res => {
+      let family = Object.assign({}, res.data)
+      delete family.power
+      family.length = Object.keys(family).length
+      family = Array.from(family)
+      let userInfo = family.find(item => item.pid == 0)
+      this.setData({
+        userInfo: userInfo
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getUserInfo()
     this.getList()
   },
 

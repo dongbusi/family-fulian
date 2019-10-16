@@ -11,28 +11,19 @@
 </view>
 <view class="container">
   <view class="tab">
-    <view class="{{tab === 0 ? 'hot' : ''}}" bindtap="toogleTabInfo">我的消息</view>
-    <view class="{{tab === 1 ? 'hot' : ''}}" bindtap="toogleTabMember">家庭成员</view>
+    <view class="{{tab === 0 ? 'hot' : ''}}" bindtap="toogleTabInfo">家庭消息</view>
+    <view class="{{tab === 1 ? 'hot' : ''}}" bindtap="toogleDetails">积分明细</view>
+    <view class="{{tab === 2 ? 'hot' : ''}}" bindtap="toogleFamily">我家家园</view>
+    <view class="{{tab === 3 ? 'hot' : ''}}" bindtap="toogleTabMember">家庭成员</view>
   </view>
   <view class="content information" hidden="{{tab !== 0}}">
-    <view class="information__item">
-      <view class="item__avaturl"><image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" /></view>
-      <view class="item__text hot">你的家庭成员在2019-10-10日发布的庭院美照已经通过村级工作人员审核</view>
-    </view>
-    <view class="information__item">
-      <view class="item__avaturl"><image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" /></view>
-      <view class="item__text">你的家庭成员在2019-10-10日发布的庭院美照已经通过村级工作人员审核</view>
-    </view>
-    <view class="information__item">
-      <view class="item__avaturl"><image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" /></view>
-      <view class="item__text">你的家庭成员在2019-10-10日发布的庭院美照已经通过村级工作人员审核</view>
-    </view>
-    <view class="information__item">
-      <view class="item__avaturl"><image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" /></view>
-      <view class="item__text">你的家庭成员在2019-10-10日发布的庭院美照已经通过村级工作人员审核</view>
+    <view class="information__item" wx:for="{{infoList}}" wx:key="index">
+      <view class="item__avaturl"><image src="{{item.avaturl}}" mode="aspectFill" /></view>
+      <view class="item__text">{{item.content}}</view>
+      <van-icon name="close" class="information__item__close" color="#999999" data-index="{{index}}" data-id="{{item.id}}" bindtap="removeInformation" />
     </view>
   </view>
-  <view class="content family-members" hidden="{{tab !== 1}}">
+  <view class="content family-members" hidden="{{tab !== 3}}">
     <view class="members__item" wx:for="{{family}}" wx:key="index">
       <view class="item__avaturl"><image src="{{item.avatarUrl}}" /></view>
       <view class="color333" class="member__name">{{item.realname}}</view>
@@ -40,7 +31,23 @@
       <view class="item__button" wx:if="{{item.adopt_status == 2 && power == 1}}" bindtap="checkPass" data-id="{{item.id}}" data-index="{{index}}">去通过</view>
       <view class="item__button pass" wx:elif="{{item.adopt_status == 0 && power == 0}}">未通过</view>
       <view class="item__button" wx:elif="{{item.adopt_status == 1 && item.pid !== 0}}" bindtap="cancelPass" data-id="{{item.id}}" data-index="{{index}}">取消通过</view>
-      <view style="width: 120rpx" wx:else ></view>
+      <view style="width: 140rpx" wx:if="{{item.pid == 0}}" ></view>
+    </view>
+  </view>
+  <view class="content information" hidden="{{tab !== 2}}">
+    <image class="qrcode" src="../../assets/img/qrcode.jpeg" mode="aspectFit|aspectFill|widthFix"  />
+  </view>
+  <view class="content information integral" hidden="{{tab !== 1}}">
+    <view class="integral__container">
+      <view class="integral__list">
+        <view class="integral__item">
+          <view class="integral__item__info">
+            <view>成员董展 每日登陆</view>
+            <view>2019-10-10</view>
+          </view>
+          <view class="integral__item__integra">+1</view>
+        </view>
+      </view>
     </view>
   </view>
 </view>

@@ -15,5 +15,5 @@ export default {
     url: '/api/family_friend_details',
     data,
     method: 'post'
-  }),
+  })
 }

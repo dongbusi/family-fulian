@@ -28,7 +28,7 @@
   </view>
   <view class="goods-body">
     <van-panel title="商品描述"  header-class="head">
-      <view style="padding: 20rpx 0;">
+      <view style="padding: 20rpx 30rpx;">
         <rich-text class="" nodes="{{currentDetails.desc}}">
           
         </rich-text>

@@ -12,7 +12,8 @@ Page({
     id: '',
     details: '',
     family: [],
-    result: []
+    result: [],
+    registered: ''
   },
   closeNumSetting() {
     this.setData({ show: false });
@@ -27,6 +28,7 @@ Page({
     }).then(res => {
       let details = res.data
       details.create_at = details.create_at.slice(0, 10)
+      details.content = details.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
       this.setData({
         details: details
       })
@@ -44,7 +46,8 @@ Page({
       }
       this.setData({
         family: res.data,
-        result: result
+        result: result,
+        registered: result
       })
     })
   },
@@ -67,8 +70,16 @@ Page({
   },
   noop() {},
   submit () {
+    if (this.data.result.length === 0) {
+      wx.showToast({
+        title: '您未选择家庭成员',
+        icon: 'none'
+      })
+      return
+    }
+    let result = this.data.result.filter(item => !this.data.registered.includes(item))
     app.signActivity({
-      sign_uid: this.data.result.join(','),
+      sign_uid: result.join(','),
       id: this.data.id
     }).then(res => {
       wx.navigateTo({

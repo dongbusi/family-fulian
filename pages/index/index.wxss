@@ -113,6 +113,12 @@
   color: #ffffff;
   font-size: 28rpx;
   font-weight: bold;
+  max-height: 126rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 .item__timeline {
   height: 524rpx;

@@ -14,17 +14,22 @@ Page({
     goods_id: ''
   },
   exchange () {
-      wx.showModal({
-      title: '提示',
-      content: '是否确定兑换',
-      showCancel: true,
-      cancelText: '取消',
-      cancelColor: '#EC7B7C',
-      confirmText: '确定',
-      confirmColor: '#EC7B7C',
-      success: (result) => {
-        if (result.confirm) {
-          console.log(111)
+    wx.showToast({
+      title: '正在开发中',
+      icon: 'none'
+    })
+    return
+    wx.showModal({
+    title: '提示',
+    content: '是否确定兑换',
+    showCancel: true,
+    cancelText: '取消',
+    cancelColor: '#EC7B7C',
+    confirmText: '确定',
+    confirmColor: '#EC7B7C',
+    success: (result) => {
+      if (result.confirm) {
+        console.log(111)
         }
       }
     })
@@ -85,7 +90,7 @@ Page({
   },
   getCurrentSku () {
     let list = this.data.skuInfoList
-    let defaultGoods = list.find(item => item.id = this.data.defaultId)
+    let defaultGoods = list.find(item => item.id == this.data.defaultId)
     this.setData({
       currentDetails: defaultGoods
     })

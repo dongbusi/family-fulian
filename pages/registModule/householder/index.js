@@ -16,6 +16,7 @@ Page({
       phone: '',
       code: ''
     },
+    fullPhone: '',
     downTime: '获取验证码',
     error: '',
     showAddress: false,
@@ -108,12 +109,6 @@ Page({
       })
       return
     }
-    if (!(/^1[3456789]\d{9}$/.test(this.data.form.phone))) {
-      this.setData({
-        error: 'phone'
-      })
-      return
-    }
     if (this.data.form.code === '') {
       this.setData({
         error: 'code'
@@ -130,7 +125,7 @@ Page({
           iv: res.iv,
           rawData: res.rawData,
           signature: res.signature,
-          mobile: this.data.form.phone,
+          mobile: this.data.fullPhone,
           code: this.data.form.code,
           town_id: this.data.town_id,
           village_id: this.data.village_id,
@@ -139,7 +134,10 @@ Page({
           address: this.data.form.address
         }).then(res => {
           wx.navigateTo({
-            url: '/pages/registModule/result/index?type=0'
+            url: '/pages/registModule/result/index?type=0',
+            success () {
+              wx.setStorageSync('registType', 1); 
+            }
           })
         })
       }
@@ -191,7 +189,8 @@ Page({
         }).then(res => {
           let reg = /^(\d{3})\d{4}(\d{4})/
           this.setData({
-            'form.phone': res.data.phoneNumber.replace(reg, '$1****$2')
+            'form.phone': res.data.phoneNumber.replace(reg, '$1****$2'),
+            'fullPhone': res.data.phoneNumber
           })
         })
       })
