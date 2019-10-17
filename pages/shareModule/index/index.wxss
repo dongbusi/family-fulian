@@ -2,7 +2,7 @@
 .header {
   margin: 32rpx auto;
   width: 670rpx;
-  height: 240rpx;
+  height: 290rpx;
   background: #ffffff;
   box-shadow:0rpx 16rpx 40rpx rgba(130,144,220,0.13);
   border-radius: 16rpx;
@@ -158,23 +158,4 @@
   display: block;
   content: '';
   height: 60rpx;
-}
-.content__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40rpx;
-}
-.tabs {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.tab {
-  padding: 10rpx;
-  font-size: 30rpx;
-  color: #999999;
-}
-.tab.hot {
-  color: #EC7B7C;
 }

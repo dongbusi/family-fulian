@@ -23,7 +23,7 @@ export default {
             // register  4未注册 0待审核 1已注册 2重新注册
             wx.setStorageSync('token', res.data)
             wx.setStorageSync('registType', res.register)
-            resolve(res.data)
+            resolve(res.register)
           })
         },
         fail () {

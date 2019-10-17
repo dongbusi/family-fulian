@@ -5,11 +5,20 @@ import api from './api/index'
 App({
   ...api,
   onLaunch: function () {
-    wx.setTabBarBadge({
-      index: 4,
-      text: '13'
+   
+    this.login().then(res => {
+      if (res == 1) {
+        this.getInfoList().then(res => {
+          if (res.data.length !== 0) {
+            wx.setTabBarBadge({
+              index: 4,
+              text: res.data.length + '' || ''
+            })
+          }
+         
+        })
+      }
     })
-    this.login()
   },
   onShow: function () {
     this.login()

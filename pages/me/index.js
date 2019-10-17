@@ -152,9 +152,19 @@ Page({
     this.setData({
       infoList: infoList
     })
+    let length  = String(this.data.infoList.length)
+    if (length == 0) {
+      wx.removeTabBarBadge({index: 4})
+    } else {
+      wx.setTabBarBadge({
+        index: 4,
+        text: length
+      })
+    }
     app.removeInfo({
       id: id
     })
+    
   },
   getInfoList () {
     app.getInfoList().then(res => {

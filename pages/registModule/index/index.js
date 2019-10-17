@@ -7,21 +7,19 @@ Page({
   data: {
 
   },
-  goRegistHousehold (e) {
-    if (e.detail.userInfo) {
-      wx.navigateTo({
-        url: '/pages/registModule/householder/index',
-      })
-    }  
+  goIndex (e) {
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
   },
   goRegistMember (e) {
 
     wx.showModal({
       title: '提示',
-      content: '您是否已创建家庭主账户',
+      content: '您的家庭是否已创建家庭主账户',
       showCancel: true,
       cancelText: '否',
-      cancelColor: '#EC7B7C',
+      cancelColor: '#999999',
       confirmText: '是',
       confirmColor: '#EC7B7C',
       success: (result) => {

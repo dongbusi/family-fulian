@@ -84,6 +84,13 @@
         "householder/index",
         "result/index"
       ]
+    },
+    {
+      "root": "pages/shareModule",
+      "name": "shareModule",
+      "pages": [
+        "index/index"
+      ]
     }
   ],
   "sitemapLocation": "sitemap.json"

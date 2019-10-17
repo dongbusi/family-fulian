@@ -7,24 +7,20 @@
   <view class="info">
     <image src="{{userInfo.avatarUrl}}" mode="aspectFill" />
     <view>{{userInfo.realname}} 家庭</view>
-    <view>积分 {{userInfo.points}}</view>
+    <view></view>
   </view>
   <view class="avaturl">
     <text>家庭成员</text>
     <view>{{family.length}}</view>
     <image src="{{item.avatarUrl}}" wx:for="{{family}}" wx:key="index" mode="aspectFill" ></image>
   </view>
+  <view class="avaturl" style="margin-top: 15rpx;">
+    <text>家庭地址</text>
+    <text> 家庭地址 </text>
+  </view>
 </view>
 <view class="body">
-  <view class="content__header">
-    <view class="body__title">我的庭院美照</view>
-    <view class="tabs">
-      <view class="tab {{status == 1 ? 'hot' : ''}}" bindtap="changeTabs" data-index="1">通过</view>
-      <view class="tab {{status == 0 ? 'hot' : ''}}" bindtap="changeTabs" data-index="0">未通过</view>
-      <view class="tab {{status == 2 ? 'hot' : ''}}" bindtap="changeTabs" data-index="2">待审核</view>
-    </view>
-  </view>
-  
+  <view class="body__title">我的庭院美照</view>
   <view class="body__list">
     <view class="item" bindtap="goDetails" wx:for="{{photoList}}" wx:key="{{index}}" data-id="{{item.id}}">
       <view class="item__photo">
