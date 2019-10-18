@@ -173,9 +173,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 17,
 					"name": "分享首页",
 					"pathName": "pages/shareModule/index/index",
+					"query": "id=31",
 					"scene": null
 				}
 			]

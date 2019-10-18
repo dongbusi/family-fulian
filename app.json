@@ -89,7 +89,8 @@
       "root": "pages/shareModule",
       "name": "shareModule",
       "pages": [
-        "index/index"
+        "index/index",
+        "details/index"
       ]
     }
   ],

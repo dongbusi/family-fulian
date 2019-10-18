@@ -40,8 +40,19 @@ Page({
     }, 1000)
   },
   getCode () {
+    if (!app.globalData.phone) {
+      this.setData({
+        error: 'phone'
+      })
+      return
+    }
     this.setData({
       downTime: 60
+    })
+    
+    app.getCode({
+      telephone: app.globalData.phone,
+      tag:'register'
     })
     this.cutDown()
   },
@@ -91,7 +102,7 @@ Page({
     this.setData({
       error: ''
     })
-    this.getHouseHolder()
+    this.regist()
   },
   getPhoneNumber (e) {
     wx.removeStorageSync('token');
@@ -111,15 +122,16 @@ Page({
     }
   },
   getHouseHolder () {
-    app.getHouseHolder({
-      realname: this.data.form.houseName,
-      mobile: this.data.form.housePhone
-    }).then(res => {
-      this.setData({
-        pid: res.data.pid
+    if (this.data.form.houseName && this.data.form.housePhone) {
+      app.getHouseHolder({
+        realname: this.data.form.houseName,
+        mobile: this.data.form.housePhone
+      }).then(res => {
+        this.setData({
+          pid: res.data.pid
+        })
       })
-      this.regist()
-    })
+    }
   },
   regist () {
     wx.getUserInfo({
@@ -132,7 +144,7 @@ Page({
           mobile: app.globalData.phone,
           code: this.data.form.code,
           pid: this.data.pid,
-          realname: this.data.form.selfname
+          realname: this.data.form.selfName
         }).then(res => {
           wx.navigateTo({
             url: '/pages/registModule/result/index?type=1',

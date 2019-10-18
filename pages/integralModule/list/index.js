@@ -1,18 +1,33 @@
 // pages/integralModule/list/index.js
+
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    intergalList: []
   },
-
+  getIntergalList () {
+    app.getIntergalList().then(res => {
+      let list = res.data
+      list = list.map(item => {
+        item.points > 0 ? item.points = "+" + item.points : item.points
+        item.create_at = item.create_at.slice(0,10)
+        return item
+      })
+      this.setData({
+        intergalList: list
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getIntergalList()
   },
 
   /**

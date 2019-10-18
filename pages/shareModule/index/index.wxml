@@ -1,8 +1,8 @@
 <!--pages/family/index.wxml-->
-<button class="share" hover-class="none" open-type="share">
+<!-- <button class="share" hover-class="none" open-type="share">
   <image src="/assets/img/share.png" />
   <text>分享</text>
-</button>
+</button> -->
 <view class="header">
   <view class="info">
     <image src="{{userInfo.avatarUrl}}" mode="aspectFill" />
@@ -14,9 +14,9 @@
     <view>{{family.length}}</view>
     <image src="{{item.avatarUrl}}" wx:for="{{family}}" wx:key="index" mode="aspectFill" ></image>
   </view>
-  <view class="avaturl" style="margin-top: 15rpx;">
-    <text>家庭地址</text>
-    <text> 家庭地址 </text>
+  <view class="address" style="margin-top: 15rpx;">
+    <text>家庭地址：</text>
+    <text style="overflow: hidden;text-overflow: ellipsis;max-width: 360rpx"> {{userInfo.address}}</text>
   </view>
 </view>
 <view class="body">

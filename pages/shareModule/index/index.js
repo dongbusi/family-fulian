@@ -12,39 +12,36 @@ Page({
     userInfo: '',
     limit: 8,
     page: 0,
-    photoList: []
+    photoList: [],
+    id: ''
   },
   goDetails (e) {
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/photoModule/details/index?id=' + id
+      url: '/pages/shareModule/details/index?id=' + id
     })
   },
-  getFamily () {
-    app.getFamily().then(res => {
-      let family = Object.assign({}, res.data)
+  getFamily (id) {
+    app.getOneFamily({
+      id: id
+    }).then(res => {
+      let family = Object.assign({}, res.data.data)
       delete family.power
       family.length = Object.keys(family).length
       family = Array.from(family)
-      if (!this.data.userInfo) {
-        let userInfo = family.find(item => item.self == 1)
-        this.setData({
-          userInfo: userInfo,
-          family: family,
-        })
-        return
-      }
+      let userInfo = family.find(item => item.pid == 0)
+      userInfo.address = res.data.address
       this.setData({
+        userInfo: userInfo,
         family: family,
       })
     })
   },
-  getPhotoList() {
-    app.getPhotoList({
-      range: 1,
+  getPhotoList(id) {
+    app.getOneFamilyPhotos({
+      id: id,
       limit: this.data.limit,
       page: this.data.page + 1,
-      status: 1,
     }).then(res => {
       this.setData({
         page: res.data.current_page,
@@ -57,8 +54,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getFamily()
-    this.getPhotoList()
+    this.setData({
+      id: options.id || ''
+    })
+    this.getFamily(options.id)
+    this.getPhotoList(options.id)
   },
 
   /**
@@ -93,11 +93,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getFamily()
+    this.getFamily(this.data.id)
     this.setData({
-      page: 0
+      page: 0,
+      photoList: []
     })
-    this.getPhotoList()
+    this.getPhotoList(this.data.id)
   },
 
   /**

@@ -26,5 +26,10 @@ export default {
     url: '/api/activity_cancel',
     data,
     method: 'post'
+  }),
+  getCommonActivityList: data => http({
+    url: '/common/activity',
+    data,
+    method: 'post'
   })
 }

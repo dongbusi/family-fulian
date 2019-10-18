@@ -15,5 +15,15 @@ export default {
     url: '/api/family_friend_details',
     data,
     method: 'post'
-  })
+  }),
+  getCommonPhotoList: data => http({
+    url: '/common/family_friend',
+    data,
+    method: 'post'
+  }),
+  getCommonPhotosDetails: data => http({
+    url: '/common/family_friend_details',
+    data,
+    method: 'POST'
+  }),
 }

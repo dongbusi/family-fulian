@@ -12,7 +12,8 @@ Page({
     family: '',
     power: 0,
     userInfo: '',
-    infoList: []
+    infoList: [],
+    intergalList: []
   },
   toogleTabInfo () {
     this.setData({
@@ -30,6 +31,7 @@ Page({
     this.setData({
       tab: 1
     })
+    this.getIntergalList()
   },
   toogleFamily () {
     this.setData({
@@ -42,20 +44,10 @@ Page({
       delete family.power
       family.length = Object.keys(family).length
       family = Array.from(family)
-      if (!this.data.userInfo) {
-        let userInfo = family.find(item => item.self == 1)
-        userInfo.mobile = userInfo.mobile.replace(/^(\d{3})\d{4}(\d{4})$/, '$1****$2')
         this.setData({
-          userInfo: userInfo,
           family: family,
           power: res.data.power
         })
-        return
-      }
-      this.setData({
-        family: family,
-        power: res.data.power
-      })
       wx.stopPullDownRefresh()
     })
   },
@@ -171,6 +163,36 @@ Page({
       this.setData({
         infoList: res.data
       })
+      if (res.data.length !== 0) {
+        wx.setTabBarBadge({
+          index: 4,
+          text: res.data.length + '' || ''
+        })
+      } else {
+        wx.removeTabBarBadge({index: 4})
+      }
+    })
+  },
+  getIntergalList () {
+    app.getIntergalList().then(res => {
+      let list = res.data
+      list = list.map(item => {
+        item.points > 0 ? item.points = "+" + item.points : item.points
+        item.create_at = item.create_at.slice(0,10)
+        return item
+      })
+      this.setData({
+        intergalList: list
+      })
+    })
+  },
+  getUserInfo () {
+    app.getUserInfo().then(res => {
+      let userInfo = res.data
+      userInfo.mobile = userInfo.mobile.replace(/^(\d{3})\d{4}(\d{4})$/, '$1****$2')
+      this.setData({
+        userInfo: userInfo
+      })
     })
   },
   /**
@@ -191,11 +213,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      tab: 0
-    })
-    this.checkRegistType(wx.getStorageSync('registType'))  && this.getFamily()
-    this.getInfoList()
+    if (this.checkRegistType(wx.getStorageSync('registType'))) {
+      this.getUserInfo()
+      if(this.data.tab == 0) {
+        this.setData({
+          infoList: []
+        })
+        this.getInfoList()
+      }
+    }
   },
 
   /**
@@ -216,8 +242,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getFamily()
-    this.getInfoList()
+    
   },
 
   /**

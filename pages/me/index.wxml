@@ -7,6 +7,7 @@
   <view class="text">
     <view class="">{{userInfo.realname}}</view>
     <view>{{userInfo.mobile}}</view>
+    <view style="color: #EC7B7C;">{{userInfo.points}}积分</view>
   </view>
 </view>
 <view class="container">
@@ -18,14 +19,14 @@
   </view>
   <view class="content information" hidden="{{tab !== 0}}">
     <view class="information__item" wx:for="{{infoList}}" wx:key="index">
-      <view class="item__avaturl"><image src="{{item.avaturl}}" mode="aspectFill" /></view>
+      <view class="item__avaturl"><image src="/assets/img/robot.png" mode="aspectFill" /></view>
       <view class="item__text">{{item.content}}</view>
       <van-icon name="close" class="information__item__close" color="#999999" data-index="{{index}}" data-id="{{item.id}}" bindtap="removeInformation" />
     </view>
   </view>
   <view class="content family-members" hidden="{{tab !== 3}}">
     <view class="members__item" wx:for="{{family}}" wx:key="index">
-      <view class="item__avaturl"><image src="{{item.avatarUrl}}" /></view>
+      <view class="members__item__avaturl"><image src="{{item.avatarUrl}}" /></view>
       <view class="color333" class="member__name">{{item.realname}}</view>
       <view class="item__button" wx:if="{{item.adopt_status == 0 && power == 1}}" bindtap="checkPass" data-id="{{item.id}}" data-index="{{index}}">待通过</view>
       <view class="item__button" wx:if="{{item.adopt_status == 2 && power == 1}}" bindtap="checkPass" data-id="{{item.id}}" data-index="{{index}}">去通过</view>
@@ -35,17 +36,18 @@
     </view>
   </view>
   <view class="content information" hidden="{{tab !== 2}}">
-    <image class="qrcode" src="../../assets/img/qrcode.jpeg" mode="aspectFit|aspectFill|widthFix"  />
+    <text style="color: #ccc; font-size: 30rpx;padding: 0 20rpx;">正在开发中。。。</text>
+    <!-- <image class="qrcode" src="../../assets/img/qrcode.jpeg" mode="aspectFit|aspectFill|widthFix"  /> -->
   </view>
   <view class="content information integral" hidden="{{tab !== 1}}">
     <view class="integral__container">
       <view class="integral__list">
-        <view class="integral__item">
+        <view class="integral__item" wx:for="{{intergalList}}" wx:key="index">
           <view class="integral__item__info">
-            <view>成员董展 每日登陆</view>
-            <view>2019-10-10</view>
+            <view style="max-width: 400rpx;">{{item.optxt}}</view>
+            <view>{{item.create_at}}</view>
           </view>
-          <view class="integral__item__integra">+1</view>
+          <view class="integral__item__integra">{{item.points}}</view>
         </view>
       </view>
     </view>

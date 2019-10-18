@@ -58,8 +58,8 @@ export default function http({url, data, method = 'GET', contentType = 'applicat
         'Cookie': wx.getStorageSync('token') || ''
       },
       method,
-      success: ({data}) => {
-        if (data.code === 200) {
+      success: ({data, Code}) => {
+        if (data.code === 200 || data.Code == 'OK') {
           resolve(data)
           flag && wx.hideLoading()
         } else if (data.code === 10000) {
@@ -70,11 +70,23 @@ export default function http({url, data, method = 'GET', contentType = 'applicat
             mask: true
           })
           login()
+        } else if (data.code == 300) {
+          wx.redirectTo({
+            url: '/pages/registModule/index/index',
+            success: (result) => {
+              wx.showToast({
+                title: data.msg || data.info || data.Message,
+                icon: 'none',
+                duration: 3000,
+              })
+            },
+          });
+            
         } else {
           reject(data)
           flag && wx.hideLoading()
           wx.showToast({
-            title: data.msg || data.info,
+            title: data.msg || data.info || data.message || data.Message,
             icon: 'none',
             duration: 3000,
             mask: true

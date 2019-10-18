@@ -57,8 +57,19 @@ Page({
     }, 1000)
   },
   getCode () {
+    if (!this.data.fullPhone) {
+      this.setData({
+        error: 'phone'
+      })
+      return
+    }
     this.setData({
       downTime: 60
+    })
+    
+    app.getCode({
+      telephone: this.data.fullPhone,
+      tag:'register'
     })
     this.cutDown()
   },

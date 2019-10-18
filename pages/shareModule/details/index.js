@@ -1,7 +1,6 @@
-// pages/photoModule/photoList/index.js
+// pages/photoModule/details/index.js
 
 const app = getApp()
-import util from '../../../utils/util'
 
 Page({
 
@@ -9,44 +8,39 @@ Page({
    * 页面的初始数据
    */
   data: {
-    page: 0,
-    limit: 5,
-    list: []
+    id: '',
+    details: ''
   },
-  goDetails (e) {
-    let id = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '/pages/shareModule/details/index?id=' + id
+  previewPhoto (e) {
+    let current = e.currentTarget.dataset.index
+    wx.previewImage({
+      urls: this.data.details.image,
+      current: this.data.details.image[current]
     })
   },
-  getList () {
-    app.getCommonPhotoList({
-      limit: this.data.limit,
-      page: this.data.page + 1
+  getDetails (id) {
+    app.getCommonPhotosDetails({
+      id
     }).then(res => {
-      let list = res.data.data
+      let details = res.data
       let date = new Date()
       date.setMinutes(0)
       date.setHours(0)
       date.setSeconds(0)
       date.setMilliseconds(0)
       let timeToday = date.getTime()
-      list.map(item => {
-        let time = new Date(item.create_at.replace(/-/g, '/')).getTime()
+      let time = new Date(details.create_at.replace(/-/g, '/')).getTime()
         if (time - timeToday >= 0) {
-          item.time = '今天 ' + item.create_at.slice(10, -3)
+          details.time = '今天 ' + details.create_at.slice(10, -3)
         } else if (Math.abs(time - timeToday) <= 24 * 60 * 60 * 1000) {
-          item.time = '昨天 ' + item.create_at.slice(10, -3)
+          details.time = '昨天 ' + details.create_at.slice(10, -3)
         } else if (Math.abs(time - timeToday) <= 24 * 60 * 60 * 1000 * 2) {
-          item.time = '前天 ' + item.create_at.slice(10, -3)
+          details.time = '前天 ' + details.create_at.slice(10, -3)
         } else {
-          item.time = item.create_at.slice(0,-3)
+          details.time = details.create_at.slice(0,-3)
         }
-        return item
-      })
       this.setData({
-        list: [...this.data.list, ...list],
-        page: res.data.current_page
+        details: details
       })
     })
   },
@@ -54,7 +48,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getList()
+    this.getDetails(options.id)
+    this.setData({
+      id: options.id
+    })
   },
 
   /**
@@ -89,14 +86,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.getList()
+
   },
 
   /**

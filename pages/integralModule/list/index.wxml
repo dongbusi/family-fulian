@@ -1,12 +1,12 @@
 <!--pages/integralModule/list/index.wxml-->
 <view class="container">
   <view class="list">
-    <view class="item">
+    <view class="item" wx:for="{{intergalList}}" wx:key="index">
       <view class="item__info">
-        <view>成员董展 每日登陆</view>
-        <view>2019-10-10</view>
+        <view>{{item.optxt}}</view>
+        <view>{{item.create_at}}</view>
       </view>
-      <view class="item__integra">+1</view>
+      <view class="item__integra">{{item.points}}</view>
     </view>
   </view>
 </view>

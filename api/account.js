@@ -85,5 +85,20 @@ export default {
     url: '/personal/message_status',
     data,
     method: 'POST'
+  }),
+  getIntergalList: data => http({
+    url: '/personal/integral',
+    data,
+    method: 'POST'
+  }),
+  getCode: data => http({
+    url: '/common/sendmsg',
+    data,
+    method: 'POST'
+  }),
+  getUserInfo: data => http({
+    url: '/api/userinfo',
+    data,
+    method: 'POST'
   })
 }

@@ -6,6 +6,8 @@ App({
   ...api,
   onLaunch: function () {
    
+  },
+  onShow: function () {
     this.login().then(res => {
       if (res == 1) {
         this.getInfoList().then(res => {
@@ -19,9 +21,6 @@ App({
         })
       }
     })
-  },
-  onShow: function () {
-    this.login()
   },
   globalData: {
     userInfo: null,

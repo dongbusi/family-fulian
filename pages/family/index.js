@@ -27,15 +27,9 @@ Page({
       delete family.power
       family.length = Object.keys(family).length
       family = Array.from(family)
-      if (!this.data.userInfo) {
-        let userInfo = family.find(item => item.self == 1)
-        this.setData({
-          userInfo: userInfo,
-          family: family,
-        })
-        return
-      }
+      let userInfo = family.find(item => item.self == 1)
       this.setData({
+        userInfo: userInfo,
         family: family,
       })
     })
@@ -45,7 +39,7 @@ Page({
       range: 1,
       limit: this.data.limit,
       page: this.data.page + 1,
-      status: this.data.status
+      status: Number(this.data.status)
     }).then(res => {
       this.setData({
         page: res.data.current_page,
@@ -109,7 +103,9 @@ Page({
   },
   changeTabs (e) {
     this.setData({
-      status: e.currentTarget.dataset.index
+      status: e.currentTarget.dataset.index,
+      page: 0,
+      photoList: []
     })
     this.getPhotoList(e.currentTarget.dataset.index)
   },
@@ -135,7 +131,7 @@ Page({
     this.setData({
       page: 0,
       tab: 0,
-      list: [],
+      photoList: [],
       registType: wx.getStorageSync('registType')
     })
     if(this.checkRegistType(wx.getStorageSync('registType'))) {
@@ -164,7 +160,8 @@ Page({
   onPullDownRefresh: function () {
     this.getFamily()
     this.setData({
-      page: 0
+      page: 0,
+      photoList: [],
     })
     this.getPhotoList()
   },

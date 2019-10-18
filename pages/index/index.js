@@ -35,7 +35,7 @@ Page({
   goPhotoDetails (e) {
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/photoModule/details/index?id=' + id,
+      url: '/pages/shareModule/details/index?id=' + id,
     })
   },
   goActivityDetails (e) {
@@ -103,8 +103,7 @@ Page({
     })
   },
   getActivityList () {
-    app.getActivityList({
-      range: 0,
+    app.getCommonActivityList({
       limit: 2,
       page: 1
     }).then(res => {
@@ -114,7 +113,7 @@ Page({
     })
   },
   getPhotoList () {
-    app.getPhotoList({
+    app.getCommonPhotoList({
       range: 0,
       page: this.data.page + 1,
       limit: this.data.limit
@@ -211,7 +210,8 @@ Page({
   onPullDownRefresh: function () {
     this.getActivityList()
     this.setData({
-      page: 0
+      page: 0,
+      photoList: []
     })
     this.getPhotoList()
   },

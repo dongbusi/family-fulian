@@ -12,6 +12,7 @@
         input-class="input"
         error="{{error === 'houseName'}}"
         right-icon="{{error === 'houseName' ? '/assets/img/warning.png' : ''}}"
+        bind:blur="getHouseHolder"
       />
     </view>
     <view class="form__item {{error === 'housePhone' ? 'error' : ''}}">
@@ -27,6 +28,7 @@
         input-class="input"
         right-icon="{{error === 'housePhone' ? '/assets/img/warning.png' : ''}}"
         error="{{error === 'housePhone'}}"
+        bind:blur="getHouseHolder"
       />
     </view>
     <view class="house-tips">
