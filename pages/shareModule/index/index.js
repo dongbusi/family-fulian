@@ -55,10 +55,10 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      id: options.id || ''
+      id: decodeURIComponent(options.scene) || ''
     })
-    this.getFamily(options.id)
-    this.getPhotoList(options.id)
+    this.getFamily(decodeURIComponent(options.scene))
+    this.getPhotoList(decodeURIComponent(options.scene))
   },
 
   /**

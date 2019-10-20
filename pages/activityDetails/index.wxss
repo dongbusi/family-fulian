@@ -15,6 +15,7 @@
 }
 .desc text:nth-child(2) {
   margin-left: 40rpx;
+  /* color: #e5c07b; */
 }
 .content {
   color: #333333;

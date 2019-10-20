@@ -13,7 +13,8 @@ Page({
     power: 0,
     userInfo: '',
     infoList: [],
-    intergalList: []
+    intergalList: [],
+    qrcode: ''
   },
   toogleTabInfo () {
     this.setData({
@@ -37,6 +38,7 @@ Page({
     this.setData({
       tab: 2
     })
+    this.getQrcode()
   },
   getFamily () {
     app.getFamily().then(res => {
@@ -82,60 +84,6 @@ Page({
         icon: 'success'
       })
     })
-  },
-  checkRegistType (registType) {
-    switch (registType) {
-      case 4:
-        wx.redirectTo({
-          url: '/pages/registModule/index/index',
-          success () {
-            wx.showToast({
-              title: '请先注册',
-              icon: 'none',
-              duration: 3000
-            })
-          }
-        })
-        return false
-      case 0:
-        wx.switchTab({
-          url: '/pages/index/index',
-          success () {
-            wx.showToast({
-              title: '请通知户主审核通过，如已通过审核，请重新打开小程序',
-              icon: 'none',
-              duration: 3000
-            })
-          }
-        })
-        return false
-      case 2:
-        wx.redirectTo({
-          url: '/pages/registModule/index/index',
-          success () {
-            wx.showToast({
-              title: '户主审核失败，请重新注册',
-              icon: 'none',
-              duration: 3000
-            })
-          }
-        })
-        
-        return false
-      case 1:
-        return true
-      default: 
-      wx.redirectTo({
-        url: '/pages/registModule/index/index',
-        success () {
-          wx.showToast({
-            title: '请先注册',
-            icon: 'none',
-            duration: 3000
-          })
-        }
-      })
-    }
   },
   removeInformation (e) {
     let index = e.currentTarget.dataset.index, id = e.currentTarget.dataset.id
@@ -195,6 +143,23 @@ Page({
       })
     })
   },
+  getQrcode () {
+    wx.request({
+      url: 'https://fl.xianghunet.com/v1/api/family_qrcode',
+      method: 'POST',
+      responseType: 'arraybuffer',
+      success:(res) => {
+        let image = wx.arrayBufferToBase64(res.data)
+        this.setData({ qrcode:"data:image/PNG;base64,"+ image})
+      },
+      fail: (res) => {
+        wx.showToast({
+          title: '获取失败，请稍后重试',
+          icon: 'none'
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -213,14 +178,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (this.checkRegistType(wx.getStorageSync('registType'))) {
-      this.getUserInfo()
-      if(this.data.tab == 0) {
-        this.setData({
-          infoList: []
-        })
-        this.getInfoList()
-      }
+    this.getUserInfo()
+    if(this.data.tab == 0) {
+      this.setData({
+        infoList: []
+      })
+      this.getInfoList()
     }
   },
 

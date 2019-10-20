@@ -40,65 +40,17 @@ Page({
   },
   goActivityDetails (e) {
     let id = e.currentTarget.dataset.id
-    this.checkRegistType() && wx.navigateTo({
+    wx.navigateTo({
       url: '/pages/activityDetails/index?id=' + id,
     })
   },
   goUpload () {
-    this.checkRegistType() && wx.navigateTo({
-        url: '/pages/photoModule/upload/index'
-      })
-  },
-  checkRegistType () {
-    switch (this.data.registType) {
-      case 4:
-        wx.navigateTo({
-          url: '/pages/registModule/index/index',
-          success () {
-            wx.showToast({
-              title: '请先注册',
-              icon: 'none',
-              duration: 3000
-            })
-          }
-        })
-        return false
-      case 0:
-        wx.showToast({
-          title: '请通知户主审核通过，如已通过审核，请重新打开小程序',
-          icon: 'none'
-        })
-        return false
-      case 2:
-        wx.navigateTo({
-          url: '/pages/registModule/index/index',
-          success () {
-            wx.showToast({
-              title: '户主审核失败，请重新注册',
-              icon: 'none',
-              duration: 3000
-            })
-          }
-        })
-        
-        return false
-      case 1:
-        return true
-      default: 
-      wx.navigateTo({
-        url: '/pages/registModule/index/index',
-        success () {
-          wx.showToast({
-            title: '请先注册',
-            icon: 'none',
-            duration: 3000
-          })
-        }
-      })
-    }
+    wx.navigateTo({
+      url: '/pages/photoModule/upload/index'
+    })
   },
   goExchange () {
-    this.checkRegistType() && wx.navigateTo({
+    wx.navigateTo({
       url: '/pages/integralModule/index/index'
     })
   },
@@ -156,17 +108,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getStorage({
-      key: 'registType',
-      success: (res) => {
-        this.setData({
-          registType: res.data
-        })
-      }
-    })
     this.getSwiper()
-    this.getActivityList()
-    this.getPhotoList()
   },
 
   /**
@@ -180,14 +122,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.getStorage({
-      key: 'registType',
-      success: (res) => {
-        this.setData({
-          registType: res.data
-        })
-      }
+    this.setData({
+      photoList: [],
+      activityList: [],
+      page: 0
     })
+    this.getActivityList()
+    this.getPhotoList()
   },
 
   /**

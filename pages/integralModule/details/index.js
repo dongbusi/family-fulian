@@ -52,7 +52,7 @@ Page({
   },
   getDetails (id) {
     wx.request({
-      url: 'http://www.v5.com/admin.html?s=store/api.goods/get',
+      url: 'https://fl.xianghunet.com/admin.html?s=store/api.goods/get',
       data: {
         goods_id: id
       },

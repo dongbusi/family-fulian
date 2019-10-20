@@ -11,4 +11,10 @@ export default {
     data,
     method: 'POST'
   }),
+  getQrCode: data => http({
+    url: '/api/family_qrcode',
+    data,
+    method: "POST",
+    responseType: 'arraybuffer'
+  })
 }

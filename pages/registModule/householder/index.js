@@ -191,7 +191,7 @@ Page({
     })
   },
   getPhoneNumber (e) {
-    wx.removeStorageSync('token');
+    wx.removeStorageSync('token')
     if (e.detail.iv) {
       app.login().then(res => {
         app.getPhone({

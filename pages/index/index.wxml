@@ -1,5 +1,8 @@
 <!--pages/index/index.wxml-->
-<view class="swiper">
+
+  
+<view class="swiper {{swiper.length ? '' : 'swiper__empty'}}">
+  <block wx:if="{{swiper.length}}">
   <swiper duration="1000" interval="3000" autoplay circular bindchange="{{dots.change}}">
     <block wx:for="{{swiper}}" wx:key="{{index}}">
       <swiper-item class="swiper-item">
@@ -7,10 +10,12 @@
       </swiper-item>
     </block>
   </swiper>
+  </block>
   <view class="indicator-dots">
     <view wx:for="{{swiper}}" class="indicator-dot {{index === 0 ? 'active' : ''}}" wx:key="{{index}}"></view>
   </view>
 </view>
+
 <view class="nav">
   <view bindtap="goUpload">
     <image src="/assets/img/nav-upload.png" />

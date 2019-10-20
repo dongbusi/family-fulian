@@ -48,59 +48,6 @@ Page({
       wx.stopPullDownRefresh()
     })
   },
-  checkRegistType (registType) {
-    switch (registType) {
-      case 4:
-        wx.redirectTo({
-          url: '/pages/registModule/index/index',
-          success () {
-            wx.showToast({
-              title: '请先注册',
-              icon: 'none',
-              duration: 3000
-            })
-          }
-        })
-        return false
-      case 0:
-        wx.switchTab({
-          url: '/pages/index/index',
-          success () {
-            wx.showToast({
-              title: '请通知户主审核通过，如已通过审核，请重新打开小程序',
-              icon: 'none',
-              duration: 3000
-            })
-          }
-        })
-        return false
-      case 2:
-        wx.redirectTo({
-          url: '/pages/registModule/index/index',
-          success () {
-            wx.showToast({
-              title: '户主审核失败，请重新注册',
-              icon: 'none',
-              duration: 3000
-            })
-          }
-        })
-        return false
-      case 1:
-        return true
-      default: 
-      wx.redirectTo({
-        url: '/pages/registModule/index/index',
-        success () {
-          wx.showToast({
-            title: '请先注册',
-            icon: 'none',
-            duration: 3000
-          })
-        }
-      })
-    }
-  },
   changeTabs (e) {
     this.setData({
       status: e.currentTarget.dataset.index,
@@ -132,12 +79,9 @@ Page({
       page: 0,
       tab: 0,
       photoList: [],
-      registType: wx.getStorageSync('registType')
     })
-    if(this.checkRegistType(wx.getStorageSync('registType'))) {
-      this.getFamily()
-      this.getPhotoList()
-    }
+    this.getFamily()
+    this.getPhotoList()
   },
 
   /**

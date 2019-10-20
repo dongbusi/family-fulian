@@ -1,4 +1,6 @@
 <!--pages/me/index.wxml-->
+<block wx:if="{{userInfo}}">
+  
 <view class="info">
   <view class="avaturl">
     <image  src="{{userInfo.avatarUrl}}" />
@@ -31,13 +33,12 @@
       <view class="item__button" wx:if="{{item.adopt_status == 0 && power == 1}}" bindtap="checkPass" data-id="{{item.id}}" data-index="{{index}}">待通过</view>
       <view class="item__button" wx:if="{{item.adopt_status == 2 && power == 1}}" bindtap="checkPass" data-id="{{item.id}}" data-index="{{index}}">去通过</view>
       <view class="item__button pass" wx:elif="{{item.adopt_status == 0 && power == 0}}">未通过</view>
-      <view class="item__button" wx:elif="{{item.adopt_status == 1 && item.pid !== 0}}" bindtap="cancelPass" data-id="{{item.id}}" data-index="{{index}}">取消通过</view>
-      <view style="width: 140rpx" wx:if="{{item.pid == 0}}" ></view>
+      <view class="item__button" wx:elif="{{item.adopt_status == 1 && item.pid !== 0 && power == 1}}" bindtap="cancelPass" data-id="{{item.id}}" data-index="{{index}}">取消通过</view>
+      <!-- <view style="width: 140rpx" wx:if="{{item.pid == 0}}" ></view> -->
     </view>
   </view>
   <view class="content information" hidden="{{tab !== 2}}">
-    <text style="color: #ccc; font-size: 30rpx;padding: 0 20rpx;">正在开发中。。。</text>
-    <!-- <image class="qrcode" src="../../assets/img/qrcode.jpeg" mode="aspectFit|aspectFill|widthFix"  /> -->
+    <image class="qrcode" src="{{qrcode}}" mode="aspectFit|aspectFill|widthFix"  />
   </view>
   <view class="content information integral" hidden="{{tab !== 1}}">
     <view class="integral__container">
@@ -54,3 +55,5 @@
   </view>
 </view>
 <view style="height: 80rpx;"></view>
+
+</block>

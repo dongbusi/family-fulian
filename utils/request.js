@@ -7,42 +7,8 @@
  */
 
 // const BASR_URL = 'http://168.100.188.50/v1'
-const BASR_URL = 'http://www.v5.com/v1'
+const BASR_URL = 'https://fl.xianghunet.com/v1'
 
-function login () {
-  wx.login({
-    success (res) {
-      http({
-        data: {
-          code: res.code
-        },
-        method: 'post',
-        url: '/login/index',
-        contentType: 'application/x-www-form-urlencoded'
-      }).then(res => {
-        // register  4未注册 0待审核 1已注册 2重新注册
-        wx.setStorageSync('token', res.data)
-        wx.setStorageSync('registType', res.register)
-        wx.hideLoading()
-        wx.showToast({
-          title: '重新登录成功',
-          icon: 'none',
-          duration: 1500,
-          mask: true
-        })
-      })
-    },
-    fail () {
-      wx.showToast({
-        title: '网络不给力',
-        icon: 'none',
-        duration: 1500,
-        mask: true
-      })
-        
-    }
-  })
-}
 
 export default function http({url, data, method = 'GET', contentType = 'application/json' }, flag = true) {
   flag && wx.showLoading({
@@ -62,26 +28,55 @@ export default function http({url, data, method = 'GET', contentType = 'applicat
         if (data.code === 200 || data.Code == 'OK') {
           resolve(data)
           flag && wx.hideLoading()
-        } else if (data.code === 10000) {
-          flag && wx.hideLoading()
-          wx.removeStorageSync('token')
-          wx.showLoading({
-            title: '正在重新登录',
-            mask: true
-          })
-          login()
-        } else if (data.code == 300) {
-          wx.redirectTo({
-            url: '/pages/registModule/index/index',
+        } else if (data.code == 1000) {
+          wx.hideLoading()
+          wx.showModal({
+            title: '提示',
+            content: data.msg,
+            showCancel: false,
+            confirmText: '确定',
+            confirmColor: '#EC7B7C',
             success: (result) => {
-              wx.showToast({
-                title: data.msg || data.info || data.Message,
-                icon: 'none',
-                duration: 3000,
-              })
-            },
-          });
-            
+              if (result.confirm) {
+                wx.redirectTo({
+                  url: '/pages/registModule/index/index',
+                })
+              }
+            }
+          })
+        } else if (data.code == 2000) {
+          wx.hideLoading()
+          wx.showModal({
+            title: '提示',
+            showCancel: false,
+            content: data.msg,
+            confirmText: '确定',
+            confirmColor: '#EC7B7C',
+            success: (result) => {
+              if (result.confirm) {
+                wx.reLaunch({
+                  url: '/pages/index/index',
+                })
+              }
+            }
+          })
+        } else if (data.code == 3000) {
+          wx.hideLoading()
+          wx.showModal({
+            title: '提示',
+            content: data.msg,
+            showCancel: false,
+            confirmText: '确定',
+            confirmColor: '#EC7B7C',
+            success: (result) => {
+              if (result.confirm) {
+                wx.redirectTo({
+                  url: '/pages/registModule/index/index',
+                })
+              }
+             
+            }
+          })
         } else {
           reject(data)
           flag && wx.hideLoading()

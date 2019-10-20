@@ -19,4 +19,4 @@
     您才能使用家庭成员的所有功能
   </text>
 </view>
-<navigator class="button" url="/pages/index/index" open-type="switchTab" hover-class="none">进入首页</navigator>
+<view class="button" bindtap="goIndex">进入首页</view>

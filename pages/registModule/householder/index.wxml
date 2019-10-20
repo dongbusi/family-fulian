@@ -66,6 +66,7 @@
     clearable
     use-button-slot
     input-class="input"
+    type="number"
     error="{{error === 'code'}}"
     right-icon="{{error === 'code' ? '/assets/img/warning.png' : ''}}"
     >

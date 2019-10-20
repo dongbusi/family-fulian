@@ -1,7 +1,11 @@
 <!--pages/integralModule/index/index.wxml-->
+
+<block wx:if="{{userInfo}}">
+  
+  
 <view class="user">
   <view class="user__info">
-    <view class="user__avaturl"><image src="https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640" mode="aspectFill" /></view>
+    <view class="user__avaturl"><image src="{{userInfo.avatarUrl}}" mode="aspectFill" /></view>
     <view class="user__name">{{userInfo.realname}} 家庭</view>
     <view class="user__credit">积分 {{userInfo.points}}</view>
   </view>
@@ -20,3 +24,5 @@
     <view class="item__credit">{{item.integra}}积分</view>
   </view>
 </view>
+
+</block>

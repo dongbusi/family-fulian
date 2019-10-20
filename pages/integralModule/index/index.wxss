@@ -76,12 +76,16 @@ page {
   width: 100%;
 }
 .item__name {
+  padding: 0 10rpx;
   height: 44rpx;
   margin-top: 32rpx;
   text-align: center;
   color: #030303;
   font-weight: 500;
   font-size: 32rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .item__num {
   height: 40rpx;

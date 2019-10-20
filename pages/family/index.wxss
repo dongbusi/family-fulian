@@ -178,3 +178,19 @@
 .tab.hot {
   color: #EC7B7C;
 }
+.empty-tips {
+  color: #cccccc;
+  width: 100%;
+  font-size: 28rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 100rpx;
+}
+.empty-thumb {
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 10rpx;
+}

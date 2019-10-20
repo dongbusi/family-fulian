@@ -5,7 +5,6 @@ import api from './api/index'
 App({
   ...api,
   onLaunch: function () {
-   
   },
   onShow: function () {
     this.login().then(res => {

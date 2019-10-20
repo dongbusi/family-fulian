@@ -1,4 +1,7 @@
 // pages/registModule/result/index.js
+
+const app = getApp()
+
 Page({
 
   /**
@@ -7,7 +10,19 @@ Page({
   data: {
     type: 0
   },
-
+  goIndex () {
+    if (this.type == 0) {
+      app.login.then(res => {
+        wx.reLaunch({
+          url: '/pages/index/index'
+        })
+      })
+    } else {
+      wx.reLaunch({
+        url: '/pages/index/index'
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

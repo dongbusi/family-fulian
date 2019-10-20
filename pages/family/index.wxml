@@ -1,7 +1,10 @@
 <!--pages/family/index.wxml-->
+<block wx:if="{{userInfo}}">
+  
 <button class="share" hover-class="none" open-type="share">
   <image src="/assets/img/share.png" />
   <text>分享</text>
+    
 </button>
 <view class="header">
   <view class="info">
@@ -37,4 +40,10 @@
       </view>
     </view>
   </view>
+  <view class="empty-tips" wx:if="{{!photoList.length}}">
+    <image class="empty-thumb" src="/assets/img/empty.png" />
+    <text class="">还没有美照,快去晒吧！</text> 
+  </view>
 </view>
+
+</block>

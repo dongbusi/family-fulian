@@ -30,7 +30,7 @@
   color: #333333;
 }
 .input {
-  font-size: 24rpx;
+  font-size: 28rpx;
   width: 100%;
 }
 .photo__add {

@@ -5,6 +5,9 @@
 .swiper {
   padding: 40rpx 0;
 }
+.swiper__empty {
+  padding: 16rpx 0;
+}
 .swiper-item {
   padding: 0 40rpx;
   box-sizing: border-box;
