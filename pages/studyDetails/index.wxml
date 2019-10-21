@@ -2,7 +2,7 @@
 <view class="title">{{details.title}}</view>
 <view class="desc">
   <text>{{details.create_at}}</text>
-  <text>来源：{{details.source}}</text>
+  <text wx:if="{{details.source}}">来源：{{details.source}}</text>
 </view>
 <view class="content">
   <rich-text class="details__content" nodes="{{details.content}}" space="emsp">

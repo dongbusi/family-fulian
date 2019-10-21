@@ -191,8 +191,9 @@ page {
   text-align: center;
 }
 .qrcode {
-  width: 100%;
-  height: 860rpx;
+  width: 350rpx;
+  height: 350rpx;
+  text-align: center;
 }
 
 .integral__container {
@@ -222,4 +223,10 @@ page {
   position: absolute;
   right: 25rpx;
   top: 15rpx;
+}
+.qrcode-tips {
+  color: #ccc;
+  padding-top: 60rpx;
+  font-size: 30rpx;
+  font-family: 'PingFangSC-Regular';
 }

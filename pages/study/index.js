@@ -27,7 +27,7 @@ Page({
     }).then(res => {
       this.setData({
         list: [...this.data.list, ...res.data.data],
-        current_page: res.data.current_page
+        page: res.data.current_page
       })
       wx.stopPullDownRefresh()
     })
@@ -82,7 +82,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getList()
   },
 
   /**

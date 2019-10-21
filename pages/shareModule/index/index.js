@@ -23,7 +23,7 @@ Page({
   },
   getFamily (id) {
     app.getOneFamily({
-      id: id
+      id: Number(id)
     }).then(res => {
       let family = Object.assign({}, res.data.data)
       delete family.power
@@ -39,7 +39,7 @@ Page({
   },
   getPhotoList(id) {
     app.getOneFamilyPhotos({
-      id: id,
+      id: Number(id),
       limit: this.data.limit,
       page: this.data.page + 1,
     }).then(res => {

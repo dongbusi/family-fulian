@@ -33,4 +33,8 @@
       </view>
     </view>
   </view>
+  <view class="empty-tips" wx:if="{{!photoList.length}}">
+    <image class="empty-thumb" src="/assets/img/empty.png" />
+    <text class="">该家庭还没有上传美照！</text> 
+  </view>
 </view>

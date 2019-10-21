@@ -37,8 +37,10 @@
       <!-- <view style="width: 140rpx" wx:if="{{item.pid == 0}}" ></view> -->
     </view>
   </view>
-  <view class="content information" hidden="{{tab !== 2}}">
-    <image class="qrcode" src="{{qrcode}}" mode="aspectFit|aspectFill|widthFix"  />
+  <view class="content information" style='text-align: center;padding-top: 80rpx;' hidden="{{tab !== 2}}">
+    <image class="qrcode" wx:if="{{qrcode}}" src="{{qrcode}}" mode="aspectFit|aspectFill|widthFix" bindtap="showQrcode" ></image>
+    <view class='qrcode' wx:else style='color: #ccc;text-align:center;line-height:350rpx;'>加载中...</view>
+    <view class='qrcode-tips'>扫一扫上面的二维码，关注我的家庭信息</view>
   </view>
   <view class="content information integral" hidden="{{tab !== 1}}">
     <view class="integral__container">

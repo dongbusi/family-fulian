@@ -147,6 +147,9 @@ Page({
     wx.request({
       url: 'https://fl.xianghunet.com/v1/api/family_qrcode',
       method: 'POST',
+      header: {
+        Cookie: wx.getStorageSync('token')
+      },
       responseType: 'arraybuffer',
       success:(res) => {
         let image = wx.arrayBufferToBase64(res.data)
@@ -158,6 +161,11 @@ Page({
           icon: 'none'
         })
       }
+    })
+  },
+  showQrcode () {
+    wx.previewImage({
+      urls: [this.data.qrcode]
     })
   },
   /**
