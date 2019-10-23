@@ -1,0 +1,22 @@
+<!--pages/registModule/hoseholder/index.wxml-->
+<form class="container">
+ 
+  <view class="form__item {{error === 'address' ? 'error' : ''}}">
+    <van-field
+    value="{{ form.address }}"
+    placeholder="请输入详细门牌号"
+    border="{{ false }}"
+    bind:change="input"
+    data-type="address"
+    clearable
+    input-class="input"
+    error="{{error === 'address'}}"
+    right-icon="{{error === 'address' ? '/assets/img/warning.png' : ''}}"
+  />
+  </view>
+  
+  <view class="form__item button__sumbit" bindtap="submit">递交修改</view>
+  <!-- <view class="tips">注：暂时只支持修改详细门牌号</view> -->
+</form>
+
+

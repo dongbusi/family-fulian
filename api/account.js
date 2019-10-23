@@ -79,6 +79,7 @@ export default {
   }),
   getInfoList: data => http({
     url: '/personal/message',
+    data,
     method: "POST"
   }),
   removeInfo: data => http({
@@ -100,5 +101,10 @@ export default {
     url: '/api/userinfo',
     data,
     method: 'POST'
+  }),
+  changeAddress: data => http({
+    url: '/api/userinfo_save',
+    data,
+    method: "POST"
   })
 }

@@ -92,6 +92,13 @@
         "index/index",
         "details/index"
       ]
+    },
+    {
+      "root": "pages/editModule",
+      "name": "editModule",
+      "pages": [
+        "index/index"
+      ]
     }
   ],
   "sitemapLocation": "sitemap.json"

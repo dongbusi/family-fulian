@@ -1,6 +1,7 @@
-// pages/integralModule/list/index.js
+// pages/registModule/hoseholder/index.js
+const app = getApp();
 
-const app = getApp()
+  
 
 Page({
 
@@ -8,24 +9,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-    intergalList: [],
-    page: 0,
-    limit: 20
+    form: {
+      address: '',
+    },
+    error: ''
+    
   },
-  getIntergalList () {
-    app.getIntergalList({
-      page: this.data.page + 1,
-      limit: this.data.limit
-    }).then(res => {
-      let list = res.data.data
-      list = list.map(item => {
-        item.points > 0 ? item.points = "+" + item.points : item.points
-        item.create_at = item.create_at.slice(0,10)
-        return item
-      })
+  input (e) {
+    let type = e.target.dataset.type
+    this.setData({
+      [`form.${type}`]: e.detail
+    })
+  },
+  submit () {
+    if (!this.data.form.address) {
       this.setData({
-        intergalList: [...this.data.intergalList, ...list],
-        page: res.data.current_page
+        'error': 'address'
+      })
+      return
+    }
+    app.changeAddress({
+      address: this.data.form.address
+    }).then(res => {
+      wx.navigateBack({
+        delta: 1,
+        success () {
+          wx.showToast({
+            title: '修改成功',
+            icon: 'success',
+            duration: 1500,
+          })
+        }
       })
     })
   },
@@ -47,10 +61,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      intergalList: []
-    })
-    this.getIntergalList()
+
   },
 
   /**
@@ -78,7 +89,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.getIntergalList()
+
   },
 
   /**

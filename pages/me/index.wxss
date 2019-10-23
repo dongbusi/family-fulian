@@ -10,6 +10,7 @@ page {
   box-shadow:0rpx 16rpx 40rpx rgba(130,144,220,0.13);
   margin: 100rpx auto 0;
   display: flex;
+  position: relative;
 }
 .avaturl {
   width: 180rpx;
@@ -184,7 +185,7 @@ page {
   background: #999999;
 }
 .member__name {
-  width: 200rpx;
+  width: 140rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -229,4 +230,11 @@ page {
   padding-top: 60rpx;
   font-size: 30rpx;
   font-family: 'PingFangSC-Regular';
+}
+.editor {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 30rpx;
 }

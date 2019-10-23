@@ -14,7 +14,9 @@ Page({
     userInfo: '',
     infoList: [],
     intergalList: [],
-    qrcode: ''
+    qrcode: '',
+    page: 0,
+    limit: 8
   },
   toogleTabInfo () {
     this.setData({
@@ -46,6 +48,7 @@ Page({
       delete family.power
       family.length = Object.keys(family).length
       family = Array.from(family)
+      family.sort((a, b) => a.pid - b.pid)
         this.setData({
           family: family,
           power: res.data.power
@@ -107,14 +110,17 @@ Page({
     
   },
   getInfoList () {
-    app.getInfoList().then(res => {
+    app.getInfoList({
+      limit: 40,
+      page: 1
+    }).then(res => {
       this.setData({
-        infoList: res.data
+        infoList: res.data.data
       })
-      if (res.data.length !== 0) {
+      if (res.data.data.length !== 0) {
         wx.setTabBarBadge({
           index: 4,
-          text: res.data.length + '' || ''
+          text: res.data.data.length + '' || ''
         })
       } else {
         wx.removeTabBarBadge({index: 4})
@@ -122,15 +128,20 @@ Page({
     })
   },
   getIntergalList () {
-    app.getIntergalList().then(res => {
-      let list = res.data
+    let _this = this
+    app.getIntergalList({
+      page: this.data.page + 1,
+      limit: this.data.limit
+    }).then(res => {
+      let list = res.data.data
       list = list.map(item => {
         item.points > 0 ? item.points = "+" + item.points : item.points
         item.create_at = item.create_at.slice(0,10)
         return item
       })
       this.setData({
-        intergalList: list
+        intergalList: [..._this.data.intergalList, ...list],
+        page: res.data.current_page
       })
     })
   },
@@ -166,6 +177,11 @@ Page({
   showQrcode () {
     wx.previewImage({
       urls: [this.data.qrcode]
+    })
+  },
+  goEdit () {
+    wx.navigateTo({
+      url: '/pages/editModule/index/index'
     })
   },
   /**
@@ -220,7 +236,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (this.data.tab == 1) {
+      this.getIntergalList()
+    }
   },
 
   /**

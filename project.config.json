@@ -51,7 +51,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": 18,
 			"list": [
 				{
 					"id": -1,
@@ -177,6 +177,12 @@
 					"name": "分享首页",
 					"pathName": "pages/shareModule/index/index",
 					"query": "id=31",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "修改",
+					"pathName": "pages/editModule/index/index",
 					"scene": null
 				}
 			]

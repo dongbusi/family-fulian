@@ -11,6 +11,7 @@
     <view>{{userInfo.mobile}}</view>
     <view style="color: #EC7B7C;">{{userInfo.points}}积分</view>
   </view>
+  <view wx:if="{{userInfo.master === 1}}" class="editor" bindtap="goEdit"><image src="../../assets/img/edit.png" /></view>
 </view>
 <view class="container">
   <view class="tab">
