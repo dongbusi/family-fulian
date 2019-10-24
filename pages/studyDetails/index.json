@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "学习教育"
+  "navigationBarTitleText": "学习教育",
+  "usingComponents": {
+    "txv-video": "plugin://tencentvideo/video"
+  }
 }

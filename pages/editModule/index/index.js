@@ -10,7 +10,7 @@ Page({
    */
   data: {
     form: {
-      address: '',
+      address: ''
     },
     error: ''
     
@@ -43,11 +43,19 @@ Page({
       })
     })
   },
+  getAddress () {
+    app.getUserInfo().then(res => {
+      let userInfo = res.data
+      this.setData({
+        'form.address': userInfo.address
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.getAddress()
   },
 
   /**

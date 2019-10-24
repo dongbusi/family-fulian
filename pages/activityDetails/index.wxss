@@ -91,3 +91,6 @@
 .value-class {
   flex: none !important;
 }
+.video {
+  padding: 0 40rpx;
+}

@@ -7,6 +7,10 @@
   <text>{{details.create_at}}</text>
   <text>来源：{{details.village.name}}</text>
 </view>
+<view class="video">
+  <txv-video vid="{{details.vid}}" playerid="{{details.vid}}" autoplay wx:if="{{details.vid}}"></txv-video>
+</view>
+
 <view class="content">
   <rich-text class="" nodes="{{details.content}}" class="content"></rich-text>
 </view>

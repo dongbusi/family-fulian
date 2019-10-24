@@ -1,9 +1,16 @@
 <!--pages/study/index.wxml-->
 <view class="list">
-  <view class="item" bindtap="goDetails" wx:for="{{list}}" wx:key="index" data-id="{{item.id}}">
-    <view>
-      <image class="item__logo" src="/assets/img/study-list.png" />
-    </view>
-    <view class="text-two-line">{{item.title}}</view>
-  </view>
+	<view
+	 class="item"
+	 bindtap="goDetails"
+	 wx:for="{{list}}"
+	 wx:key="index"
+	 data-id="{{item.id}}"
+	>
+		<view>
+			<image class="item__logo" src="/assets/img/study-list.png" />
+		</view>
+		<view class="text-two-line">{{item.title}}</view>
+	</view>
 </view>
+

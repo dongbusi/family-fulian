@@ -1,62 +1,102 @@
 <!--pages/me/index.wxml-->
 <block wx:if="{{userInfo}}">
-  
-<view class="info">
-  <view class="avaturl">
-    <image  src="{{userInfo.avatarUrl}}" />
-    <image class="shadow" src="{{userInfo.avatarUrl}}" />
-  </view>
-  <view class="text">
-    <view class="">{{userInfo.realname}}</view>
-    <view>{{userInfo.mobile}}</view>
-    <view style="color: #EC7B7C;">{{userInfo.points}}积分</view>
-  </view>
-  <view wx:if="{{userInfo.master === 1}}" class="editor" bindtap="goEdit"><image src="../../assets/img/edit.png" /></view>
-</view>
-<view class="container">
-  <view class="tab">
-    <view class="{{tab === 0 ? 'hot' : ''}}" bindtap="toogleTabInfo">家庭消息</view>
-    <view class="{{tab === 1 ? 'hot' : ''}}" bindtap="toogleDetails">积分明细</view>
-    <view class="{{tab === 2 ? 'hot' : ''}}" bindtap="toogleFamily">我家家园</view>
-    <view class="{{tab === 3 ? 'hot' : ''}}" bindtap="toogleTabMember">家庭成员</view>
-  </view>
-  <view class="content information" hidden="{{tab !== 0}}">
-    <view class="information__item" wx:for="{{infoList}}" wx:key="index">
-      <view class="item__avaturl"><image src="/assets/img/robot.png" mode="aspectFill" /></view>
-      <view class="item__text">{{item.content}}</view>
-      <van-icon name="close" class="information__item__close" color="#999999" data-index="{{index}}" data-id="{{item.id}}" bindtap="removeInformation" />
-    </view>
-  </view>
-  <view class="content family-members" hidden="{{tab !== 3}}">
-    <view class="members__item" wx:for="{{family}}" wx:key="index">
-      <view class="members__item__avaturl"><image src="{{item.avatarUrl}}" /></view>
-      <view class="color333" class="member__name">{{item.realname}}</view>
-      <view class="item__button" wx:if="{{item.adopt_status == 0 && power == 1}}" bindtap="checkPass" data-id="{{item.id}}" data-index="{{index}}">待通过</view>
-      <view class="item__button" wx:if="{{item.adopt_status == 2 && power == 1}}" bindtap="checkPass" data-id="{{item.id}}" data-index="{{index}}">去通过</view>
-      <view class="item__button pass" wx:elif="{{item.adopt_status == 0 && power == 0}}">未通过</view>
-      <view class="item__button" wx:elif="{{item.adopt_status == 1 && item.pid !== 0 && power == 1}}" bindtap="cancelPass" data-id="{{item.id}}" data-index="{{index}}">取消通过</view>
-      <!-- <view style="width: 140rpx" wx:if="{{item.pid == 0}}" ></view> -->
-    </view>
-  </view>
-  <view class="content information" style='text-align: center;padding-top: 80rpx;' hidden="{{tab !== 2}}">
-    <image class="qrcode" wx:if="{{qrcode}}" src="{{qrcode}}" mode="aspectFit|aspectFill|widthFix" bindtap="showQrcode" ></image>
-    <view class='qrcode' wx:else style='color: #ccc;text-align:center;line-height:350rpx;'>加载中...</view>
-    <view class='qrcode-tips'>扫一扫上面的二维码，关注我的家庭信息</view>
-  </view>
-  <view class="content information integral" hidden="{{tab !== 1}}">
-    <view class="integral__container">
-      <view class="integral__list">
-        <view class="integral__item" wx:for="{{intergalList}}" wx:key="index">
-          <view class="integral__item__info">
-            <view style="max-width: 400rpx;">{{item.optxt}}</view>
-            <view>{{item.create_at}}</view>
-          </view>
-          <view class="integral__item__integra">{{item.points}}</view>
-        </view>
-      </view>
-    </view>
-  </view>
-</view>
-<view style="height: 80rpx;"></view>
+
+	<view class="info">
+		<view class="avaturl">
+			<image src="{{userInfo.avatarUrl}}" />
+			<image class="shadow" src="{{userInfo.avatarUrl}}" />
+		</view>
+		<view class="text">
+			<view class="">{{userInfo.realname}}</view>
+			<view>{{userInfo.mobile}}</view>
+			<view style="color: #EC7B7C;">{{userInfo.points}}积分</view>
+		</view>
+		<view wx:if="{{userInfo.master === 1}}" class="editor" bindtap="goEdit">
+			<image src="../../assets/img/edit.png" />
+		</view>
+	</view>
+	<view class="container">
+		<view class="tab">
+			<view class="{{tab === 0 ? 'hot' : ''}}" bindtap="toogleTabInfo">家庭消息</view>
+			<view class="{{tab === 1 ? 'hot' : ''}}" bindtap="toogleDetails">积分明细</view>
+			<view class="{{tab === 2 ? 'hot' : ''}}" bindtap="toogleFamily">我家家园</view>
+			<view class="{{tab === 3 ? 'hot' : ''}}" bindtap="toogleTabMember">家庭成员</view>
+		</view>
+		<view class="content information" hidden="{{tab !== 0}}">
+			<view class="information__item" wx:for="{{infoList}}" wx:key="index">
+				<view class="item__avaturl">
+					<image src="/assets/img/robot.png" mode="aspectFill" />
+				</view>
+				<view class="item__text">{{item.content}}</view>
+				<van-icon
+				 name="close"
+				 class="information__item__close"
+				 color="#999999"
+				 data-index="{{index}}"
+				 data-id="{{item.id}}"
+				 bindtap="removeInformation"
+				/>
+			</view>
+		</view>
+		<view class="content family-members" hidden="{{tab !== 3}}">
+			<view class="members__item" wx:for="{{family}}" wx:key="index">
+				<view class="members__item__avaturl">
+					<image src="{{item.avatarUrl}}" />
+				</view>
+				<view class="color333" class="member__name">{{item.realname}}</view>
+				<view
+				 class="item__button"
+				 wx:if="{{item.adopt_status == 0 && power == 1}}"
+				 bindtap="checkPass"
+				 data-id="{{item.id}}"
+				 data-index="{{index}}"
+				>待通过
+				</view>
+				<view
+				 class="item__button"
+				 wx:if="{{item.adopt_status == 2 && power == 1}}"
+				 bindtap="checkPass"
+				 data-id="{{item.id}}"
+				 data-index="{{index}}"
+				>去通过
+				</view>
+				<view class="item__button pass" wx:elif="{{item.adopt_status == 0 && power == 0}}">未通过</view>
+				<view
+				 class="item__button"
+				 wx:elif="{{item.adopt_status == 1 && item.pid !== 0 && power == 1}}"
+				 bindtap="cancelPass"
+				 data-id="{{item.id}}"
+				 data-index="{{index}}"
+				>取消通过
+				</view>
+				<!-- <view style="width: 140rpx" wx:if="{{item.pid == 0}}" ></view> -->
+			</view>
+		</view>
+		<view class="content information" style='text-align: center;padding-top: 80rpx;' hidden="{{tab !== 2}}">
+			<image
+			 class="qrcode"
+			 wx:if="{{qrcode}}"
+			 src="{{qrcode}}"
+			 mode="aspectFit|aspectFill|widthFix"
+			 bindtap="showQrcode"
+			/>
+			<view class='qrcode' wx:else style='color: #ccc;text-align:center;line-height:350rpx;'>加载中...</view>
+			<view class='qrcode-tips'>扫一扫上面的二维码，关注我的家庭信息</view>
+		</view>
+		<view class="content information integral" hidden="{{tab !== 1}}">
+			<view class="integral__container">
+				<view class="integral__list">
+					<view class="integral__item" wx:for="{{intergalList}}" wx:key="index">
+						<view class="integral__item__info">
+							<view style="max-width: 400rpx;">{{item.optxt}}</view>
+							<view>{{item.create_at}}</view>
+						</view>
+						<view class="integral__item__integra">{{item.points}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view style="height: 80rpx;" />
 
 </block>
