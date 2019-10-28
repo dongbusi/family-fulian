@@ -43,12 +43,14 @@
   <view class="body__activity">
     <view class="item__activity" bindtap="goActivityDetails" data-id="{{activityList[0].id}}">
       <image class="item__avaturl" src="{{activityList[0].logo}}" mode="aspectFill" />
-      <view class="item__street">{{activityList[0].village.name}}</view>
+      <view class="item__street" wx:if="{{activityList[0].town_id == 0}}">区妇联</view>
+      <view class="item__street" wx:else>{{activityList[0].village.name}}</view>
       <view class="item__title">{{activityList[0].title}}</view>
     </view>
     <view class="item__activity" bindtap="goActivityDetails" data-id="{{activityList[1].id}}">
       <image class="item__avaturl" src="{{activityList[1].logo}}" style="border: 8rpx solid #FAE3E4;" mode="aspectFill" />
-      <view class="item__street" style="color: #EC7B7C;">{{activityList[1].village.name}}</view>
+      <view class="item__street" wx:if="{{activityList[0].town_id == 0}}" style="color: #EC7B7C;">区妇联</view>
+      <view class="item__street" wx:else style="color: #EC7B7C;">{{activityList[0].village.name}}</view>
       <view class="item__title" style="color: #EC7B7C;">{{activityList[1].title}}</view>
     </view>
   </view>

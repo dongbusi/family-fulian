@@ -17,6 +17,10 @@
   margin-left: 40rpx;
   /* color: #e5c07b; */
 }
+.desc text:nth-child(3) {
+  margin-left: 40rpx;
+  /* color: #e5c07b; */
+}
 .content {
   color: #333333;
   font-size: 32rpx;

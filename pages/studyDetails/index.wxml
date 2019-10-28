@@ -8,7 +8,7 @@
   <txv-video vid="{{details.vid}}" playerid="{{details.vid}}" wx:if="{{details.vid}}" autoplay ></txv-video>
 </view>
 <view class="content">
-  <rich-text class="details__content" nodes="{{details.content}}" space="emsp">
+  <rich-text class="details__content" nodes="{{details.content}}" space="nbsp">
     
   </rich-text>
 </view>

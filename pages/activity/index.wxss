@@ -10,10 +10,12 @@ page {
   background: #ffffff;
   box-shadow:0rpx 60rpx 80rpx rgba(0,0,0,0.03);
   border-radius: 40rpx;
-  height: 206rpx;
+  min-height: 206rpx;
   margin-top: 40rpx;
   padding-top: 20rpx;
+  padding-bottom: 20rpx;
   box-sizing: border-box;
+  position: relative;
 }
 .logo {
   width: 140rpx;
@@ -37,13 +39,13 @@ page {
   flex: auto;
 }
 .item__title {
-  margin-top: 20rpx;
+  margin-top: 10rpx;
   color: #333333;
   font-size: 32rpx;
   font-weight: 500;
 }
 .item__footer {
-  margin-top: 20rpx;
+  margin-top: 10rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -101,4 +103,16 @@ page {
 }
 .header__nav view:last-child {
   padding-right: 0;
+}
+/* .district {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  left: 60rpx;
+  top: 0rpx;
+} */
+.district {
+  position: absolute;
+  left: 0rpx;
+  bottom: 10rpx;
 }

@@ -4,20 +4,21 @@
   
 <view class="title canin">{{details.title}}</view>
 <view class="desc">
-  <text>{{details.create_at}}</text>
-  <text>来源：{{details.village.name}}</text>
+  <text>截止日期：{{details.close_date}}</text>
+  <text wx:if="{{details.town_id == 0}}">来源：区妇联</text>
+  <text wx:else class="111">来源：{{details.village.name}}</text>
 </view>
 <view class="video">
   <txv-video vid="{{details.vid}}" playerid="{{details.vid}}" autoplay wx:if="{{details.vid}}"></txv-video>
 </view>
-
 <view class="content">
-  <rich-text class="" nodes="{{details.content}}" class="content"></rich-text>
+  <rich-text class="" nodes="{{details.content}}" class="content" space="nbsp"></rich-text>
 </view>
-<view class="button" wx:if="{{details.sign_true == 1 && details.sign_status == 1 }}" bindtap="cancelSign">我要取消报名</view>
-<view class="button canin" wx:elif="{{details.sign_true == 1 && details.sign_status == 0}}" bindtap="showNumSetting">我要报名</view>
-<view class="button" wx:if="{{details.sign_true == 1 && details.sign_status == 2 }}">报名人数已满</view>
-<view wx:elif="{{details.sign_true == 0}}"></view>
+<view class="button" wx:if="{{details.sign_status == 1 }}" bindtap="cancelSign">我要取消报名</view>
+<view class="button canin" wx:elif="{{details.sign_status == 0}}" bindtap="showNumSetting">我要报名</view>
+<view class="button" wx:if="{{details.sign_status == 2 }}">报名人数已满</view>
+<view wx:elif="{{details.sign_status == 3 || details.sign_status == 4}}"></view>
+<view class="button" wx:elif="{{details.sign_status == 5 }}">活动已截止</view>
 <view style="height: 80rpx;"></view>
 <van-popup show="{{ show }}" bind:close="closeNumSetting" custom-class="container">
   <view class="container">

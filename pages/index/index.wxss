@@ -48,7 +48,7 @@
   /* box-shadow:0rpx 16rpx 30rpx rgba(0,0,0,0.2); */
 }
 .section__activity {
-  margin-top: 52rpx;
+  margin-top: 40rpx;
   padding: 0 40rpx;
 }
 .header__activity {

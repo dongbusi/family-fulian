@@ -13,11 +13,15 @@
     <view class="logo"><image src="/assets/img/activity-list.png" /></view>
     <view class="info">
       <view class="item__title text-two-line">{{item.title}}</view>
+      <view class="item__date" style="margin-top: 10rpx;" wx:if="{{item.town_id == 0}}">来源：区妇联</view>
+      <view class="item__date" style="margin-top: 10rpx;" wx:else>来源：{{item.village.name}}</view>
       <view class="item__footer">
-        <view class="item__date">日期 {{item.create_at}}</view>
-        <view class="item__num hot" wx:if="{{item.sign_true == 1 && item.sign_status == 1}}">您已报名</view>
-        <view class="item__num hot" wx:elif="{{item.sign_true == 1 && item.sign_status == 2}}">人数已满</view>
-        <view class="item__num" wx:elif="{{item.sign_true == 1}}">剩余名额 {{item.surplus}}</view>
+        <view class="item__date">{{item.create_at}}</view>
+        <view class="item__num" wx:if="{{item.sign_status == 0}}">剩余名额 {{item.surplus}}</view>
+        <view class="item__num hot" wx:elif="{{item.sign_status == 1}}">您已报名</view>
+        <view class="item__num hot" wx:elif="{{item.sign_status == 2}}">人数已满</view>
+        <view class="" wx:elif="{{item.sign_status == 4 || item.sign_status == 3}}"></view>
+        <view class="item__num hot" wx:elif="{{item.sign_status == 5}}">活动已截止</view>
       </view>
     </view>
   </view>
