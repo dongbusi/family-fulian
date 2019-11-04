@@ -1,0 +1,14 @@
+<!--pages/studyDetails/index.wxml-->
+<view class="title">{{details.title}}</view>
+<view class="desc">
+  <text>{{details.create_at}}</text>
+  <text wx:if="{{details.source}}">来源：{{details.source}}</text>
+</view>
+<view class="video">
+  <txv-video vid="{{details.vid}}" playerid="{{details.vid}}" wx:if="{{details.vid}}" autoplay ></txv-video>
+</view>
+<view class="content">
+  <rich-text class="details__content" nodes="{{details.content}}" space="nbsp">
+    
+  </rich-text>
+</view>

@@ -84,9 +84,8 @@
   </view>
 </view>
 
-<view class="notice-bar" hover-class="none" hover-stop-propagation="false">
+<view class="notice-bar" hover-class="none" hover-stop-propagation="false" wx:if="{{notice__text && showNotice}}">
   <van-notice-bar
-    mode="closeable"
     text="{{notice__text}}"
     bindclick="goActivity"
   />

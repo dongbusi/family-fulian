@@ -13,7 +13,8 @@ Page({
     registType: 4, //  4未注册 0待审核 1已注册 2重新注册
     limit: 6,
     page: 0,
-    notice__text: ''
+    notice__text: '',
+    showNotice: false
   },
   goAppreciation () {
     wx.showToast({
@@ -30,7 +31,12 @@ Page({
   },
   goActivity (e) {
     wx.switchTab({
-      url: '/pages/activity/index'
+      url: '/pages/activity/index',
+      success: () => {
+        this.setData({
+          showNotice: false
+        })
+      }
     })
   },
   goPhotoDetails (e) {
@@ -117,7 +123,8 @@ Page({
         text += (index+1) + '. ' + item.title + '活动已开始报名' + '  '
       })
       this.setData({
-        notice__text: text
+        notice__text: text,
+        showNotice: true
       })
     })
   },

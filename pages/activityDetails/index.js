@@ -28,6 +28,7 @@ Page({
     }).then(res => {
       let details = res.data
       details.create_at = details.create_at.slice(0, 10)
+      details.close_date = details.close_date.slice(0, 10)
       details.content = details.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
       this.setData({
         details: details

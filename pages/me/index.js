@@ -184,6 +184,11 @@ Page({
       url: '/pages/editModule/index/index'
     })
   },
+  goFamily () {
+    wx.navigateTo({
+      url: '/pages/photoModule/family/index'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

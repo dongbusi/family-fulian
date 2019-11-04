@@ -7,19 +7,23 @@
 			<image class="shadow" src="{{userInfo.avatarUrl}}" />
 		</view>
 		<view class="text">
-			<view class="">{{userInfo.realname}}</view>
+			<view class="">{{userInfo.realname}}
+			</view>
 			<view>{{userInfo.mobile}}</view>
 			<view style="color: #EC7B7C;">{{userInfo.points}}积分</view>
 		</view>
 		<view wx:if="{{userInfo.master === 1}}" class="editor" bindtap="goEdit">
 			<image src="../../assets/img/edit.png" />
 		</view>
+		<view class="button__family" bindtap="goFamily">
+			<image src="../../assets/img/tab-family--hot.png" />
+		</view>
 	</view>
 	<view class="container">
 		<view class="tab">
 			<view class="{{tab === 0 ? 'hot' : ''}}" bindtap="toogleTabInfo">家庭消息</view>
 			<view class="{{tab === 1 ? 'hot' : ''}}" bindtap="toogleDetails">积分明细</view>
-			<view class="{{tab === 2 ? 'hot' : ''}}" bindtap="toogleFamily">我家家园</view>
+			<view class="{{tab === 2 ? 'hot' : ''}}" bindtap="toogleFamily">二维码</view>
 			<view class="{{tab === 3 ? 'hot' : ''}}" bindtap="toogleTabMember">家庭成员</view>
 		</view>
 		<view class="content information" hidden="{{tab !== 0}}">

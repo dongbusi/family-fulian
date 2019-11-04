@@ -4,7 +4,7 @@
   
 <view class="title canin">{{details.title}}</view>
 <view class="desc">
-  <text>截止日期：{{details.close_date}}</text>
+  <text wx:if="{{details.close_date}}">截止日期：{{details.close_date}}</text>
   <text wx:if="{{details.town_id == 0}}">来源：区妇联</text>
   <text wx:else class="111">来源：{{details.village.name}}</text>
 </view>

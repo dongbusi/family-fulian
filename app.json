@@ -1,13 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/family/index",
     "pages/study/index",
     "pages/activity/index",
     "pages/me/index",
     "pages/studyDetails/index",
     "pages/activityDetails/index",
-    "pages/activityResult/index"
+    "pages/activityResult/index",
+    "pages/news/index",
+    "pages/newsDetails/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -28,10 +29,10 @@
         "selectedIconPath": "/assets/img/tab-index--hot.png"
       },
       {
-        "pagePath": "pages/family/index",
-        "text": "家园",
-        "iconPath": "/assets/img/tab-family.png",
-        "selectedIconPath": "/assets/img/tab-family--hot.png"
+        "pagePath": "pages/activity/index",
+        "text": "报名",
+        "iconPath": "/assets/img/tab-activity.png",
+        "selectedIconPath": "/assets/img/tab-activity--hot.png"
       },
       {
         "pagePath": "pages/study/index",
@@ -40,10 +41,10 @@
         "selectedIconPath": "/assets/img/tab-study--hot.png"
       },
       {
-        "pagePath": "pages/activity/index",
-        "text": "活动",
-        "iconPath": "/assets/img/tab-activity.png",
-        "selectedIconPath": "/assets/img/tab-activity--hot.png"
+        "pagePath": "pages/news/index",
+        "text": "动态",
+        "iconPath": "/assets/img/tab-news.png",
+        "selectedIconPath": "/assets/img/tab-news--hot.png"
       },
       {
         "pagePath": "pages/me/index",
@@ -61,7 +62,8 @@
         "upload/index",
         "list/index",
         "result/index",
-        "details/index"
+        "details/index",
+        "family/index"
       ]
     },
     {
@@ -108,5 +110,4 @@
       "provider": "wxa75efa648b60994b"
     }
   }
-  
 }
