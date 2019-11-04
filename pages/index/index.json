@@ -1,3 +1,6 @@
 {
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-notice-bar": "vant-weapp/notice-bar/index"
+  }
 }

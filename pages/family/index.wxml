@@ -25,6 +25,7 @@
       <view class="tab {{status == 1 ? 'hot' : ''}}" bindtap="changeTabs" data-index="1">通过</view>
       <view class="tab {{status == 0 ? 'hot' : ''}}" bindtap="changeTabs" data-index="0">未通过</view>
       <view class="tab {{status == 2 ? 'hot' : ''}}" bindtap="changeTabs" data-index="2">待审核</view>
+      <view class="tab {{status == 3 ? 'hot' : ''}}" bindtap="changeTabs" data-index="3">未公开</view>
     </view>
   </view>
   

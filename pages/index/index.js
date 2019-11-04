@@ -12,7 +12,8 @@ Page({
     activityList: [],
     registType: 4, //  4未注册 0待审核 1已注册 2重新注册
     limit: 6,
-    page: 0
+    page: 0,
+    notice__text: ''
   },
   goAppreciation () {
     wx.showToast({
@@ -27,7 +28,7 @@ Page({
       url: '/pages/photoModule/list/index',
     })
   },
-  goActivity () {
+  goActivity (e) {
     wx.switchTab({
       url: '/pages/activity/index'
     })
@@ -104,11 +105,28 @@ Page({
       })
     })
   },
+  showActivityTips () {
+    app.getActivityList({
+      range: 1,
+      limit: 10,
+      page: 1,
+      join: ''
+    }).then(res => {
+      let text = ''
+      res.data.data.forEach((item, index) => {
+        text += (index+1) + '. ' + item.title + '活动已开始报名' + '  '
+      })
+      this.setData({
+        notice__text: text
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getSwiper()
+    this.showActivityTips()
   },
 
   /**

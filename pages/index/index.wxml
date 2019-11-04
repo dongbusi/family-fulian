@@ -83,8 +83,14 @@
     </view>
   </view>
 </view>
-  
-  
+
+<view class="notice-bar" hover-class="none" hover-stop-propagation="false">
+  <van-notice-bar
+    mode="closeable"
+    text="{{notice__text}}"
+    bindclick="goActivity"
+  />
+</view>
   
 
 <wxs module="dots">

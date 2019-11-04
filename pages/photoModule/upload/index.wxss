@@ -127,3 +127,15 @@
   display: block;
   height: 80rpx;
 }
+.scope {
+  display: flex;
+  align-items: center;
+  padding: 14rpx 40rpx 0;
+  height: 40rpx;
+}
+.scope > view:first-child {
+  margin-right: 20rpx;
+  color: #999999;
+  font-size: 28rpx;
+  -webkit-font-smoothing: antialiased;
+}

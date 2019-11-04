@@ -19,7 +19,6 @@ App({
               text: res.data.data.length + '' || ''
             })
           }
-         
         })
       }
     })

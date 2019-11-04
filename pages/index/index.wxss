@@ -173,3 +173,9 @@
   line-height: 34rpx;
   font-weight: normal;
 }
+.notice-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}

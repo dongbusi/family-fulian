@@ -13,7 +13,8 @@ Page({
     message: '',
     focus: false,
     list: [],
-    uploadList: []
+    uploadList: [],
+    checked: true
   },
   setFocus () {
     this.setData({
@@ -56,7 +57,8 @@ Page({
         header:{
           Cookie: wx.getStorageSync('token') || ''
         },
-        url: 'https://fl.xianghunet.com/admin.html?s=admin/api.plugs/upload',
+        // url: 'https://fl.xianghunet.com/admin.html?s=admin/api.plugs/upload',
+        url: "http://168.100.188.50/admin.html?s=admin/api.plugs/upload",
         filePath: item,
         name: 'file',
         success: (res) => { 
@@ -72,9 +74,16 @@ Page({
     })
   },
   submit () {
+    let status
+    if (this.data.checked) {
+      status = ''
+    } else {
+      status = 'no'
+    }
     app.upload({
       content: this.data.message,
-      image: this.data.uploadList.join('|')
+      image: this.data.uploadList.join('|'),
+      status: status
     }).then(res => {
       wx.navigateTo({
         url: '../result/index'
@@ -135,6 +144,9 @@ Page({
         })
       }
     })
+  },
+  scopeChange({ detail }) {
+    this.setData({ checked: detail });
   },
   /**
    * 生命周期函数--监听页面加载
