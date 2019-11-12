@@ -33,7 +33,14 @@
         <view></view>
       </view>
     </view>
-    <view class="photo__add" bindtap="chooseImage">
+    <view class="photo__choose" wx:if="{{video}}">
+      <video class="video" src="{{video}}"></video>
+      <view class="del" bindtap="delVideo" data-index="{{index}}">
+        <view></view>
+        <view></view>
+      </view>
+    </view>
+    <view class="photo__add" bindtap="choose" hidden="{{video || list.length}}">
       <view></view>
       <view></view>
     </view>

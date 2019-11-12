@@ -1,20 +1,41 @@
 <!--pages/photoModule/photoList/index.wxml-->
 <view class="body__timeline">
-  <view class="item__timeline" bindtap="goDetails" wx:for="{{list}}" wx:key="{{index}}" data-id="{{item.id}}">
-    <view class="timeline__photo">
-      <image src="{{item.image}}" mode="aspectFill" lazy-load />
-      <view class="item__num">共{{item.image_count}}图</view>
-    </view>
-    <view class="item__info">
-      <image src="{{item.up_name.avatarUrl}}" mode="aspectFill" lazy-load  />
-      <view class="item__family">
-        <view>{{item.master_name.realname}} 家庭</view>
-        <view>
-          <text>家庭成员 {{item.up_name.realname}} 上传</text>
-          <text style="float: right;">{{item.time}}</text>
+  <view class="item__timeline" wx:for="{{list}}" wx:key="index" data-id="{{item.id}}">
+      <block wx:if="{{item.video}}" >
+        <view class="timeline__photo">
+          <video src="{{item.video}}"></video>
+          <view class="item__num">共1图</view>
         </view>
-      </view>
-    </view>
+        <view class="item__info" bindtap="goDetails" data-id="{{item.id}}">
+          <image src="{{item.up_name.avatarUrl}}" mode="aspectFill" lazy-load  />
+          <view class="item__family">
+            <view>
+              <text style="color: #333333;font-size: 32rpx;font-weight: bold;line-height: 44rpx;">{{item.master_name.realname}} 家庭</text>
+              <text style="float: right; color: #EC7B7C">详情</text>
+            </view>
+            <view>
+              <text>家庭成员 {{item.up_name.realname}} 上传</text>
+              <text style="float: right;">{{item.time}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="timeline__photo" bindtap="goDetails" data-id="{{item.id}}">
+          <image src="{{item.image}}" mode="aspectFill" lazy-load />
+          <view class="item__num">共{{item.image_count}}图</view>
+        </view>
+        <view class="item__info" bindtap="goDetails" data-id="{{item.id}}">
+          <image src="{{item.up_name.avatarUrl}}" mode="aspectFill" lazy-load  />
+          <view class="item__family">
+            <view>{{item.master_name.realname}} 家庭</view>
+            <view>
+              <text>家庭成员 {{item.up_name.realname}} 上传</text>
+              <text style="float: right;">{{item.time}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
   </view>
 </view>
 

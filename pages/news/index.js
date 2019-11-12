@@ -20,7 +20,7 @@ Page({
     })
   },
   getList () {
-    app.getStudyList({
+    app.getNewsList({
       limit: this.data.limit,
       page: this.data.page + 1
     }).then(res => {

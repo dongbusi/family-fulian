@@ -14,7 +14,9 @@ Page({
     focus: false,
     list: [],
     uploadList: [],
-    checked: true
+    checked: true,
+    video: '',
+    videoUpload: ''
   },
   setFocus () {
     this.setData({
@@ -30,7 +32,7 @@ Page({
         _this.setData({
           list: [..._this.data.list, ...res.tempFilePaths]
         })
-        _this.upload()
+        _this.uploadImg()
       }
     })
   },
@@ -45,7 +47,7 @@ Page({
       uploadList
     })
   },
-  upload () {
+  uploadImg () {
     wx.showLoading({
       title: '正在上传',
       mask: true
@@ -57,8 +59,8 @@ Page({
         header:{
           Cookie: wx.getStorageSync('token') || ''
         },
-        // url: 'https://fl.xianghunet.com/admin.html?s=admin/api.plugs/upload',
-        url: "http://168.100.188.50/admin.html?s=admin/api.plugs/upload",
+        url: 'https://www.zhimwj.cn/admin.html?s=admin/api.plugs/upload',
+        // url: "http://168.100.188.50/admin.html?s=admin/api.plugs/upload",
         filePath: item,
         name: 'file',
         success: (res) => { 
@@ -73,6 +75,27 @@ Page({
       })
     })
   },
+  uploadVideo () {
+    wx.showLoading({
+      title: '正在上传',
+      mask: true
+    })
+    wx.uploadFile({
+      header:{
+        Cookie: wx.getStorageSync('token') || ''
+      },
+      url: 'https://www.zhimwj.cn/admin.html?s=admin/api.plugs/upload',
+      // url: "http://168.100.188.50/admin.html?s=admin/api.plugs/upload",
+      filePath: this.data.video,
+      name: 'file',
+      success: (res) => { 
+        this.setData({
+          videoUpload: JSON.parse(res.data).url
+        })
+        wx.hideLoading()
+      }
+    })
+  },
   submit () {
     let status
     if (this.data.checked) {
@@ -83,11 +106,23 @@ Page({
     app.upload({
       content: this.data.message,
       image: this.data.uploadList.join('|'),
-      status: status
+      status: status,
+      video: this.data.videoUpload,
+      type: this.data.videoUpload ? 2 : 1
     }).then(res => {
       wx.navigateTo({
         url: '../result/index'
       })
+    })
+  },
+  chooseVideo () {
+    wx.chooseVideo({
+      success: (res) => {
+        this.setData({
+          video: res.tempFilePath
+        })
+        this.uploadVideo()
+      }
     })
   },
   onChange (event) {
@@ -147,6 +182,33 @@ Page({
   },
   scopeChange({ detail }) {
     this.setData({ checked: detail });
+  },
+  delVideo () {
+    this.setData({
+      video: '',
+      videoUpload: ''
+    })
+  },
+  choose () {
+    wx.showActionSheet({
+      itemList: [
+        '图片', '视频'
+      ],
+      itemColor: '#EC7B7C',
+      success: (result)=>{
+        this.setData({
+          list: [],
+          uploadList: [],
+          video: '',
+          videoUpload: ''
+        })
+        if (result.tapIndex == 0) {
+          this.chooseImage()
+        } else {
+          this.chooseVideo()
+        }
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载

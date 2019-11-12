@@ -43,6 +43,15 @@ Page({
       limit: this.data.limit,
       page: this.data.page + 1,
     }).then(res => {
+      res.data.data.forEach(item => {
+        item.create_at = item.create_at.slice(0, 10)
+        if (item.image.includes('|')) {
+          item.image = item.image.split('|')
+        } else {
+          item.image = [item.image]
+        }
+        
+      })
       this.setData({
         page: res.data.current_page,
         photoList: [...this.data.photoList, ...res.data.data]
@@ -105,7 +114,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.getPhotoList()
+    this.getPhotoList(this.data.id)
   },
 
   /**

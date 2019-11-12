@@ -16,5 +16,20 @@ export default {
     url: '/common/study_details',
     data,
     method: 'POST'
+  }),
+  getNewsList: data => http({
+    data,
+    method: 'POST',
+    url: '/common/dynamic'
+  }),
+  getNewsDetails: data => http({
+    url: '/api/dynamic_details',
+    data,
+    method: 'POST'
+  }),
+  getCommonNewsDetails: data => http({
+    url: '/common/dynamic_details',
+    data,
+    method: 'POST'
   })
 }

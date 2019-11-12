@@ -139,3 +139,7 @@
   font-size: 28rpx;
   -webkit-font-smoothing: antialiased;
 }
+.video {
+  width: 192rpx;
+  height: 192rpx;
+}

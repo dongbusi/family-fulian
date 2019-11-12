@@ -112,21 +112,42 @@ Page({
     })
   },
   showActivityTips () {
-    app.getActivityList({
-      range: 1,
-      limit: 10,
-      page: 1,
-      join: ''
-    }).then(res => {
-      let text = ''
-      res.data.data.forEach((item, index) => {
-        text += (index+1) + '. ' + item.title + '活动已开始报名' + '  '
+    if (wx.getStorageSync('token')) {
+      app.getActivityList({
+        range: 1,
+        limit: 10,
+        page: 1,
+        join: ''
+      }).then(res => {
+        let text = ''
+        res.data.data.forEach((item, index) => {
+          text += (index+1) + '. ' + item.title + '活动已开始报名' + '  '
+        })
+        this.setData({
+          notice__text: text,
+          showNotice: true
+        })
       })
-      this.setData({
-        notice__text: text,
-        showNotice: true
+    } else {
+      app.login().then(res => {
+        app.getActivityList({
+          range: 1,
+          limit: 10,
+          page: 1,
+          join: ''
+        }).then(res => {
+          let text = ''
+          res.data.data.forEach((item, index) => {
+            text += (index+1) + '. ' + item.title + '活动已开始报名' + '  '
+          })
+          this.setData({
+            notice__text: text,
+            showNotice: true
+          })
+        })
       })
-    })
+    }
+    
   },
   /**
    * 生命周期函数--监听页面加载

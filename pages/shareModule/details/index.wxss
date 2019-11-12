@@ -82,3 +82,9 @@
   height: 48rpx;
   margin-right: 20rpx;
 }
+.video {
+  padding: 0 40rpx;
+}
+.video video {
+  width: 100%;
+}

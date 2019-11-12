@@ -19,7 +19,7 @@ Page({
       content: '您的家庭是否已创建家庭主账户',
       showCancel: true,
       cancelText: '否',
-      cancelColor: '#999999',
+      cancelColor: '#EC7B7C',
       confirmText: '是',
       confirmColor: '#EC7B7C',
       success: (result) => {

@@ -24,7 +24,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.1",
+	"libVersion": "2.9.2",
 	"appid": "wxc96046f67398318b",
 	"projectname": "family",
 	"debugOptions": {
@@ -48,6 +48,10 @@
 		},
 		"game": {
 			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
@@ -191,6 +195,19 @@
 					"name": "动态",
 					"pathName": "pages/news/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/shareModule/index/index",
+					"pathName": "pages/shareModule/index/index",
+					"query": "scene=9",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "家园",
+					"pathName": "pages/photoModule/family/index",
 					"scene": null
 				}
 			]

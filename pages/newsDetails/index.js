@@ -13,8 +13,8 @@ Page({
   },
   getDetails (id) {
     if(wx.getStorageSync('registType') !== 1) {
-      app.getCommonStudyDetails({
-        study_id: id
+      app.getCommonNewsDetails({
+        dynamic_id: id
       }).then(res => {
         let details = res.data
         details.create_at = details.create_at.slice(0, 10)
@@ -23,8 +23,8 @@ Page({
         })
       })
     } else {
-      app.getStudyDetails({
-        study_id: id
+      app.getNewsDetails({
+        dynamic_id: id
       }).then(res => {
         let details = res.data
         details.create_at = details.create_at.slice(0, 10)

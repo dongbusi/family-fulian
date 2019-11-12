@@ -30,15 +30,28 @@
   </view>
   
   <view class="body__list">
-    <view class="item" bindtap="goDetails" wx:for="{{photoList}}" wx:key="{{index}}" data-id="{{item.id}}">
-      <view class="item__photo">
-        <image src="{{item.image}}" mode="aspectFill" lazy-load />
-        <image src="{{item.up_name.avatarUrl}}" mode="aspectFill" lazy-load />
-      </view>
-      <view class="item__info">
-        <view>{{item.master_name.realname}} 家庭</view>
-        <view>{{item.up_name.realname}} 上传{{item.image_count}}个图</view>
-      </view>
+    <view class="item" wx:for="{{photoList}}" wx:key="{{index}}">
+      <block wx:if="{{item.video}}">
+        <view class="item__photo">
+          <video src="{{item.video}}"></video>
+          <image src="{{item.up_name.avatarUrl}}" mode="aspectFill" lazy-load />
+        </view>
+        <view class="item__info" bindtap="goDetails" data-id="{{item.id}}">
+          <view>{{item.master_name.realname}} 家庭</view>
+          <view>{{item.up_name.realname}} 上传1个图</view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="item__photo" bindtap="goDetails" data-id="{{item.id}}">
+          <image src="{{item.image}}" mode="aspectFill" lazy-load />
+          <image src="{{item.up_name.avatarUrl}}" mode="aspectFill" lazy-load />
+        </view>
+        <view class="item__info" bindtap="goDetails" data-id="{{item.id}}">
+          <view>{{item.master_name.realname}} 家庭</view>
+          <view>{{item.up_name.realname}} 上传{{item.image_count}}个图</view>
+        </view>
+      </block>
+      
     </view>
   </view>
   <view class="empty-tips" wx:if="{{!photoList.length}}">

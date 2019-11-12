@@ -9,14 +9,13 @@
     </view>
   </view>
 </view>
-<view class="list__photo">
+<view class="video" wx:if="{{details.video}}">
+  <video src="{{details.video}}"></video>
+</view>
+<view class="list__photo" wx:else>
   <view class="item__photo {{details.image.length === 1 ? 'one' : ''}} {{details.image.length === 2 ? 'two' : ''}} {{details.image.length >= 3 ? 'three' : ''}}" wx:for="{{details.image}}" wx:key="{{index}}" data-index="{{index}}" bindtap="previewPhoto">
     <image src="{{item}}" mode="aspectFill"/>
   </view>
   <view class="item__photo three" wx:if="{{details.image.length === 5}}"></view>
 </view>
 <view class="desc">{{details.content}}</view>
-<!-- <button class="button" hover-class="none" open-type="share">
-  <image src="/assets/img/share.png" />
-  <text>分享</text>
-</button> -->

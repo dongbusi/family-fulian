@@ -18,11 +18,15 @@
     <text>家庭地址：</text>
     <text style="overflow: hidden;text-overflow: ellipsis;max-width: 360rpx"> {{userInfo.address}}</text>
   </view>
+  <view class="address" style="margin-top: 15rpx;">
+    <text>积分：</text>
+    <text style="overflow: hidden;text-overflow: ellipsis;max-width: 360rpx"> {{userInfo.points}}</text>
+  </view>
 </view>
 <view class="body">
   <view class="body__title">我的庭院美照</view>
   <view class="body__list">
-    <view class="item" bindtap="goDetails" wx:for="{{photoList}}" wx:key="{{index}}" data-id="{{item.id}}">
+    <!-- <view class="item" bindtap="goDetails" wx:for="{{photoList}}" wx:key="{{index}}" data-id="{{item.id}}">
       <view class="item__photo">
         <image src="{{item.image}}" mode="aspectFill" lazy-load />
         <image src="{{item.up_name.avatarUrl}}" mode="aspectFill" lazy-load />
@@ -30,6 +34,23 @@
       <view class="item__info">
         <view>{{item.master_name.realname}} 家庭</view>
         <view>{{item.up_name.realname}} 上传{{item.image_count}}个图</view>
+      </view>
+    </view> -->
+    <view class="item" wx:for="{{photoList}}" wx:key="{{index}}" data-id="{{item.id}}">
+      <view class="item__photo {{item.image.length > 1 ? 'two' : 'one'}}">
+        <view class="item__media" wx:if="{{item.video}}">
+          <video src="{{item.video}}"></video>
+        </view>
+        <block wx:else>
+          <view class="item__media" wx:for="{{item.image}}" wx:key="{{childIndex}}" wx:for-index="childIndex" wx:for-item="childItem">
+            <image src="{{childItem}}" mode="aspectFill"  />
+          </view>
+        </block>
+      </view>
+      <view class="item__text">{{item.content}}</view>
+      <view class="item__info">
+        <text>{{item.create_at}}</text>
+        <text>发布者：{{item.up_name.realname}}</text>
       </view>
     </view>
   </view>

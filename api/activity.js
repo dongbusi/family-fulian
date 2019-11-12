@@ -31,5 +31,6 @@ export default {
     url: '/common/activity',
     data,
     method: 'post'
-  })
+  }),
+  
 }

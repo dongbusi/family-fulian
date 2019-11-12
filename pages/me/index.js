@@ -156,7 +156,7 @@ Page({
   },
   getQrcode () {
     wx.request({
-      url: 'https://fl.xianghunet.com/v1/api/family_qrcode',
+      url: 'https://www.zhimwj.cn/v1/api/family_qrcode',
       method: 'POST',
       header: {
         Cookie: wx.getStorageSync('token')
