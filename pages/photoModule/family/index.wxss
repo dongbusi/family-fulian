@@ -88,6 +88,14 @@
   box-shadow:0rpx 4rpx 8rpx rgba(0,0,0,0.1);
   margin-left: -16rpx;
 }
+.avaturl .more {
+  width: 74rpx;
+  height: 74rpx;
+  margin-left: -16rpx;
+  flex: none;
+  position: relative;
+  z-index: 0;
+}
 .body__title {
   margin-top: 48rpx;
   text-align: center;

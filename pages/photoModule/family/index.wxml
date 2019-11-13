@@ -1,5 +1,4 @@
 <!--pages/family/index.wxml-->
-<block wx:if="{{userInfo}}">
   
 <button class="share" hover-class="none" open-type="share">
   <image src="/assets/img/share.png" />
@@ -15,7 +14,10 @@
   <view class="avaturl">
     <text>家庭成员</text>
     <view>{{family.length}}</view>
-    <image src="{{item.avatarUrl}}" wx:for="{{family}}" wx:key="index" mode="aspectFill" ></image>
+    <block  wx:for="{{family}}" wx:key="index" >
+      <image src="{{item.avatarUrl}}" mode="aspectFill" wx:if="{{index < 4}}"></image>
+    </block>
+    <view wx:if="{{family.length > 4}}" class="more">...</view>
   </view>
 </view>
 <view class="body">
@@ -60,4 +62,3 @@
   </view>
 </view>
 
-</block>

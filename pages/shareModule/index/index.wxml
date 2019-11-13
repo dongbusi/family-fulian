@@ -1,8 +1,4 @@
 <!--pages/family/index.wxml-->
-<!-- <button class="share" hover-class="none" open-type="share">
-  <image src="/assets/img/share.png" />
-  <text>分享</text>
-</button> -->
 <view class="header">
   <view class="info">
     <image src="{{userInfo.avatarUrl}}" mode="aspectFill" />
@@ -12,7 +8,10 @@
   <view class="avaturl">
     <text>家庭成员</text>
     <view>{{family.length}}</view>
-    <image src="{{item.avatarUrl}}" wx:for="{{family}}" wx:key="index" mode="aspectFill" ></image>
+    <block  wx:for="{{family}}" wx:key="index" >
+      <image src="{{item.avatarUrl}}" mode="aspectFill" wx:if="{{index < 4}}"></image>
+    </block>
+    <view wx:if="{{family.length > 4}}" class="more">...</view>
   </view>
   <view class="address" style="margin-top: 15rpx;">
     <text>家庭地址：</text>
@@ -23,33 +22,33 @@
     <text style="overflow: hidden;text-overflow: ellipsis;max-width: 360rpx"> {{userInfo.points}}</text>
   </view>
 </view>
+<view class="else__info">
+  <view class="item__else">
+    <view class="else__header">我家的家风：</view>
+    <view class="else__content">{{userInfo.tradition}}</view>
+  </view>
+  <view class="item__else" style="margin-top: 40rpx;">
+    <view class="else__header">我家的荣誉：</view>
+    <view class="else__content">{{userInfo.honor}}</view>
+  </view>
+</view>
 <view class="body">
   <view class="body__title">我的庭院美照</view>
   <view class="body__list">
-    <!-- <view class="item" bindtap="goDetails" wx:for="{{photoList}}" wx:key="{{index}}" data-id="{{item.id}}">
-      <view class="item__photo">
-        <image src="{{item.image}}" mode="aspectFill" lazy-load />
-        <image src="{{item.up_name.avatarUrl}}" mode="aspectFill" lazy-load />
-      </view>
-      <view class="item__info">
-        <view>{{item.master_name.realname}} 家庭</view>
-        <view>{{item.up_name.realname}} 上传{{item.image_count}}个图</view>
-      </view>
-    </view> -->
-    <view class="item" wx:for="{{photoList}}" wx:key="{{index}}" data-id="{{item.id}}">
+    <view class="item" wx:for="{{photoList}}" wx:key="index" data-id="{{item.id}}">
       <view class="item__photo {{item.image.length > 1 ? 'two' : 'one'}}">
         <view class="item__media" wx:if="{{item.video}}">
           <video src="{{item.video}}"></video>
         </view>
         <block wx:else>
           <view class="item__media" wx:for="{{item.image}}" wx:key="{{childIndex}}" wx:for-index="childIndex" wx:for-item="childItem">
-            <image src="{{childItem}}" mode="aspectFill"  />
+            <image src="{{childItem}}" mode="aspectFill" bindtap="showImage" data-index="{{childIndex}}" data-listIndex="{{index}}" />
           </view>
         </block>
       </view>
       <view class="item__text">{{item.content}}</view>
       <view class="item__info">
-        <text>{{item.create_at}}</text>
+        <text>{{item.time}}</text>
         <text>发布者：{{item.up_name.realname}}</text>
       </view>
     </view>

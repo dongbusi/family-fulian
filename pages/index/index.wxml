@@ -53,6 +53,27 @@
     </view>
   </view>
 </view>
+<view class="section__activity section__news">
+  <view class="header__activity">
+    <view>最新动态</view>
+    <view bindtap="goNewsList">
+      <view class="circle"></view>
+      <view class="circle"></view>
+      <view class="circle"></view>
+    </view>
+  </view>
+  <view class="body__newsLit">
+    <view class="item__news" bindtap="goNewsDetails" data-id="{{item.id}}" wx:for="{{newsList}}" wx:key="index">
+      <view class="news__thumb">
+        <image src="{{item.logo || '/assets/img/news.png'}}" mode="aspectFill"  />
+      </view>
+      <view class="news__info">
+        <view>{{item.title}}</view>
+        <view>{{item.create_at}}</view>
+      </view>
+    </view>
+  </view>
+</view>
 <view class="section__activity section__timeline">
   <view class="header__activity">
     <view>看看别人都晒了啥</view>
@@ -63,42 +84,22 @@
     </view>
   </view>
   <view class="body__timeline">
-    <view class="item__timeline" wx:for="{{photoList}}" wx:key="index" data-id="{{item.id}}">
-      <block wx:if="{{item.video}}" >
-        <view class="timeline__photo">
+    <view class="item" wx:for="{{photoList}}" wx:key="index" data-id="{{item.id}}">
+      <view class="item__photo {{item.image.length > 1 ? 'two' : 'one'}}">
+        <view class="item__media" wx:if="{{item.video}}">
           <video src="{{item.video}}"></video>
-          <view class="item__num">共1图</view>
         </view>
-        <view class="item__info" bindtap="goPhotoDetails" data-id="{{item.id}}">
-          <image src="{{item.up_name.avatarUrl}}" mode="aspectFill" lazy-load  />
-          <view class="item__family">
-            <view>
-              <text style="color: #333333;font-size: 32rpx;font-weight: bold;line-height: 44rpx;">{{item.master_name.realname}} 家庭</text>
-              <text style="float: right; color: #EC7B7C">详情</text>
-            </view>
-            <view>
-              <text>家庭成员 {{item.up_name.realname}} 上传</text>
-              <text style="float: right;">{{item.time}}</text>
-            </view>
+        <block wx:else>
+          <view class="item__media" wx:for="{{item.image}}" wx:key="{{childIndex}}" wx:for-index="childIndex" wx:for-item="childItem">
+            <image src="{{childItem}}" mode="aspectFill" bindtap="showImage" data-index="{{childIndex}}" data-listIndex="{{index}}" />
           </view>
-        </view>
-      </block>
-      <block wx:else>
-        <view class="timeline__photo" bindtap="goPhotoDetails" data-id="{{item.id}}">
-          <image src="{{item.image}}" mode="aspectFill" lazy-load />
-          <view class="item__num">共{{item.image_count}}图</view>
-        </view>
-        <view class="item__info" bindtap="goPhotoDetails" data-id="{{item.id}}">
-          <image src="{{item.up_name.avatarUrl}}" mode="aspectFill" lazy-load  />
-          <view class="item__family">
-            <view>{{item.master_name.realname}} 家庭</view>
-            <view>
-              <text>家庭成员 {{item.up_name.realname}} 上传</text>
-              <text style="float: right;">{{item.time}}</text>
-            </view>
-          </view>
-        </view>
-      </block>
+        </block>
+      </view>
+      <view class="item__text">{{item.content}}</view>
+      <view class="item__info">
+        <text>{{item.time}}</text>
+        <text>发布者：{{item.up_name.realname}}</text>
+      </view>
     </view>
   </view>
 </view>

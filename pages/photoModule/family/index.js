@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    family: '',
+    family: [],
     userInfo: '',
     limit: 8,
     page: 0,

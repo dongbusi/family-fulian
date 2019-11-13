@@ -111,8 +111,12 @@ Page({
       type: this.data.videoUpload ? 2 : 1
     }).then(res => {
       wx.navigateTo({
-        url: '../result/index'
+        url: '/pages/photoModule/result/index',
+        success () {
+        }
       })
+    }).catch(err => {
+      console.log(err)
     })
   },
   chooseVideo () {

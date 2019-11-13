@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    family: '',
+    family: [],
     userInfo: '',
     limit: 8,
     page: 0,
@@ -43,14 +43,28 @@ Page({
       limit: this.data.limit,
       page: this.data.page + 1,
     }).then(res => {
+      let date = new Date()
+      date.setMinutes(0)
+      date.setHours(0)
+      date.setSeconds(0)
+      date.setMilliseconds(0)
+      let timeToday = date.getTime()
       res.data.data.forEach(item => {
-        item.create_at = item.create_at.slice(0, 10)
+        let time = new Date(item.create_at.replace(/-/g, '/')).getTime()
+        if (time - timeToday >= 0) {
+          item.time = '今天 ' + item.create_at.slice(10, -3)
+        } else if (Math.abs(time - timeToday) <= 24 * 60 * 60 * 1000) {
+          item.time = '昨天 ' + item.create_at.slice(10, -3)
+        } else if (Math.abs(time - timeToday) <= 24 * 60 * 60 * 1000 * 2) {
+          item.time = '前天 ' + item.create_at.slice(10, -3)
+        } else {
+          item.time = item.create_at.slice(0,10)
+        }
         if (item.image.includes('|')) {
           item.image = item.image.split('|')
         } else {
           item.image = [item.image]
         }
-        
       })
       this.setData({
         page: res.data.current_page,
@@ -69,7 +83,14 @@ Page({
     this.getFamily(decodeURIComponent(options.scene))
     this.getPhotoList(decodeURIComponent(options.scene))
   },
-
+  showImage (e) {
+    let index = e.currentTarget.dataset
+    let list = this.data.photoList[index.listindex].image
+    wx.previewImage({
+      current: this.data.photoList[index.listindex].image[index.index],
+      urls: list,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

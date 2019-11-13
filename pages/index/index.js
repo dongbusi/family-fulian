@@ -14,7 +14,8 @@ Page({
     limit: 6,
     page: 0,
     notice__text: '',
-    showNotice: false
+    showNotice: false,
+    newsList: []
   },
   goAppreciation () {
     wx.showToast({
@@ -93,7 +94,12 @@ Page({
         } else if (Math.abs(time - timeToday) <= 24 * 60 * 60 * 1000 * 2) {
           item.time = '前天 ' + item.create_at.slice(10, -3)
         } else {
-          item.time = item.create_at.slice(0,-3)
+          item.time = item.create_at.slice(0,10)
+        }
+        if (item.image.includes('|')) {
+          item.image = item.image.split('|')
+        } else {
+          item.image = [item.image]
         }
         return item
       })
@@ -149,12 +155,47 @@ Page({
     }
     
   },
+  showImage (e) {
+    let index = e.currentTarget.dataset
+    let list = this.data.photoList[index.listindex].image
+    wx.previewImage({
+      current: this.data.photoList[index.listindex].image[index.index],
+      urls: list,
+    })
+  },
+  goNewsList () {
+    wx.switchTab({
+      url: '/pages/news/index',
+    })
+  },
+  goNewsDetails (e) {
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/newsDetails/index?id=' + id
+    })
+  },
+  getNewsList () {
+    app.getNewsList({
+      limit: 2,
+      page: 1
+    }).then(res => {
+      res.data.data.forEach((item => {
+        item.create_at = item.create_at.slice(0, 10)
+      }))
+      this.setData({
+        newsList: res.data.data
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getSwiper()
     this.showActivityTips()
+    this.getNewsList()
+    this.getActivityList()
+    this.getPhotoList()
   },
 
   /**
@@ -168,13 +209,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      photoList: [],
-      activityList: [],
-      page: 0
-    })
-    this.getActivityList()
-    this.getPhotoList()
+    
   },
 
   /**
@@ -201,6 +236,8 @@ Page({
       photoList: []
     })
     this.getPhotoList()
+    this.getSwiper()
+    this.getNewsList()
   },
 
   /**

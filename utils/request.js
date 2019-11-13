@@ -6,8 +6,8 @@
  * @params {data: object}
  */
 
-const BASR_URL = 'http://168.100.188.50/v1'
-// const BASR_URL = 'https://www.zhimwj.cn/v1'
+// const BASR_URL = 'http://168.100.188.50/v1'
+const BASR_URL = 'https://www.zhimwj.cn/v1'
 
 
 export default function http({url, data, method = 'GET', contentType = 'application/json' }, flag = true) {

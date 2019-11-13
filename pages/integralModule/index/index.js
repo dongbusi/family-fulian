@@ -39,7 +39,7 @@ Page({
   },
   getList () {
     wx.request({
-      url: 'https://fl.xianghunet.com/admin.html?s=store/api.goods/gets',
+      url: 'https://www.zhimwj.cn/admin.html?s=store/api.goods/gets',
       method: 'POST',
       header: {
         'Cookie': wx.getStorageSync('token')

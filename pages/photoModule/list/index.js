@@ -40,7 +40,12 @@ Page({
         } else if (Math.abs(time - timeToday) <= 24 * 60 * 60 * 1000 * 2) {
           item.time = '前天 ' + item.create_at.slice(10, -3)
         } else {
-          item.time = item.create_at.slice(0,-3)
+          item.time = item.create_at.slice(0,10)
+        }
+        if (item.image.includes('|')) {
+          item.image = item.image.split('|')
+        } else {
+          item.image = [item.image]
         }
         return item
       })
@@ -48,6 +53,14 @@ Page({
         list: [...this.data.list, ...list],
         page: res.data.current_page
       })
+    })
+  },
+  showImage (e) {
+    let index = e.currentTarget.dataset
+    let list = this.data.list[index.listindex].image
+    wx.previewImage({
+      current: this.data.list[index.listindex].image[index.index],
+      urls: list,
     })
   },
   /**
