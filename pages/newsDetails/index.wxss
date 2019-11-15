@@ -1,9 +1,10 @@
 /* pages/studyDetails/index.wxss */
 .title {
   color: #333333;
-  font-weight: 500;
-  font-size: 44rpx;
+  font-weight: 400;
   padding: 48rpx 40rpx;
+  font-size: 44rpx;
+  line-height: 1.4;
 }
 .desc {
   color: #999999;
@@ -15,9 +16,13 @@
 }
 .content {
   color: #333333;
-  font-size: 32rpx;
   padding:  0 40rpx 40rpx;
 }
 .video {
   padding: 0 40rpx 40rpx;
+}
+.details__content{
+  color: #333333;
+  letter-spacing: .034em;
+  font-family: 'PingFangSC-Regular';
 }

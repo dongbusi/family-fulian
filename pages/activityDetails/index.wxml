@@ -12,7 +12,7 @@
   <txv-video vid="{{details.vid}}" playerid="{{details.vid}}" autoplay wx:if="{{details.vid}}"></txv-video>
 </view>
 <view class="content">
-  <rich-text class="" nodes="{{details.content}}" class="content" space="nbsp"></rich-text>
+  <rich-text class="details__content" nodes="{{details.content}}" class="content" space="nbsp"></rich-text>
 </view>
 <view class="button" wx:if="{{details.sign_status == 1 }}" bindtap="cancelSign">我要取消报名</view>
 <view class="button canin" wx:elif="{{details.sign_status == 0}}" bindtap="showNumSetting">我要报名</view>

@@ -205,7 +205,7 @@ image {
 }
 .else__info {
   width: 670rpx;
-  min-height: 394rpx;
+  min-height: 200rpx;
   padding: 34rpx;
   margin: 36rpx auto 40rpx ;
   box-sizing: border-box;

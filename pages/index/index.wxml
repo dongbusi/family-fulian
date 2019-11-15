@@ -64,8 +64,11 @@
   </view>
   <view class="body__newsLit">
     <view class="item__news" bindtap="goNewsDetails" data-id="{{item.id}}" wx:for="{{newsList}}" wx:key="index">
-      <view class="news__thumb">
-        <image src="{{item.logo || '/assets/img/news.png'}}" mode="aspectFill"  />
+      <view class="news__thumb" wx:if="{{item.logo}}" >
+        <image src="{{item.logo}}" mode="aspectFill"  />
+      </view>
+      <view class="news__logo " wx:else >
+        <image src="/assets/img/study-list.png" mode="aspectFill"  />
       </view>
       <view class="news__info">
         <view>{{item.title}}</view>

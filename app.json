@@ -61,9 +61,9 @@
       "pages": [
         "upload/index",
         "list/index",
-        "result/index",
         "details/index",
-        "family/index"
+        "family/index",
+        "result/index"
       ]
     },
     {

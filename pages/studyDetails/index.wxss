@@ -21,3 +21,8 @@
 .video {
   padding: 0 40rpx 40rpx;
 }
+.details__content{
+  color: #333333;
+  letter-spacing: .034em;
+  font-family: 'PingFangSC-Regular';
+}

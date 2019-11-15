@@ -40,3 +40,13 @@ page {
   width: 72rpx;
   height: 72rpx;
 }
+.item__thumb {
+  width: 140rpx;
+  height: 128rpx;
+  border-radius: 40rpx;
+  flex: none;
+  margin-left: -40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

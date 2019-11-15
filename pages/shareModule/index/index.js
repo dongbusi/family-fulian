@@ -15,12 +15,6 @@ Page({
     photoList: [],
     id: ''
   },
-  goDetails (e) {
-    let id = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '/pages/shareModule/details/index?id=' + id
-    })
-  },
   getFamily (id) {
     app.getOneFamily({
       id: Number(id)

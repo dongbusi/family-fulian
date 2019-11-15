@@ -22,12 +22,12 @@
     <text style="overflow: hidden;text-overflow: ellipsis;max-width: 360rpx"> {{userInfo.points}}</text>
   </view>
 </view>
-<view class="else__info">
-  <view class="item__else">
+<view class="else__info" wx:if="{{userInfo.tradition || userInfo.honor}}">
+  <view class="item__else" wx:if="{{userInfo.tradition}}">
     <view class="else__header">我家的家风：</view>
     <view class="else__content">{{userInfo.tradition}}</view>
   </view>
-  <view class="item__else" style="margin-top: 40rpx;">
+  <view class="item__else" style="margin-top: 40rpx;" wx:if="{{userInfo.honor}}">
     <view class="else__header">我家的荣誉：</view>
     <view class="else__content">{{userInfo.honor}}</view>
   </view>
