@@ -96,7 +96,7 @@ Page({
         } else {
           item.time = item.create_at.slice(0,10)
         }
-        if (item.image.includes('|')) {
+        if (item.image && item.image.includes('|')) {
           item.image = item.image.split('|')
         } else {
           item.image = [item.image]
