@@ -282,7 +282,7 @@ image {
   object-fit: cover;
 }
 .news__info {
-  width: 452rpx;
+  width: 490rpx;
   height: 144rpx;
   display: flex;
   justify-content: space-between;

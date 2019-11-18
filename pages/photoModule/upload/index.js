@@ -28,6 +28,7 @@ Page({
     let _this = this
     wx.chooseImage({
       count: count,
+      sizeType: ['compressed'],
       success (res) {
         _this.setData({
           list: [..._this.data.list, ...res.tempFilePaths]
