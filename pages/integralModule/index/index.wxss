@@ -4,17 +4,28 @@ page {
 }
 .user {
   width: 670rpx;
-  height: 234rpx;
+  height: 134rpx;
   box-sizing: border-box;
   padding: 24rpx;
   background: #FFFFFF;
   box-shadow:0rpx 16rpx 40rpx rgba(130,144,220,0.13);
   border-radius: 16rpx;
   margin: 32rpx auto 0;
-}
-.user__info {
   display: flex;
   align-items: center;
+}
+.nav {
+  width: 670rpx;
+  height: 98rpx;
+  box-sizing: border-box;
+  padding: 0 14rpx;
+  background: #FFFFFF;
+  box-shadow:0rpx 16rpx 40rpx rgba(130,144,220,0.13);
+  border-radius: 0 0 16rpx 16rpx;
+  margin: 10rpx auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .user__avaturl {
   width: 96rpx;
@@ -32,23 +43,39 @@ page {
   font-weight: 500;
 }
 .user__credit {
-  margin-left: 40rpx;
   color: #EC7B7C;
   font-size: 26rpx;
   font-weight: 500;
+  margin-left: 24rpx;
+}
+.user__rank {
+  margin-left: 14rpx;
+  padding: 0 24rpx;
+  line-height: 34rpx;
+  height: 34rpx;
+  font-size: 22rpx;
+  color: #EC7B7C;
+  text-align: center;
+  background:#f5f5f5;
+  border:2rpx solid #e4e4e4;
+  border-radius:16rpx;
+  font-family: 'PingFangSC-SemiBold';
+}
+.user__text {
+  display: flex;
+  align-items: center;
+  margin-top: 5rpx;
 }
 .rule {
-  width: 180rpx;
-  height: 70rpx;
+  width: 150rpx;
+  height: 60rpx;
   display: inline-block;
   background: #EC7B7C;
   border-radius: 40rpx;
   box-shadow:0rpx 20rpx 30rpx rgba(0,0,0,0.16);
-  margin-left: 20rpx;
-  margin-top: 20rpx;
   color: #FFFFFF;
-  font-size: 28rpx;
-  line-height: 70rpx;
+  font-size: 24rpx;
+  line-height: 60rpx;
   text-align: center;
 }
 
@@ -74,6 +101,19 @@ page {
 .item__thumb {
   height: 324rpx;
   width: 100%;
+  position: relative;
+}
+.item__tips {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 42rpx;
+  background: rgba(0, 0, 0, 0.4);
+  line-height: 42rpx;
+  font-size: 22rpx;
+  color: #FFFFFF;
+  text-align: center;
 }
 .item__name {
   padding: 0 10rpx;
@@ -93,6 +133,9 @@ page {
   text-align: center;
   color: #707070;
   font-size: 28rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .item__num.usabled {
   color: #EB7A7B;

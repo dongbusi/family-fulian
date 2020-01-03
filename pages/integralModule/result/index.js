@@ -1,25 +1,25 @@
-// pages/integralModule/list/index.js
+// pages/registModule/result/index.js
+
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    type: 0
   },
-  goDetails () {
+  goIntegralModule () {
     wx.navigateTo({
-      url: '/pages/integralModule/exchangeDetails/index'
+      url: '/pages/integralModule/index/index'
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.previewImage({
-    //   urls: ['http://www.v5.com/admin.html?s=store/api.goods/ceshi'] // 需要预览的图片http链接列表
-    // })
-      
+    
   },
 
   /**

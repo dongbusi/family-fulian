@@ -1,0 +1,23 @@
+<!--pages/integralModule/countryside/index.wxml-->
+<view class="instructions">
+  <view class="instructions__title">兑换物品说明：</view>
+  <view class="instructions__content">村级物品由本村管理员组织兑换，无需在本小程序上选择物品，村级管理员在本页面扣除相应积分即表示完成本次兑换。不管是否完成交易，扣除的积分将不再退还，请谨慎操作。</view>
+</view>
+
+<view class="title">村级积分兑换</view>
+<view class="input">
+  <van-field
+    value="{{ value }}"
+    placeholder="请在此输入要扣除的积分数量"
+    border="{{ false }}"
+    bind:change="onChange"
+    type="number"
+    input-align="center"
+    maxlength="10"
+    custom-style="background: transparent;height:100%;align-items:center;"
+  />
+</view>
+
+<view class="submit" hidden="{{value != ''}}">扣除积分</view>
+<view class="submit abled" hidden="{{value == ''}}" bindtap="submit">扣除积分</view>
+<view class="tips">注：当点击按钮后，本操作不可逆，请谨慎操作</view>

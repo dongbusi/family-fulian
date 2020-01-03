@@ -1,0 +1,56 @@
+/* pages/integralModule/countryside/index.wxss */
+.instructions {
+  padding: 64rpx 40rpx 0;
+}
+.instructions__title {
+  color: #666666;
+  font-family: 'PingFangSC-SemiBold';
+  font-size: 40rpx;
+}
+.instructions__content {
+  margin-top: 44rpx;
+  color: #666666;
+  font-family: 'PingFangSC-SemiBold';
+  font-size: 30rpx;
+}
+.title {
+  font-size:48rpx;
+  font-family:'PingFangSC-SemiBold';
+  font-weight:bold;
+  color: #EC7B7C;
+  text-align: center;
+  margin-top: 100rpx;
+}
+.tips {
+  margin-top: 32rpx;
+  color: #666666;
+  text-align: center;
+  font-size: 24rpx;
+
+}
+.submit {
+  width:670rpx;
+  height:96rpx;
+  background:rgba(249,57,99,.3);
+  box-shadow:0rpx 6rpx 12rpx rgba(0,0,0,0.16);
+  border-radius:48rpx;
+  margin: 32rpx auto 0;
+  text-align: center;
+  line-height: 96rpx;
+  color: #FFFFFF;
+  font-size: 40rpx;
+}
+.input {
+  width:670rpx;
+  height:96rpx;
+  background:#ECEDF1;
+  box-shadow:0rpx 6rpx 12rpx rgba(0,0,0,0.16);
+  border-radius:48rpx;
+  margin: 36rpx auto 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.abled {
+  background:rgba(249,57,99,.8);
+}

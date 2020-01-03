@@ -208,6 +208,20 @@
 					"id": -1,
 					"name": "家园",
 					"pathName": "pages/photoModule/family/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "村级兑换",
+					"pathName": "pages/integralModule/countryside/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "兑换成功",
+					"pathName": "pages/integralModule/result/index",
 					"scene": null
 				}
 			]

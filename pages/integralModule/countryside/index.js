@@ -1,25 +1,28 @@
-// pages/integralModule/list/index.js
+// pages/integralModule/countryside/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    value: ''
   },
-  goDetails () {
+  onChange(event) {
+    // event.detail 为当前输入的值
+    this.setData({
+      value: event.detail
+    })
+  },
+  submit () {
     wx.navigateTo({
-      url: '/pages/integralModule/exchangeDetails/index'
+      url: '/pages/integralModule/result/index'
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.previewImage({
-    //   urls: ['http://www.v5.com/admin.html?s=store/api.goods/ceshi'] // 需要预览的图片http链接列表
-    // })
-      
+
   },
 
   /**

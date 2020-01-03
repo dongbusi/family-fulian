@@ -1,0 +1,9 @@
+<!--pages/integralModule/countryside/index.wxml-->
+<view class="instructions">
+  <view class="instructions__title">兑换物品：</view>
+  <view class="instructions__content">sddsds</view>
+</view>
+<view class="instructions">
+  <view class="instructions__title">扣除积分：</view>
+  <view class="instructions__content">100</view>
+</view>

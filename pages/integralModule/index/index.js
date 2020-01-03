@@ -8,14 +8,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    skuList: '',
+    skuList: [
+      {
+        thumb: 'http://static.runoob.com/images/demo/demo2.jpg',
+        name: '商品商品商品商品商品商品商品商品商品商品商品商品',
+        num: 100,
+        integra: 10,
+        id: 10,
+        disable: true
+      }
+    ],
     userInfo: ''
   },
-  goGoodsDetails (e) {
+  /* goGoodsDetails (e) {
     let id = e.target.dataset.id, goods_id = e.target.dataset.goods_id
     wx.navigateTo({
       url: '/pages/integralModule/details/index?goods_id=' + goods_id + '&id=' + id
     })
+  }, */
+  goGoodsDetails () {
+
   },
   goRules () {
     wx.navigateTo({
@@ -28,11 +40,6 @@ Page({
     })
   },
   goExchangeDetail () {
-    wx.showToast({
-      title: '正在开发中',
-      icon: 'none'
-    })
-    return
     wx.navigateTo({
       url: '/pages/integralModule/exchangeList/index'
     })
@@ -84,12 +91,17 @@ Page({
       })
     })
   },
+  goCountryside () {
+    wx.navigateTo({
+      url: '/pages/integralModule/countryside/index'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getUserInfo()
-    this.getList()
+    // this.getList()
   },
 
   /**

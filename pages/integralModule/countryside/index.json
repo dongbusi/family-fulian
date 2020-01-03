@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "村级兑换",
+  "usingComponents": {
+    "van-field": "vant-weapp/field/index"
+  }
+}
