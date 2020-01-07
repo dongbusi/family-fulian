@@ -11,14 +11,32 @@ Page({
     skuList: [
       {
         thumb: 'http://static.runoob.com/images/demo/demo2.jpg',
-        name: '商品商品商品商品商品商品商品商品商品商品商品商品',
+        name: '撒奥迪',
         num: 100,
         integra: 10,
         id: 10,
-        disable: true
+        disable: false
       }
     ],
-    userInfo: ''
+    userInfo: '',
+    show: true
+  },
+  showPopup() {
+    this.setData({ show: true });
+  },
+
+  onClose() {
+    this.setData({ show: false });
+  },
+  showGoodsDetails () {
+    this.setData({
+      show: true
+    })
+  },
+  exchange () {
+    wx.navigateTo({
+      url: '/pages/integralModule/result/index'
+    })
   },
   /* goGoodsDetails (e) {
     let id = e.target.dataset.id, goods_id = e.target.dataset.goods_id

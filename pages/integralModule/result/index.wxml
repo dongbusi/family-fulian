@@ -1,6 +1,6 @@
 <!--pages/registModule/result/index.wxml-->
 <view class="icon"><image src="/assets/img/upload-success.png" /></view>
-<view class="status" wx:if="{{type == 0}}">村级积分兑换成功</view>
+<view class="status" wx:if="{{type == 0}}">积分兑换成功</view>
 <view class="tips">
   <text>本次交易扣除家庭积分：100</text>
 </view>

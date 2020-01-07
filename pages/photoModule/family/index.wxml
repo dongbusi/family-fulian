@@ -32,7 +32,7 @@
   </view>
   
   <view class="body__list">
-    <view class="item" wx:for="{{photoList}}" wx:key="{{index}}">
+    <view class="item" wx:for="{{photoList}}" wx:key="index">
       <block wx:if="{{item.video}}">
         <view class="item__photo">
           <video src="{{item.video}}"></video>

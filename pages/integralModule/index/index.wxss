@@ -168,3 +168,37 @@ page {
   color: #FFFFFF;
   font-weight: 500;
 }
+.icon__close {
+  position: fixed;
+  bottom: 80rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 96rpx;
+  height: 96rpx;
+  background: #000000;
+}
+.goods__container {
+  padding: 90rpx 40rpx 0;
+}
+.goods__container view {
+  color: #333333;
+  font-size: 26rpx;
+  line-height: 48rpx;
+}
+.goods__container view:first-child {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.goods__container .goods__button {
+  height: 86rpx;
+  background: #EC7B7C;
+  border-radius: 43rpx;
+  margin-top: 80rpx;
+  text-align: center;
+  line-height: 86rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+  font-weight: bold;
+  font-family: 'PingFangSC-SemiBold';
+}
