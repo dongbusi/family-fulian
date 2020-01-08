@@ -14,14 +14,10 @@ Page({
     goods_id: ''
   },
   exchange () {
-    wx.showToast({
-      title: '正在开发中',
-      icon: 'none'
-    })
-    return
+    let _this = this
     wx.showModal({
     title: '提示',
-    content: '是否确定兑换',
+    content: '您是否详细阅读兑换规则及确认兑换该物品',
     showCancel: true,
     cancelText: '取消',
     cancelColor: '#EC7B7C',
@@ -29,7 +25,30 @@ Page({
     confirmColor: '#EC7B7C',
     success: (result) => {
       if (result.confirm) {
-        console.log(111)
+        let sku = this.data.currentDetails.goods_id + '@' + this.data.currentDetails.goods_spec + '@' + 1
+          wx.request({
+            url: 'http://www.v5.com/store/api.member.order/set',
+            data: {
+              rule: sku
+            },
+            method: 'POST',
+            header: {
+              'Cookie': wx.getStorageSync('token')
+            },
+            success (res) {
+              if (res.data.code == 1) {
+                wx.navigateTo({
+                  url: '/pages/integralModule/result/index?num=' + _this.data.currentDetails.price_selling
+                })
+              } else {
+                wx.showToast({
+                  title: res.data.info,
+                  icon: 'none'
+                })
+              }
+              
+            }
+          })
         }
       }
     })
@@ -52,7 +71,8 @@ Page({
   },
   getDetails (id) {
     wx.request({
-      url: 'https://www.zhimwj.cn/admin.html?s=store/api.goods/get',
+      // url: 'https://www.zhimwj.cn/admin.html?s=store/api.goods/get',
+      url: 'http://www.v5.com/store/api.goods/get',
       data: {
         goods_id: id
       },

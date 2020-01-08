@@ -1,12 +1,18 @@
 <!--pages/integralModule/list/index.wxml-->
 <view class="container">
   <view class="list">
-    <view class="item" bindtap="goDetails">
-      <view class="item__info">
-        <view>成员董展 每日登陆</view>
-        <view>2019-10-10</view>
+    <view class="item" wx:for="{{list}}" wx:key="index">
+      <view class="item__desc">
+        <image class="item__thumb" src="{{item.goods_logo}}" />
+        <view class="item__info">
+          <view class="item__name">{{item.optxt}}</view>
+          <view class="item__time">兑换时间：{{item.create_at}}</view>
+        </view>
+        <view></view>
       </view>
-      <view class="item__integra">+1</view>
+      <view class="item__button" wx:if="{{item.status == 4}}" bindtap="confirm" data-id="{{item.order_no}}">核销</view>
+      <view class="item__button overdue" wx:elif="{{item.status == 5}}">已领取</view>
+      <view class="item__button overdue" wx:elif="{{item.status == 6}}">已过期</view>
     </view>
   </view>
 </view>

@@ -8,45 +8,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    skuList: [
-      {
-        thumb: 'http://static.runoob.com/images/demo/demo2.jpg',
-        name: '撒奥迪',
-        num: 100,
-        integra: 10,
-        id: 10,
-        disable: false
-      }
-    ],
+    skuList: [],
     userInfo: '',
-    show: true
-  },
-  showPopup() {
-    this.setData({ show: true });
-  },
-
-  onClose() {
-    this.setData({ show: false });
-  },
-  showGoodsDetails () {
-    this.setData({
-      show: true
-    })
+    endTime: ''
   },
   exchange () {
     wx.navigateTo({
       url: '/pages/integralModule/result/index'
     })
   },
-  /* goGoodsDetails (e) {
+  goGoodsDetails (e) {
     let id = e.target.dataset.id, goods_id = e.target.dataset.goods_id
     wx.navigateTo({
       url: '/pages/integralModule/details/index?goods_id=' + goods_id + '&id=' + id
     })
-  }, */
-  goGoodsDetails () {
-
   },
+  // goGoodsDetails () {
+
+  // },
   goRules () {
     wx.navigateTo({
       url: '/pages/integralModule/rules/index'
@@ -64,18 +43,23 @@ Page({
   },
   getList () {
     wx.request({
-      url: 'https://www.zhimwj.cn/admin.html?s=store/api.goods/gets',
+      // url: 'https://www.zhimwj.cn/admin.html?s=store/api.goods/gets',
+      url: 'http://168.100.188.50/v1/admin.html?s=store/api.goods/gets',
       method: 'POST',
       header: {
         'Cookie': wx.getStorageSync('token')
       },
       success: (res) => {
-        let list = res.data.data.list
+        let end_time = res.data.data.list.end_time
+        delete res.data.data.list.end_time
+        res.data.data.list.length = Object.keys(res.data.data.list).length
+        let list = Array.from(res.data.data.list)
         let skuList = []
         list.forEach(item => {
           item.list.forEach(childItem => {
             childItem.logo = item.logo
             childItem.title = item.title
+            childItem.exchange = item.exchange
           })
           skuList = [...skuList, ...item.list]
         })
@@ -88,22 +72,25 @@ Page({
             id: item.id,
             name: item.title,
             status: item.status,
+            exchange: item.exchange
           }
         })
         skuList = skuList.filter(item => item.status == 1)
         this.setData({
-          skuList: skuList
+          skuList: skuList,
+          endTime: end_time
         })
       }
     })
   },
   getUserInfo () {
     app.getFamily().then(res => {
+      let { quarter_num, rank_num } = res.data
       let family = Object.assign({}, res.data)
-      delete family.power
       family.length = Object.keys(family).length
       family = Array.from(family)
       let userInfo = family.find(item => item.pid == 0)
+      Object.assign(userInfo, {quarter_num : quarter_num}, { rank_num: rank_num})
       this.setData({
         userInfo: userInfo
       })
@@ -119,7 +106,7 @@ Page({
    */
   onLoad: function (options) {
     this.getUserInfo()
-    // this.getList()
+    this.getList()
   },
 
   /**

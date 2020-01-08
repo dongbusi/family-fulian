@@ -8,3 +8,4 @@
   <view class="instructions__content">1000</view>
 </view>
 
+<view class="confirm__button" bindtap="submit">确认领取</view>

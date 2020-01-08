@@ -222,6 +222,27 @@
 					"id": -1,
 					"name": "兑换成功",
 					"pathName": "pages/integralModule/result/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "领取",
+					"pathName": "pages/integralModule/exchangeDetails/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "兑换明细",
+					"pathName": "pages/integralModule/exchangeList/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "领取成功",
+					"pathName": "pages/integralModule/drawResult/index",
 					"scene": null
 				}
 			]

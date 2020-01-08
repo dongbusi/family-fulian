@@ -9,8 +9,8 @@
     <view class="user__name">{{userInfo.realname}} 家庭</view>
     <view class="user__text" hover-class="none" hover-stop-propagation="false">
       <view class="user__credit">积分 {{userInfo.points}}</view>
-      <view class="user__rank">当前排名 1569</view>
-      <view class="user__rank">上季排名 8</view>
+      <view class="user__rank">当前排名 {{userInfo.rank_num}}</view>
+      <view class="user__rank">上季排名 {{userInfo.quarter_num}}</view>
     </view>
   </view>
 </view>
@@ -18,34 +18,22 @@
   <view class="rule" bindtap="goRules" style="margin-left: 0;">积分规则</view>
   <view class="rule" bindtap="goIntergalDetail" >积分明细</view>
   <view class="rule" bindtap="goExchangeDetail" >兑换明细</view>
-  <view class="rule" bindtap="goCountryside" style="background: #65BD60;" >村级兑换</view>
+  <view class="rule" bindtap="goCountryside" >村级兑换</view>
 </view>
 <view class="list">
   <view class="item" wx:for="{{skuList}}" wx:key="index">
     <view class="item__thumb">
       <image src="{{item.thumb}}" mode="aspectFill" lazy-load/>
-      <view class="item__tips">距离结束兑换还剩 20 天</view>
+      <view class="item__tips">距离结束兑换还剩 {{endTime}} 天</view>
     </view>
     <view class="item__name">{{item.name}}</view>
     <view class="item__num usabled">剩余{{item.num}}份</view>
-    <view class="item__button" wx:if="{{item.num <= 0 || item.disable == true}}">当前无法兑换</view>
-    <view class="item__button usabled" wx:else bindtap="showGoodsDetails" data-goods_id="{{item.goods_id}}" data-id="{{item.id}}">兑换</view>
+    <view class="item__button" wx:if="{{item.exchange === 0}}">当前无法兑换</view>
+    <view class="item__button usabled" wx:elif="{{item.exchange == 1}}" bindtap="goGoodsDetails" data-goods_id="{{item.goods_id}}" data-id="{{item.id}}">兑换</view>
+    <view class="item__button" wx:if="{{item.exchange === 2}}">积分不足</view>
     <view class="item__credit">{{item.integra}}积分</view>
   </view>
   
 </view>
 
 </block>
-
-<van-popup show="{{ show }}" bind:close="onClose" custom-style="height: 740rpx;width: 670rpx;border-radius: 40rpx;border: 2rpx solid #707070;">
-  <view class="goods__container">
-    <view>名称：克里斯丁9折蛋糕券</view>
-    <view>数量：1</view>
-    <view>兑换积分：100分</view>
-    <view>领取地址：萧山区城厢街道道源路1155号克里斯丁蛋糕店城厢店</view>
-    <view>领取时间：即日起-2019年12月31日，逾期未领取视为自动放弃本次领取机会，积分将不再退回。</view>
-    <view>使用说明：本券在本店满200元可使用1次。不可与其他优惠折扣共享。</view>
-    <view class="goods__button" bindtap="exchange">确定兑换</view>
-  </view>
-</van-popup>
-<image src="" alt="" class="icon__close" bindtap="onClose" hidden="{{!show}}" />

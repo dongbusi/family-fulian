@@ -16,5 +16,10 @@ export default {
     data,
     method: "POST",
     responseType: 'arraybuffer'
+  }),
+  villageIntegral: data => http({
+    url: '/Integral/village_buckle',
+    data,
+    method: 'POST',
   })
 }

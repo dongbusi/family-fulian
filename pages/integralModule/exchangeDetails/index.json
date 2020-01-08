@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "村级兑换",
+  "navigationBarTitleText": "确认领取",
   "usingComponents": {
     "van-field": "vant-weapp/field/index"
   }

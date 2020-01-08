@@ -13,7 +13,7 @@
   <video src="{{details.video}}"></video>
 </view>
 <view class="list__photo" wx:else>
-  <view class="item__photo {{details.image.length === 1 ? 'one' : ''}} {{details.image.length === 2 ? 'two' : ''}} {{details.image.length >= 3 ? 'three' : ''}}" wx:for="{{details.image}}" wx:key="{{index}}" data-index="{{index}}" bindtap="previewPhoto">
+  <view class="item__photo {{details.image.length === 1 ? 'one' : ''}} {{details.image.length === 2 ? 'two' : ''}} {{details.image.length >= 3 ? 'three' : ''}}" wx:for="{{details.image}}" wx:key="index" data-index="{{index}}" bindtap="previewPhoto">
     <image src="{{item}}" mode="aspectFill"/>
   </view>
   <view class="item__photo three" wx:if="{{details.image.length === 5}}"></view>

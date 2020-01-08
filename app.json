@@ -77,7 +77,8 @@
         "exchangeList/index",
         "countryside/index",
         "exchangeDetails/index",
-        "result/index"
+        "result/index",
+        "drawResult/index"
       ]
     },
     {

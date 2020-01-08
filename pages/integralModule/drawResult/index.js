@@ -1,4 +1,4 @@
-// pages/integralModule/countryside/index.js
+// pages/registModule/result/index.js
 
 const app = getApp()
 
@@ -8,28 +8,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    value: ''
+    num: 0
   },
-  onChange(event) {
-    // event.detail 为当前输入的值
-    this.setData({
-      value: event.detail
-    })
-  },
-  submit () {
-    app.villageIntegral({
-      points: Number(this.data.value)
-    }).then(res => {
-      wx.navigateTo({
-        url: '/pages/integralModule/result/index?num=' + this.data.value
-      })
+  goIndex () {
+    wx.reLaunch({
+      url: '/pages/integralModule/index/index'
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      num: options.num || 0
+    })
   },
 
   /**

@@ -14,8 +14,19 @@ Page({
     })
   },
   submit () {
-    wx.navigateTo({
-      url: '/pages/integralModule/result/index'
+    wx.showModal({
+      title: '提示',
+      content: '是否确认领取，此操作无法取消。',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#EC7B7C',
+      confirmText: '确定',
+      confirmColor: '#EC7B7C',
+      success: (result) => {
+        if (result.confirm) {
+          console.log(111)
+        }
+      }
     })
   },
   /**

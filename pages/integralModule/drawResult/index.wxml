@@ -1,0 +1,9 @@
+<!--pages/registModule/result/index.wxml-->
+<view class="icon"><icon class="" type="success" size="180rpx" color="#66BF61">
+</icon>
+  </view>
+<view class="status">操作成功</view>
+<view class="tips">
+  <text>您已经成功获得心仪的物品</text>
+</view>
+<view class="button" bindtap="goIndex">返回首页</view>

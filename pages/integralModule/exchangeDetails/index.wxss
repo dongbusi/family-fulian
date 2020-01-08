@@ -3,13 +3,13 @@
   padding: 64rpx 40rpx 0;
 }
 .instructions__title {
-  color: #666666;
+  color: #000;
   font-family: 'PingFangSC-SemiBold';
   font-size: 40rpx;
 }
 .instructions__content {
   margin-top: 44rpx;
-  color: #666666;
+  color: #EC7B7C;
   font-family: 'PingFangSC-SemiBold';
   font-size: 30rpx;
 }
@@ -53,4 +53,15 @@
 }
 .abled {
   background:rgba(249,57,99,.8);
+}
+.confirm__button {
+  width: 380rpx;
+  height: 90rpx;
+  background: #EC7B7C;
+  color: #FFFFFF;
+  border-radius: 20rpx;
+  margin: 80rpx auto 0;
+  text-align: center;
+  line-height: 90rpx;
+  font-size:36rpx;
 }
