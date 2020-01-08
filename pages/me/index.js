@@ -32,7 +32,8 @@ Page({
   },
   toogleDetails () {
     this.setData({
-      tab: 1
+      tab: 1,
+      page: 0
     })
     this.getIntergalList()
   },

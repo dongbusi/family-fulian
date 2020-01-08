@@ -11,7 +11,7 @@ Page({
     num: 0
   },
   goIntegralModule () {
-    wx.navigateTo({
+    wx.reLaunch({
       url: '/pages/integralModule/index/index'
     })
   },

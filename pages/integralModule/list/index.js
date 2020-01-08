@@ -20,7 +20,6 @@ Page({
       let list = res.data.data
       list = list.map(item => {
         item.points > 0 ? item.points = "+" + item.points : item.points
-        item.create_at = item.create_at.slice(0,10)
         return item
       })
       this.setData({

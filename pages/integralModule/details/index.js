@@ -37,7 +37,7 @@ Page({
             },
             success (res) {
               if (res.data.code == 1) {
-                wx.navigateTo({
+                wx.redirectTo({
                   url: '/pages/integralModule/result/index?num=' + _this.data.currentDetails.price_selling
                 })
               } else {

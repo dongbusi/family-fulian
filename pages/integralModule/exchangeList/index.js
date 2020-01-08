@@ -24,7 +24,8 @@ Page({
         item.create_at = item.create_at.slice(0, 10)
       })
       this.setData({
-        list: res.data.list
+        list: [...this.data.list, ...res.data.list],
+        page: res.data.page.current
       })
     })
   },
@@ -89,14 +90,18 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      page: 0,
+      list: []
+    })
+    this.getlist()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getList()
   },
 
   /**
