@@ -19,10 +19,10 @@
   <view class="item__photo three" wx:if="{{details.image.length === 5}}"></view>
 </view>
 <view class="desc">{{details.content}}</view>
-<button class="button" hover-class="none" open-type="share">
+<!-- <button class="button" hover-class="none" open-type="share">
   <image src="/assets/img/share.png" />
   <text>分享</text>
-</button>
+</button> -->
 <view style="height: 80rpx;">
   
 </view>

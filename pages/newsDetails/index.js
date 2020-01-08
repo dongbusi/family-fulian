@@ -97,6 +97,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    app.shareAddIntegral({
+      type: 10,
+      activity_id: this.data.id
+    })
   }
 })

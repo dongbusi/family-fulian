@@ -21,5 +21,10 @@ export default {
     url: '/Integral/village_buckle',
     data,
     method: 'POST',
+  }),
+  shareAddIntegral: data => http({
+    url: '/api/share',
+    data,
+    method: 'POST'
   })
 }

@@ -27,7 +27,7 @@ Page({
       if (result.confirm) {
         let sku = this.data.currentDetails.goods_id + '@' + this.data.currentDetails.goods_spec + '@' + 1
           wx.request({
-            url: 'http://www.v5.com/store/api.member.order/set',
+            url: 'https://www.zhimwj.cn/store/api.member.order/set',
             data: {
               rule: sku
             },
@@ -71,8 +71,8 @@ Page({
   },
   getDetails (id) {
     wx.request({
-      // url: 'https://www.zhimwj.cn/admin.html?s=store/api.goods/get',
-      url: 'http://www.v5.com/store/api.goods/get',
+      url: 'https://www.zhimwj.cn/store/api.goods/get',
+      // url: 'http://www.v5.com/store/api.goods/get',
       data: {
         goods_id: id
       },

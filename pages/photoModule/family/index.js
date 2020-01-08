@@ -121,6 +121,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
-    
+    app.shareAddIntegral({
+      type: 11,
+      activity_id: this.data.userInfo.id
+    })
+    return {
+      path: '/pages/shareModule/index/index?scene=' + this.data.userInfo.id
+    }
   }
 })
