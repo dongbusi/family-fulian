@@ -33,7 +33,8 @@ Page({
   toogleDetails () {
     this.setData({
       tab: 1,
-      page: 0
+      page: 0,
+      intergalList: []
     })
     this.getIntergalList()
   },
@@ -47,6 +48,8 @@ Page({
     app.getFamily().then(res => {
       let family = Object.assign({}, res.data)
       delete family.power
+      delete family.quarter_num
+      delete family.rank_num
       family.length = Object.keys(family).length
       family = Array.from(family)
       family.sort((a, b) => a.pid - b.pid)
